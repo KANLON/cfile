@@ -44,6 +44,9 @@ public class LoginController {
 	/**
 	 * 老师或班委注册
 	 *
+	 * @param registerVO
+	 *            注册信息
+	 * @param request
 	 * @return
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -62,62 +65,27 @@ public class LoginController {
 			return result;
 		}
 		session.removeAttribute("regCaptcha");
+		// 检查用户名是否已经存在了
+		int userNum = teacherUserMapper.selectTeacherByUsername(registerVO.getUsername());
+		if (userNum >= 1) {
+			result.setStateCode(Constant.REQUEST_ERROR, "该用户名已存在");
+			return result;
+		}
+		// 检查邮箱是否重复
+		if (teacherUserMapper.selectTeacherByEmail(registerVO.getEmail()) >= 1) {
+			result.setStateCode(Constant.REQUEST_ERROR, "该邮箱已存在");
+			return result;
+		}
+
 		String salt = RandomUtil.createSalt();
 		String md5Password = MD5Util.md5(registerVO.getPassword() + salt);
-
-		return null;
-	}
-
-	@RequestMapping("/getall")
-	public JsonResult<String> testMybatis() {
-		JsonResult<String> result = new JsonResult<>();
-		result.setData(teacherUserMapper.getAll().toString());
-		logger.debug(teacherUserMapper.getAll().toString());
-		return result;
-	}
-
-	@RequestMapping("/getone")
-	public JsonResult<String> testMybatisGetOne() {
-		JsonResult<String> result = new JsonResult<>();
-		result.setData(teacherUserMapper.getOne(1).toString());
-		logger.debug(teacherUserMapper.getOne(1).toString());
-		return result;
-	}
-
-	@RequestMapping("/insert")
-	public JsonResult<String> testMybatisInsert() {
-		JsonResult<String> result = new JsonResult<>();
-		TeacherUserPO po = new TeacherUserPO();
-		po.setUsername("zhangsansan");
-		po.setPassword("1223455");
-		po.setSalt("123");
-		teacherUserMapper.insert(po);
-		return result;
-	}
-
-	@RequestMapping("/update")
-	public JsonResult<String> testMybatisUpdate() {
-		JsonResult<String> result = new JsonResult<>();
-		TeacherUserPO po = new TeacherUserPO();
-		po.setUid(2);
-		po.setUsername("张三三");
-		po.setPassword("1223455");
-		po.setSalt("123");
-		po.setNickname("张三三三");
-
-		teacherUserMapper.update(po);
-		return result;
-	}
-
-	@RequestMapping("/delete")
-	public JsonResult<String> testMybatisDelete() {
-		JsonResult<String> result = new JsonResult<>();
-		TeacherUserPO po = new TeacherUserPO();
-		po.setUid(2);
-		po.setUsername("zhangsansan");
-		po.setPassword("1223455");
-		po.setSalt("123");
-		teacherUserMapper.delete(2);
+		// 将邮箱，用户名，密码，盐存入数据库
+		TeacherUserPO userPO = new TeacherUserPO();
+		userPO.setEmail(registerVO.getEmail());
+		userPO.setUsername(registerVO.getUsername());
+		userPO.setPassword(md5Password);
+		userPO.setSalt(salt);
+		teacherUserMapper.insert(userPO);
 		return result;
 	}
 
@@ -128,7 +96,7 @@ public class LoginController {
 	 * @param request
 	 */
 	@RequestMapping(value = "/register/captcha", method = RequestMethod.GET)
-	public void getCaptcha(HttpServletResponse response, HttpServletRequest request) {
+	public void getRegisterCaptcha(HttpServletResponse response, HttpServletRequest request) {
 		try {
 			response.setContentType("image/png");
 			OutputStream out = response.getOutputStream();
@@ -139,6 +107,78 @@ public class LoginController {
 			HttpSession session = request.getSession(true);
 			session.setMaxInactiveInterval(30 * 60);
 			session.setAttribute("regCaptcha", code);
+		} catch (IOException e) {
+			e.printStackTrace();
+			logger.error("获取验证码错误！", e);
+		}
+	}
+
+	/**
+	 * 老师或班委注册
+	 *
+	 * @param registerVO
+	 *            注册信息
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public JsonResult<String> teachLogin(@ModelAttribute RegisterInfoVO registerVO, HttpServletRequest request) {
+		JsonResult<String> result = new JsonResult<>();
+		if (StringUtils.isEmptyOrWhitespace(registerVO.getPassword())
+				|| StringUtils.isEmptyOrWhitespace(registerVO.getUsername())) {
+			result.setStateCode(Constant.REQUEST_ERROR, "用户名或密码不能为null或全是空白字符");
+			return result;
+		}
+		HttpSession session = request.getSession(true);
+		String sessionCode = (String) session.getAttribute("regCaptcha");
+		if (!registerVO.getImgCaptcha().equals(sessionCode)) {
+			result.setStateCode(Constant.REQUEST_ERROR, "验证码错误！");
+			session.removeAttribute("regCaptcha");
+			return result;
+		}
+		session.removeAttribute("regCaptcha");
+		// 检查用户名是否已经存在了
+		int userNum = teacherUserMapper.selectTeacherByUsername(registerVO.getUsername());
+		if (userNum >= 1) {
+			result.setStateCode(Constant.REQUEST_ERROR, "该用户名已存在");
+			return result;
+		}
+		// 检查邮箱是否重复
+		if (teacherUserMapper.selectTeacherByEmail(registerVO.getEmail()) >= 1) {
+			result.setStateCode(Constant.REQUEST_ERROR, "该邮箱已存在");
+			return result;
+		}
+
+		String salt = RandomUtil.createSalt();
+		String md5Password = MD5Util.md5(registerVO.getPassword() + salt);
+		// 将邮箱，用户名，密码，盐存入数据库
+		TeacherUserPO userPO = new TeacherUserPO();
+		userPO.setEmail(registerVO.getEmail());
+		userPO.setUsername(registerVO.getUsername());
+		userPO.setPassword(md5Password);
+		userPO.setSalt(salt);
+		teacherUserMapper.insert(userPO);
+		return result;
+	}
+
+	/**
+	 * 获取登陆验证码
+	 *
+	 * @param response
+	 * @param request
+	 */
+	@RequestMapping(value = "/register/captcha", method = RequestMethod.GET)
+	public void getLoginCaptcha(HttpServletResponse response, HttpServletRequest request) {
+		try {
+			response.setContentType("image/png");
+			OutputStream out = response.getOutputStream();
+			Captcha captcha = CaptchaUtil.create();
+			captcha.createCaptchaImg(out);
+			String code = captcha.getCode();
+			// 将验证码放入session中
+			HttpSession session = request.getSession(true);
+			session.setMaxInactiveInterval(30 * 60);
+			session.setAttribute("loginCaptcha", code);
 		} catch (IOException e) {
 			e.printStackTrace();
 			logger.error("获取验证码错误！", e);

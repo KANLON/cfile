@@ -34,4 +34,22 @@ public interface TeacherUserMapper {
 
 	@Delete("DELETE FROM teacher WHERE uid =#{uid}")
 	void delete(Integer id);
+
+	/**
+	 * 查询用户名的数量
+	 *
+	 * @param username
+	 * @return
+	 */
+	@Select("select count(*) from teacher where username=#{username}")
+	Integer selectTeacherByUsername(String username);
+
+	/**
+	 * 查询某邮箱地址的数量
+	 *
+	 * @param username
+	 * @return
+	 */
+	@Select("select count(*) from teacher where email=#{email}")
+	Integer selectTeacherByEmail(String email);
 }
