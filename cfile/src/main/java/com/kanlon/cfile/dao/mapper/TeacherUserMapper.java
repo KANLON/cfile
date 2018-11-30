@@ -47,9 +47,21 @@ public interface TeacherUserMapper {
 	/**
 	 * 查询某邮箱地址的数量
 	 *
-	 * @param username
+	 * @param email
 	 * @return
 	 */
 	@Select("select count(*) from teacher where email=#{email}")
 	Integer selectTeacherByEmail(String email);
+
+	/**
+	 * 根据用户名或邮箱查询某用户
+	 *
+	 * @param usernameOrEmail
+	 *            用户名或邮箱
+	 * @return
+	 */
+	@Select("SELECT * FROM teacher WHERE username = #{usernameOrEmail} or email=#{usernameOrEmail}")
+	@Results
+	TeacherUserPO getUserByUsernameOrEmail(String usernameOrEmail);
+
 }

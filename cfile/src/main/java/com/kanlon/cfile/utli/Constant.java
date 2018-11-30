@@ -55,5 +55,18 @@ public final class Constant {
 	 * 服务端错误的状态码
 	 */
 	public static final int RESPONSE_ERROR = 2;
+	/**
+	 * 未认证
+	 */
+	public static final int UNAUTHENTICATION = 0;
+
+	/**
+	 * 已认证
+	 */
+	public static final int AUTHENTICATION = 1;
+	/**
+	 * 认证中
+	 */
+	public static final int AUTHENTICATING = 2;
 
 }
