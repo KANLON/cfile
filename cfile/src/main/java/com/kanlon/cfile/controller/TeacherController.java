@@ -18,19 +18,20 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kanlon.cfile.dao.mapper.TaskMapper;
 import com.kanlon.cfile.domain.po.TaskPO;
 import com.kanlon.cfile.domain.po.TeacherUserPO;
-import com.kanlon.cfile.domain.vo.TaskInfoLists;
+import com.kanlon.cfile.domain.vo.TaskInfoListsVO;
 import com.kanlon.cfile.domain.vo.TaskVO;
 import com.kanlon.cfile.utli.Constant;
 import com.kanlon.cfile.utli.JsonResult;
+import com.kanlon.cfile.utli.TimeUtil;
 import com.kanlon.cfile.utli.ZipFilesUtil;
 
 /**
@@ -57,13 +58,18 @@ public class TeacherController {
 	 * @return
 	 */
 	@PostMapping(value = "/task")
-	public JsonResult<String> createTask(@ModelAttribute TaskVO task, HttpSession session) {
+	public JsonResult<String> createTask(@RequestBody TaskVO task, HttpSession session) {
 		JsonResult<String> result = new JsonResult<>();
 		// 判断任务名是否为null
 		if (StringUtils.isEmpty(task.getTaskName())) {
 			result.setStateCode(Constant.REQUEST_ERROR, "任务名为null");
 			return result;
 		}
+		// 转化文件格式(如果传入的文件格式是null或""，则将其转化为null)
+		if (StringUtils.isEmpty(task.getFileType())) {
+			task.setFileType(null);
+		}
+
 		TaskPO taskPO = new TaskPO();
 		TeacherUserPO userPO = (TeacherUserPO) session.getAttribute("user");
 		Integer uid = userPO.getUid();
@@ -77,7 +83,8 @@ public class TeacherController {
 		taskPO.setCtime(new Date());
 		taskPO.setFileType(task.getFileType());
 		taskPO.setRemark(task.getRemark());
-		taskPO.setDendline(task.getDendline());
+		taskPO.setDendline(TimeUtil.getDateBySimpleDateStr(task.getDendlineStr()));
+		taskPO.setSubmitNum(task.getSubmitNum());
 		taskMapper.insertOne(taskPO);
 
 		return result;
@@ -88,24 +95,21 @@ public class TeacherController {
 	 *
 	 * @param request
 	 * @return
-	 */
-	/**
-	 * @param request
-	 * @return
+	 * @throws Exception
 	 */
 	@GetMapping(value = "/all/tasks")
-	public JsonResult<List<TaskInfoLists>> getAllTasks(HttpServletRequest request) {
-		JsonResult<List<TaskInfoLists>> result = new JsonResult<>();
-		List<TaskInfoLists> tasks = new ArrayList<>();
+	public JsonResult<List<TaskInfoListsVO>> getAllTasks(HttpServletRequest request) throws Exception {
+		JsonResult<List<TaskInfoListsVO>> result = new JsonResult<>();
+		List<TaskInfoListsVO> tasks = new ArrayList<>();
 		List<TaskPO> taskPOs = taskMapper.getAll();
 		if (taskPOs == null || taskPOs.isEmpty()) {
 			return result;
 		}
 		for (int i = 0; i < taskPOs.size(); i++) {
-			TaskInfoLists taskInfoList = new TaskInfoLists();
+			TaskInfoListsVO taskInfoList = new TaskInfoListsVO();
 			TaskPO po = taskPOs.get(i);
 			taskInfoList.setAuthencation(po.getAuthentication());
-			taskInfoList.setDendline(po.getDendline());
+			taskInfoList.setDendlineStr(TimeUtil.getSimpleDateTimeByDate(po.getDendline()));
 			taskInfoList.setSubmitingNum(po.getSubmitingNum());
 			taskInfoList.setSubmitNum(po.getSubmitNum());
 			taskInfoList.setTaskName(po.getTaskName());
@@ -125,13 +129,15 @@ public class TeacherController {
 	 *            任务id
 	 * @return
 	 */
-	@GetMapping("/list/{uid}/{tid}")
-	public JsonResult<List<String>> getSubmitList(@PathVariable(value = "uid") @NotNull Integer uid,
-			@PathVariable(value = "tid") @NotNull Integer tid) {
+	@GetMapping("/task/list/{tid}")
+	public JsonResult<List<String>> getSubmitList(@PathVariable(value = "tid") @NotNull Integer tid,
+			HttpServletRequest request) {
 		JsonResult<List<String>> result = new JsonResult<>();
 		List<String> submitList = new ArrayList<>();
+		HttpSession session = request.getSession(false);
+		TeacherUserPO user = (TeacherUserPO) session.getAttribute("user");
 		result.setData(submitList);
-		File submitFile = new File(Constant.UPLOAD_FILE_STUDENT_PATH + "/" + uid + "/" + tid);
+		File submitFile = new File(Constant.UPLOAD_FILE_STUDENT_PATH + "/" + user.getUid() + "/" + tid);
 		if (!submitFile.exists()) {
 			return result;
 		}
@@ -140,7 +146,7 @@ public class TeacherController {
 		for (int i = 0; i < submitFiles.length; i++) {
 			File tempFile = submitFiles[i];
 			if (tempFile.isFile()) {
-				String filename = tempFile.getName().substring(tempFile.getName().indexOf(File.pathSeparator));
+				String filename = tempFile.getName();
 				submitList.add(filename);
 			}
 		}
@@ -157,8 +163,6 @@ public class TeacherController {
 	 */
 	@GetMapping("/files/{tid}")
 	public void getSubmitFileZip(HttpServletRequest request, HttpServletResponse response, @PathVariable Integer tid) {
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("application/octet-stream");
 		FileInputStream fis = null;
 		HttpSession session = request.getSession();
 		TeacherUserPO userPO = (TeacherUserPO) session.getAttribute("user");
@@ -166,8 +170,12 @@ public class TeacherController {
 
 		try {
 			if (!files.exists()) {
-				response.sendRedirect("404.html");
+				response.setContentType("text/html");
+				response.sendRedirect("/404.html");
+				return;
 			}
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("application/octet-stream");
 			File file = ZipFilesUtil.compress(files, "");
 			fis = new FileInputStream(file);
 			response.setHeader("Content-Disposition", "attachment; filename=" + file.getName());

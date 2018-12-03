@@ -11,8 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.thymeleaf.util.StringUtils;
 
@@ -34,6 +35,7 @@ import com.kanlon.cfile.utli.captcha.CaptchaUtil;
  * @date 2018年11月28日
  */
 @RestController
+@RequestMapping("/login")
 public class LoginController {
 
 	private static Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -50,7 +52,7 @@ public class LoginController {
 	 * @return
 	 */
 	@PostMapping(value = "/register")
-	public JsonResult<String> teachRegister(@ModelAttribute RegisterInfoVO registerVO, HttpServletRequest request) {
+	public JsonResult<String> teachRegister(@RequestBody RegisterInfoVO registerVO, HttpServletRequest request) {
 		JsonResult<String> result = new JsonResult<>();
 		if (StringUtils.isEmptyOrWhitespace(registerVO.getPassword())
 				|| StringUtils.isEmptyOrWhitespace(registerVO.getUsername())) {
@@ -101,12 +103,13 @@ public class LoginController {
 			response.setContentType("image/png");
 			OutputStream out = response.getOutputStream();
 			Captcha captcha = CaptchaUtil.create();
-			captcha.createCaptchaImg(out);
 			String code = captcha.getCode();
+			logger.info(code);
 			// 将验证码放入session中
 			HttpSession session = request.getSession(true);
 			session.setMaxInactiveInterval(30 * 60);
 			session.setAttribute("regCaptcha", code);
+			captcha.createCaptchaImg(out);
 		} catch (IOException e) {
 			e.printStackTrace();
 			logger.error("获取验证码错误！", e);
@@ -121,8 +124,8 @@ public class LoginController {
 	 * @param request
 	 * @return
 	 */
-	@PostMapping(value = "/login")
-	public JsonResult<String> teachLogin(@ModelAttribute LoginInfoVO loginVO, HttpServletRequest request) {
+	@PostMapping(value = "/teacher")
+	public JsonResult<String> teachLogin(@RequestBody LoginInfoVO loginVO, HttpServletRequest request) {
 		JsonResult<String> result = new JsonResult<>();
 		if (StringUtils.isEmptyOrWhitespace(loginVO.getPassword())
 				|| StringUtils.isEmptyOrWhitespace(loginVO.getUsername())) {
@@ -157,18 +160,19 @@ public class LoginController {
 	 * @param response
 	 * @param request
 	 */
-	@GetMapping(value = "/register/captcha")
+	@GetMapping(value = "/login/captcha")
 	public void getLoginCaptcha(HttpServletResponse response, HttpServletRequest request) {
 		try {
 			response.setContentType("image/png");
 			OutputStream out = response.getOutputStream();
 			Captcha captcha = CaptchaUtil.create();
-			captcha.createCaptchaImg(out);
 			String code = captcha.getCode();
+			logger.info(code);
 			// 将验证码放入session中
 			HttpSession session = request.getSession(true);
 			session.setMaxInactiveInterval(30 * 60);
 			session.setAttribute("loginCaptcha", code);
+			captcha.createCaptchaImg(out);
 		} catch (IOException e) {
 			e.printStackTrace();
 			logger.error("获取验证码错误！", e);

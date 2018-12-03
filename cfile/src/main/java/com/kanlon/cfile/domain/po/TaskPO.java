@@ -3,6 +3,8 @@ package com.kanlon.cfile.domain.po;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import lombok.Data;
 
 /**
@@ -20,15 +22,16 @@ public class TaskPO implements Serializable {
 	/**
 	 * 任务id
 	 */
-	private int tid;
+	private Integer tid;
 
 	/**
 	 * 该任务对应的用户id
 	 */
-	private int uid;
+	private Integer uid;
 	/**
 	 * 任务名称
 	 */
+	@NotNull
 	private String taskName;
 	/**
 	 * 限定提交截止时间
@@ -41,11 +44,11 @@ public class TaskPO implements Serializable {
 	/**
 	 * 限定应该提交的人数（默认为10000人）
 	 */
-	private int submitNum;
+	private Integer submitNum;
 	/**
 	 * 目前已经提交的人数（默认为0）
 	 */
-	private int submitingNum;
+	private Integer submitingNum;
 	/**
 	 * 本次任务的备注
 	 */
@@ -70,5 +73,5 @@ public class TaskPO implements Serializable {
 	/**
 	 * 删除标志
 	 */
-	private int dr = 0;
+	private Integer dr = 0;
 }

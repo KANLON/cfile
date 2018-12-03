@@ -1,5 +1,7 @@
 package com.kanlon.cfile.filter;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +46,8 @@ public class AuthenFilter implements HandlerInterceptor {
 		open_urls.add("/security/resetpwd");
 		open_urls.add("/reg");
 		open_urls.add("/index");
+		open_urls.add("/hello");
+		open_urls.add("/student");
 
 		// 如果是公开地址，则放行
 		for (String open_url : open_urls) {
@@ -55,7 +59,11 @@ public class AuthenFilter implements HandlerInterceptor {
 		HttpSession session = request.getSession(false);
 		if (session == null) {
 			logger.info("session为空,用户没有登录，准备跳转");
-			response.sendRedirect("/index.html");
+			if (isAjax(request)) {
+				printCNJSON("还没有登陆", response);
+			} else {
+				response.sendRedirect("/index.html");
+			}
 			return false;
 		} else {
 			if (session.getAttribute("user") != null) {
@@ -64,7 +72,11 @@ public class AuthenFilter implements HandlerInterceptor {
 			}
 		}
 		// 执行到这里跳转到登录页面，用户进行身份认证
-		response.sendRedirect("/index.html");
+		if (isAjax(request)) {
+			printCNJSON("还没有登陆", response);
+		} else {
+			response.sendRedirect("/index.html");
+		}
 		return false;
 
 	}
@@ -72,14 +84,44 @@ public class AuthenFilter implements HandlerInterceptor {
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		// TODO Auto-generated method stub
 		HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
 	}
 
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		// TODO Auto-generated method stub
 		HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
+	}
+
+	/**
+	 * 判断请求是不是Ajax请求
+	 *
+	 * @param request
+	 * @return
+	 */
+	private boolean isAjax(HttpServletRequest request) {
+		return request.getHeader("X-Requested-With") != null
+				&& "XMLHttpRequest".equals(request.getHeader("X-Requested-With").toString());
+	}
+
+	/**
+	 * 向浏览器输出请求错误的JSON数据
+	 *
+	 * @param result
+	 * @param response
+	 */
+	private void printCNJSON(String msg, HttpServletResponse response) {
+		String result = "{\"code\":1,\"msg\":\"" + msg + "\"}";
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json;charset=utf-8");
+		try {
+			PrintWriter writer = response.getWriter();
+			writer.write(result);
+			writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			logger.error("发送ajax请求时错误！" + e);
+			e.printStackTrace();
+		}
 	}
 }

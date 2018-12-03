@@ -26,10 +26,11 @@ import com.kanlon.cfile.dao.mapper.TeacherUserMapper;
 import com.kanlon.cfile.domain.po.TaskPO;
 import com.kanlon.cfile.domain.po.TeacherUserPO;
 import com.kanlon.cfile.domain.vo.StudentSubmitFileVO;
-import com.kanlon.cfile.domain.vo.StudentTaskInfo;
+import com.kanlon.cfile.domain.vo.StudentTaskInfoVO;
 import com.kanlon.cfile.utli.Constant;
 import com.kanlon.cfile.utli.IpUtil;
 import com.kanlon.cfile.utli.JsonResult;
+import com.kanlon.cfile.utli.TimeUtil;
 
 /**
  * 学生的提交的controller
@@ -68,7 +69,7 @@ public class StudentController {
 		JsonResult<String> result = new JsonResult<>();
 		if (submitVO.getFile() == null || StringUtils.isEmptyOrWhitespace(submitVO.getName())
 				|| StringUtils.isEmptyOrWhitespace(submitVO.getStudentId())) {
-			result.setStateCode(Constant.REQUEST_ERROR, "学号，文件，姓名，或任务id为null");
+			result.setStateCode(Constant.REQUEST_ERROR, "学号或文件或姓名为null");
 			return result;
 		}
 		// 新的文件名，学号姓名.后缀名
@@ -102,25 +103,24 @@ public class StudentController {
 	 * @param tid
 	 * @return
 	 */
-	@GetMapping("/task/{uid}/{tid}")
-	public JsonResult<StudentTaskInfo> getTaskInfo(@PathVariable @NotNull Integer uid,
-			@PathVariable @NotNull Integer tid) {
-		JsonResult<StudentTaskInfo> result = new JsonResult<>();
+	@GetMapping("/task/{tid}")
+	public JsonResult<StudentTaskInfoVO> getTaskInfo(@PathVariable(value = "tid") @NotNull Integer tid) {
+		JsonResult<StudentTaskInfoVO> result = new JsonResult<>();
 		TaskPO task = taskMapper.getOne(tid);
 		if (task == null) {
 			result.setStateCode(Constant.REQUEST_ERROR, "所请求的任务不存在");
 			return result;
 		}
-		StudentTaskInfo taskInfo = new StudentTaskInfo();
+		StudentTaskInfoVO taskInfo = new StudentTaskInfoVO();
 		taskInfo.setAuthentication(task.getAuthentication());
-		taskInfo.setDendline(task.getDendline());
+		taskInfo.setDendlineStr(TimeUtil.getSimpleDateTimeByDate(task.getDendline()));
 		taskInfo.setFileType(task.getFileType());
 		taskInfo.setRemark(task.getRemark());
 		taskInfo.setSubmitNum(task.getSubmitNum());
 		taskInfo.setTaskName(task.getTaskName());
 		// 获取昵称
 		TeacherUserPO userPO = userMapper.getOne(task.getUid());
-		taskInfo.setPublisher(userPO.getNickname());
+		taskInfo.setPublisher(StringUtils.isEmpty(userPO.getNickname()) ? "默认用户昵称" : userPO.getNickname());
 		result.setData(taskInfo);
 		return result;
 	}

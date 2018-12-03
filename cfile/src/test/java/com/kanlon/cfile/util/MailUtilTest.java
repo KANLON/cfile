@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import com.kanlon.cfile.DemoApplication;
 import com.kanlon.cfile.utli.MailUtil;
 
 /**
@@ -17,7 +18,7 @@ import com.kanlon.cfile.utli.MailUtil;
  * @date 2018年11月27日
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = DemoApplication.class)
 public class MailUtilTest {
 
 	@Autowired

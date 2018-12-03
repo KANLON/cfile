@@ -47,7 +47,17 @@ CREATE TABLE TASK(
   dr INT(1) NOT NULL DEFAULT 0 COMMENT '是否有效,标记删除'
 ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='任务表';
 
+TRUNCATE TABLE task;
 
+-- 插入一个测试任务
+INSERT INTO task(uid,task_name,ctime) VALUES(1,'测试任务','2018-12-01 00:00:00');
+
+USE cfile;
+SELECT * FROM task;
+
+SELECT * FROM teacher;
+
+SELECT COUNT(*) num  FROM task WHERE uid=1 AND task_name='测试任务'
 
 
 

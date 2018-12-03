@@ -1,7 +1,6 @@
 package com.kanlon.cfile.domain.vo;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import lombok.Data;
 
@@ -12,7 +11,7 @@ import lombok.Data;
  * @date 2018年11月30日
  */
 @Data
-public class StudentTaskInfo implements Serializable {
+public class StudentTaskInfoVO implements Serializable {
 	/**
 	 *
 	 */
@@ -22,9 +21,9 @@ public class StudentTaskInfo implements Serializable {
 	 */
 	private String taskName;
 	/**
-	 * 任务截止时间
+	 * 任务截止时间字符串（2018-11-11 11:12:12）这种形式
 	 */
-	private Date dendline;
+	private String dendlineStr;
 	/**
 	 * 提交的文件类型
 	 */

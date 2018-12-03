@@ -1,7 +1,6 @@
 package com.kanlon.cfile.domain.vo;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import lombok.Data;
 
@@ -12,7 +11,7 @@ import lombok.Data;
  * @date 2018年11月30日
  */
 @Data
-public class TaskInfoLists implements Serializable {
+public class TaskInfoListsVO implements Serializable {
 
 	/**
 	 *
@@ -39,7 +38,7 @@ public class TaskInfoLists implements Serializable {
 	 */
 	private Integer authencation;
 	/**
-	 * 截止时间
+	 * 截止时间字符串(2018-11-11 11:12:12)这种形式
 	 */
-	private Date dendline;
+	private String dendlineStr;
 }

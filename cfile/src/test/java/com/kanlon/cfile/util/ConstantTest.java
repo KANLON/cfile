@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.kanlon.cfile.DemoApplication;
 import com.kanlon.cfile.utli.Constant;
 
 /**
@@ -14,7 +15,7 @@ import com.kanlon.cfile.utli.Constant;
  * @date 2018年11月28日
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = DemoApplication.class)
 public class ConstantTest {
 	@Test
 	public void pathTest() {

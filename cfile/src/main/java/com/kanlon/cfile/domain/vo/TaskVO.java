@@ -1,7 +1,6 @@
 package com.kanlon.cfile.domain.vo;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
@@ -25,9 +24,9 @@ public class TaskVO implements Serializable {
 	@NotNull
 	private String taskName;
 	/**
-	 * 任务提交截止时间
+	 * 任务提交截止时间字符串（以2018-11-02 11:12:11）这种形式
 	 */
-	private Date dendline;
+	private String dendlineStr;
 	/**
 	 * 任务提交的文件的类型
 	 */
@@ -35,7 +34,7 @@ public class TaskVO implements Serializable {
 	/**
 	 * 预计提交的人数
 	 */
-	private String submitNum;
+	private Integer submitNum;
 
 	/**
 	 * 备注
