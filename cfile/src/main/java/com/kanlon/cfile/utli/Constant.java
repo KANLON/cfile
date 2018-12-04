@@ -43,6 +43,12 @@ public final class Constant {
 	 * 学生提交上传的目录
 	 */
 	public static final String UPLOAD_FILE_STUDENT_PATH = WEB_ROOT + "/upload/student";
+
+	/**
+	 * 学生提交重复文件的文件夹的文件名常量
+	 */
+	public static final String UPLOAD_FILE_STUDENT_REPEAT_FOLDER = "重复提交的文件";
+
 	/**
 	 * 正常响应的状态码
 	 */

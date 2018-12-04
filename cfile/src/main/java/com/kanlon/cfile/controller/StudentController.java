@@ -5,7 +5,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
@@ -13,6 +16,7 @@ import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -67,27 +71,61 @@ public class StudentController {
 			@PathVariable(value = "uid") Integer uid, @PathVariable(value = "tid") Integer tid,
 			HttpServletRequest request) {
 		JsonResult<String> result = new JsonResult<>();
+		// 标志是否已经是提交了重复的文件
+		boolean flag = false;
 		if (submitVO.getFile() == null || StringUtils.isEmptyOrWhitespace(submitVO.getName())
 				|| StringUtils.isEmptyOrWhitespace(submitVO.getStudentId())) {
 			result.setStateCode(Constant.REQUEST_ERROR, "学号或文件或姓名为null");
 			return result;
 		}
+		TaskPO task = taskMapper.getOne(tid);
+		if (task == null) {
+			result.setStateCode(Constant.REQUEST_ERROR, "所请求的任务不存在");
+			return result;
+		}
+
 		// 新的文件名，学号姓名.后缀名
-		String fileNewName = submitVO.getStudentId() + submitVO.getName() + submitVO.getFile().getOriginalFilename()
+		String suffix = submitVO.getFile().getOriginalFilename()
 				.substring(submitVO.getFile().getOriginalFilename().lastIndexOf("."));
+		String studentIdAndName = submitVO.getStudentId() + submitVO.getName();
+		String fileNewName = studentIdAndName + suffix;
+
 		File fileStorePath = new File(Constant.UPLOAD_FILE_STUDENT_PATH + "/" + uid + "/" + tid);
 		if (!fileStorePath.exists()) {
 			fileStorePath.mkdirs();
 		}
 		try {
+			// 遍历当前文件下所有文件，查看是否存在该学号和姓名，如果存在则将其移动到“重复提交的文件”文件夹并将在其文件名后加时间后，然后存储新的文件，如果不存在，直接存储新文件
+			File[] tempFiles = fileStorePath.listFiles();
+			for (int i = 0; i < tempFiles.length; i++) {
+				String tempFileName = tempFiles[i].getName();
+				if (tempFileName.substring(0, tempFileName.indexOf(".")).equals(studentIdAndName)) {
+					String repeatFilePath = fileStorePath + "/" + Constant.UPLOAD_FILE_STUDENT_REPEAT_FOLDER;
+					// 如果重复提交的文件夹不存在，则创建
+					File repeatPath = new File(repeatFilePath);
+					if (!repeatPath.exists()) {
+						repeatPath.mkdirs();
+					}
+					String oldSuffix = tempFiles[i].getName().substring(tempFiles[i].getName().indexOf("."));
+					File repeatFile = new File(repeatFilePath + "/" + studentIdAndName
+							+ TimeUtil.getLocalDateTimeByDate(new Date()) + oldSuffix);
+					repeatFile.createNewFile();
+					FileCopyUtils.copy(tempFiles[i], repeatFile);
+					tempFiles[i].delete();
+					flag = true;
+				}
+			}
+
 			BufferedOutputStream out = new BufferedOutputStream(
 					new FileOutputStream(new File(fileStorePath + "/" + fileNewName)));
 			logger.warn("文件上传到" + fileStorePath + "/" + fileNewName + "了！" + "发送者IP地址为：" + IpUtil.getRealIP(request));
 			out.write(submitVO.getFile().getBytes());
 			out.flush();
 			out.close();
-			// 增加提交人数
-			taskMapper.updateSubmitingNumByTid(tid);
+			// 如果不是重复提交，则 增加提交人数
+			if (!flag) {
+				taskMapper.updateSubmitingNumByTid(tid);
+			}
 		} catch (IOException e) {
 			result.setStateCode(Constant.RESPONSE_ERROR, "存储文件时发生错误！" + e.getMessage());
 			logger.error("存储学生上传文件时发生错误！", e);
@@ -148,12 +186,34 @@ public class StudentController {
 		// 遍历所有提交的文件，得到文件名，从而获取名单
 		for (int i = 0; i < submitFiles.length; i++) {
 			File tempFile = submitFiles[i];
+			// 如果是文件
 			if (tempFile.isFile()) {
-				String filename = tempFile.getName().substring(tempFile.getName().indexOf(File.pathSeparator));
+				String filename = cutByRegex(tempFile.getName(), "(\\d+)\\D+.*");
 				submitList.add(filename);
 			}
 		}
 		return result;
+	}
+
+	/**
+	 * 根据表达式，从某字符串中提取自己想要的子字符串 例如：从“151612220张三三.xls”提取，数字，则regex为"(\\d+).*"
+	 *
+	 * @param str
+	 * @param regex
+	 * @return
+	 */
+	private String cutByRegex(String str, String regex) {
+
+		String reg = regex;
+		String s = str;
+		Pattern p2 = Pattern.compile(reg);
+		Matcher m2 = p2.matcher(s);
+		if (m2.find()) {
+			String subStr = m2.group(1);
+			return subStr;// 组提取字符串
+		}
+		return null;
+
 	}
 
 }

@@ -197,4 +197,29 @@ public class TeacherController {
 
 	}
 
+	/**
+	 * 得到某个项目的链接
+	 *
+	 * @param tid
+	 *            项目id
+	 * @param session
+	 * @return
+	 */
+	@GetMapping("/task/link/{tid}")
+	public JsonResult<String> getTaskLink(@PathVariable(value = "tid") Integer tid, HttpSession session) {
+		JsonResult<String> result = new JsonResult<>();
+		if (taskMapper.getOne(tid) == null) {
+			result.setStateCode(Constant.REQUEST_ERROR, "该项目不存在！");
+			return result;
+		}
+		TeacherUserPO userpo = (TeacherUserPO) session.getAttribute("user");
+		Integer uid = userpo.getUid();
+		// 构造链接
+		StringBuilder taskLink = new StringBuilder("http://localhost:8080/index.html?");
+		taskLink.append("uid=" + uid + "&tid=" + tid);
+		result.setData(taskLink.toString());
+		return result;
+
+	}
+
 }

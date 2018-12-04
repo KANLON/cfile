@@ -43,7 +43,7 @@ public class AuthenFilter implements HandlerInterceptor {
 		open_urls.add("/javascripts");
 		open_urls.add("/js");
 		open_urls.add("/stylesheets");
-		open_urls.add("/security/resetpwd");
+		open_urls.add("/css");
 		open_urls.add("/reg");
 		open_urls.add("/index");
 		open_urls.add("/hello");

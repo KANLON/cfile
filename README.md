@@ -4,6 +4,11 @@
 <hr/>
 <br/><br/>
 
+#### 2018年12月4日
+1. 完成学生上传文件完善bug功能，老师或班委获取项目链接，增加了一个登陆页面功能
+2. 还差学生上传文件和老师或班委控制页面的设计。
+
+
 #### 2018年12月3日
 1. 完成所有后端功能的测试工作，修改将时间转化为字符串传到前端。
 2. 添加postman测试链接：[https://documenter.getpostman.com/view/3892535/RzffHouP](https://documenter.getpostman.com/view/3892535/RzffHouP)
