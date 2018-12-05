@@ -76,22 +76,54 @@ a{
 	text-decoration: none;
 }
 
-#login{
+/* #login{
 	height: 100px;
 	width: 10%;
 	float: left;
 	line-height: 70px;
+} */
+
+
+/************************************login/register*********************************/
+
+.captcha-error{
+	padding:0 150px 0 0px
 }
 
-#login img{
-	margin-top: 35px;
-	margin-right: 5px;
+/*伪类，input标签获取了焦点*/
+input:focus{
+border:1px solid #fd8420!important;
 }
-/************************************login/register*********************************/
-/* element.style {
-    left: 0px;
-    right: 0px;
-} */
+
+.error-label,.certain-password{
+	font-size:10px;
+	color:red;
+	display:none;
+}
+
+/* 验证码的*/
+.captcha-div{
+	padding:0 0 50px 0px;
+}
+.captcha_reg{
+	width:45%!important;
+	float:left;
+	padding:0 0 50px 5px;
+}
+
+.captcha_reg_img{
+	float:right;
+}
+
+.captcha_login{
+	width:45%!important;
+	float:left;
+	padding:0 0 50px 5px;
+}
+
+.captcha_login_img{
+	float:right;
+}
 
 .center {
   width: auto;

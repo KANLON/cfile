@@ -30,6 +30,7 @@ public class AuthenFilter implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		String url = request.getRequestURI();
+		logger.info(url);
 		// 获取到公开的地址
 		if (url.equalsIgnoreCase("/")) {
 			return true;
@@ -40,6 +41,7 @@ public class AuthenFilter implements HandlerInterceptor {
 		open_urls.add("/login");
 		open_urls.add("/images");
 		open_urls.add("/component");
+		open_urls.add("/common");
 		open_urls.add("/javascripts");
 		open_urls.add("/js");
 		open_urls.add("/stylesheets");
@@ -48,6 +50,7 @@ public class AuthenFilter implements HandlerInterceptor {
 		open_urls.add("/index");
 		open_urls.add("/hello");
 		open_urls.add("/student");
+		open_urls.add("/error");
 
 		// 如果是公开地址，则放行
 		for (String open_url : open_urls) {

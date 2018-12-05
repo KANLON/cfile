@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Signin Template for Bootstrap</title>
+<title>登录/注册</title>
 
 <!-- Bootstrap core CSS -->
 <link
@@ -69,39 +69,63 @@
 				<label for="tab-2" class="tab regin-label">注册</label>
 				
 				<div class="login-form">
+				    <!-- 登录表单  -->
 					<div class="sign-in-htm">
 						<div class="group">
-							<label for="user" class="label">学号</label> <input id="user"
-								type="text" class="input" name="account">
+							<label for="user" class="label">用户名</label> 
+							<input id="username_login" type="text" placeholder="长度不能超过20个字符(必填)" class="input" name="account" autofocus>
+							<label for="pass"  class="error-label username-error" id="username_error_login" ></label>
 						</div>
 						<div class="group">
-							<label for="pass" class="label">密码</label> <input id="pass"
-								type="password" class="input" data-type="password"
-								name="password">
+							<label for="pass" class="label">密码</label> 
+							<input id="password_login" type="password" placeholder="长度不能超过20个字符(必填)" class="input" data-type="password" name="password">
+							<label for="pass" class="error-label password-error" id="password_error_login"></label>
 						</div>
 						<div class="group">
-							<input type="submit" class="button" id="login1" value="登录">
+							<label for="pass" class="label" >验证码</label> 
+							<div class="captcha-div">
+							<input id="captcha_login" placeholder="(必填)" class="captcha_login input" type="text"  >
+							<img class="captcha_login_img" id="captcha_login_img" src="/login/login/captcha" onclick="javascript:this.src='/login/login/captcha?tm='+Math.random()">
+							</div>
+							<label for="pass" class="captcha-error error-label" id="captcha_error_login"></label>
 						</div>
+						<div class="group">
+							<input type="submit" class="button" id="login" value="登录">
+						</div>
+
 					</div>
+					 <!-- 注册表单  -->
 					<div class="sign-up-htm">
 						<div class="group">
-							<label for="user" class="label">学号</label> <input id="user_re"
-								type="text" class="input">
+							<label for="user" class="label" >用户名</label>
+							<input id="username_reg" type="text" placeholder="长度不能超过20个字符(必填)"  class="input">
+							<label for="pass"  class="error-label username-error" id="username_error_reg" ></label>
 						</div>
 						<div class="group">
-							<label for="pass" class="label">姓名</label> <input id="name"
-								type="text" class="input">
+							<label for="pass" class="label" >昵称</label> 
+							<input id="nickname" type="text" class="input"  placeholder="长度不能超过20个字符(非必填)" >
+							<label for="pass"  class="error-label name-error" id="nickname_error_reg" ></label>
 						</div>
 						<div class="group">
-							<label for="pass" class="label">密码</label> <input id="pass_re1"
-								type="password" class="input" data-type="password">
+							<label for="pass" class="label" >密码</label> 
+							<input id="password_reg" placeholder="长度不能超过20个字符(必填)" type="password" class="input" data-type="password" >
+							<label for="pass" class="error-label password-error" id="password_error_reg"></label>
 						</div>
 						<div class="group">
-							<label for="pass" class="label">确认密码</label> <input id="pass_re2"
-								type="password" class="input" data-type="password">
+							<label for="pass" class="label">确认密码</label> 
+							<input id="certain_password_reg" type="password" class="input" data-type="password"  >
+							<label for="pass" class="error-label certain-password" id="certain_password_error_reg"></label>
 						</div>
 						<div class="group">
-							<input type="submit" class="button" id="regist" value="注册">
+							<label for="pass" class="label" >验证码</label> 
+							<div class="captcha-div">
+							<input id="captcha_reg" placeholder="(必填)" class="captcha_reg input" type="text" >
+							<img class="captcha_reg_img" src="/login/register/captcha" onclick="javascript:this.src='/login/register/captcha?tm='+Math.random()">
+							</div>
+							<label for="pass" class="captcha-error error-label" id="captcha_error_reg"></label>
+						</div>
+						<div class="group">
+							<input type="submit" class="button" id="register" value="注册">
 						</div>
 					</div>
 				</div>
@@ -111,9 +135,11 @@
     </div>
 	</div>
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
+	<script src="common/string-utils.js" ></script>
+	<script src="js/login-regin.js"></script>
+	
 </body>
 </html>

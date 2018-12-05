@@ -61,7 +61,7 @@ public class LoginController {
 		}
 		HttpSession session = request.getSession(true);
 		String sessionCode = (String) session.getAttribute("regCaptcha");
-		if (!registerVO.getImgCaptcha().equals(sessionCode)) {
+		if (!registerVO.getImgCaptcha().toLowerCase().equals(sessionCode)) {
 			result.setStateCode(Constant.REQUEST_ERROR, "验证码错误！");
 			session.removeAttribute("regCaptcha");
 			return result;
@@ -73,10 +73,12 @@ public class LoginController {
 			result.setStateCode(Constant.REQUEST_ERROR, "该用户名已存在");
 			return result;
 		}
-		// 检查邮箱是否重复
-		if (teacherUserMapper.selectTeacherByEmail(registerVO.getEmail()) >= 1) {
-			result.setStateCode(Constant.REQUEST_ERROR, "该邮箱已存在");
-			return result;
+		// 如果邮箱不为null，则检查邮箱是否重复
+		if (!StringUtils.isEmptyOrWhitespace(registerVO.getEmail())) {
+			if (teacherUserMapper.selectTeacherByEmail(registerVO.getEmail()) >= 1) {
+				result.setStateCode(Constant.REQUEST_ERROR, "该邮箱已存在");
+				return result;
+			}
 		}
 
 		String salt = RandomUtil.createSalt();
@@ -103,7 +105,7 @@ public class LoginController {
 			response.setContentType("image/png");
 			OutputStream out = response.getOutputStream();
 			Captcha captcha = CaptchaUtil.create();
-			String code = captcha.getCode();
+			String code = captcha.getCode().toLowerCase();
 			logger.info(code);
 			// 将验证码放入session中
 			HttpSession session = request.getSession(true);
@@ -134,7 +136,7 @@ public class LoginController {
 		}
 		HttpSession session = request.getSession(true);
 		String sessionCode = (String) session.getAttribute("loginCaptcha");
-		if (!loginVO.getCaptcha().equals(sessionCode)) {
+		if (!loginVO.getCaptcha().toLowerCase().equals(sessionCode)) {
 			result.setStateCode(Constant.REQUEST_ERROR, "验证码错误");
 			session.removeAttribute("loginCaptcha");
 			return result;
@@ -166,7 +168,7 @@ public class LoginController {
 			response.setContentType("image/png");
 			OutputStream out = response.getOutputStream();
 			Captcha captcha = CaptchaUtil.create();
-			String code = captcha.getCode();
+			String code = captcha.getCode().toLowerCase();
 			logger.info(code);
 			// 将验证码放入session中
 			HttpSession session = request.getSession(true);
