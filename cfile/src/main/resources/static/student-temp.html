@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学生提交任务文件</title>
+  <link rel="stylesheet" href="http://www.kanlon.ink/stylesheets/index.css">
+  <link rel="stylesheet" href="http://www.kanlon.ink/stylesheets/header.css">
+  <link rel="stylesheet" href="http://www.kanlon.ink/stylesheets/normal_sign_up.css">
+  <link rel="shortcut icon" href="http://www.kanlon.ink/images/SAU-logo.png" type="image/x-icon">
+</head>
+<body>
+
+  <section>
+    <ul class="signList wpu ta">
+      <li class="uncheckedSign wtbg">提交任务文件</li>
+    </ul>
+      <form class="normalForm1 wpu wtbg" id="clubSignUp">
+      <input type="email" name="email" placeholder="邮箱" class="email" id="clubEmail">
+      <div class="emailTips"></div>
+      <input type="text" name="captcha" placeholder="验证码" class="verifyText">
+      <input type="button" name="" value="发送验证码" class="verifySend" id="verifySendClub">
+      <input type="text" name="userName" placeholder="用户名" class="email" >
+      <input type="text" name="realName" placeholder="真实姓名" class="email" >
+       <input type="text" name="phone" placeholder="手机" class="email" >
+       <input type="text" name="clubName" placeholder="社团名称" class="email" >
+       <input type="text" name="clubType" placeholder="社团类型" class="email" >
+       <input type="text" name="description" placeholder="描述" class="email" >
+      <div class="verifyTips"></div>
+      <input type="password" name="" placeholder="密码" class="pw" id="pwClub">
+      <input type="password" name="password" placeholder="确认密码" class="repw" id="repwClub">
+      <div class="passwordTips"></div>
+      <input type="button" value="注册" class="signButton" id="signButton1">
+    </form>
+
+    <!--检测邮箱-->
+    <img src="./images/T.png" id="T" class="T">
+    <div id="mailWrong">邮箱不能为空</div>
+    <img src="./images/F.png" id="F" class="F">
+
+     <!--检测密码-->
+    <img src="./images/T.png" id="T1" class="T">
+    <div id="PWWrong">密码不能为空</div>
+    <img src="./images/F.png" id="F1" class="F">
+
+    <!--检测密码是否一致-->
+    <img src="./images/T.png" id="T2" class="T">
+    <div id="notSame">两次输入密码不同</div>
+    <img src="./images/F.png" id="F2" class="F">
+  </section>
+  <script src="http://www.kanlon.ink//javascripts/jquery-3.2.1.min.js" charset="utf-8"></script>
+  <script src="http://www.kanlon.ink//javascripts/sign_up.js" charset="utf-8"></script>
+
+</body>
+</html>

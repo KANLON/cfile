@@ -59,6 +59,12 @@ SELECT * FROM teacher;
 
 SELECT COUNT(*) num  FROM task WHERE uid=1 AND task_name='测试任务'
 
+-- 更新提交的人数
+UPDATE task SET  submiting_num=0 WHERE tid=1;
+-- 更新是否通过验证
+UPDATE task SET authentication=1 WHERE tid=1;
+
+
 
 
 

@@ -99,6 +99,10 @@ public class StudentController {
 			File[] tempFiles = fileStorePath.listFiles();
 			for (int i = 0; i < tempFiles.length; i++) {
 				String tempFileName = tempFiles[i].getName();
+				// 如果遍历到文件是文件夹或者是没有.号的文件，则直接跳过
+				if (tempFiles[i].isDirectory() || tempFileName.indexOf(".") == -1) {
+					continue;
+				}
 				if (tempFileName.substring(0, tempFileName.indexOf(".")).equals(studentIdAndName)) {
 					String repeatFilePath = fileStorePath + "/" + Constant.UPLOAD_FILE_STUDENT_REPEAT_FOLDER;
 					// 如果重复提交的文件夹不存在，则创建

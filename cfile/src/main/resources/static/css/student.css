@@ -1,0 +1,10 @@
+/* 错误标签 */
+label.error{
+	font-size:6px;
+	color: red;
+	float: left;
+	display:none;
+}
+.form-group{
+	text-align:left;
+}
