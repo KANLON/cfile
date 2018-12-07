@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.constraints.NotNull;
+import javax.websocket.server.PathParam;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
@@ -29,6 +30,7 @@ import com.kanlon.cfile.domain.po.TaskPO;
 import com.kanlon.cfile.domain.po.TeacherUserPO;
 import com.kanlon.cfile.domain.vo.TaskInfoListsVO;
 import com.kanlon.cfile.domain.vo.TaskVO;
+import com.kanlon.cfile.domain.vo.TeacherTaskInfo;
 import com.kanlon.cfile.utli.Constant;
 import com.kanlon.cfile.utli.JsonResult;
 import com.kanlon.cfile.utli.TimeUtil;
@@ -121,7 +123,37 @@ public class TeacherController {
 	}
 
 	/**
-	 * 得到某个任务已经提交的人员的名单
+	 * 得到任务信息
+	 *
+	 * @param tid
+	 * @return
+	 */
+	@GetMapping("/task/{tid}")
+	public JsonResult<TeacherTaskInfo> getTaskInfo(@PathVariable(value = "tid") @NotNull Integer tid) {
+		JsonResult<TeacherTaskInfo> result = new JsonResult<>();
+		TaskPO task = taskMapper.getOne(tid);
+		if (task == null) {
+			result.setStateCode(Constant.REQUEST_ERROR, "所请求的任务不存在");
+			return result;
+		}
+		TeacherTaskInfo taskInfo = new TeacherTaskInfo();
+		taskInfo.setTid(tid);
+		taskInfo.setTaskName(task.getTaskName());
+		taskInfo.setDendlineStr(TimeUtil.getSimpleDateTimeByDate(task.getDendline()));
+		taskInfo.setFileType(task.getFileType());
+		taskInfo.setSubmitNum(task.getSubmitNum());
+		taskInfo.setSubmitingNum(task.getSubmitingNum());
+		taskInfo.setRemark(task.getRemark());
+		taskInfo.setAuthentication(task.getAuthentication());
+		taskInfo.setSubmitingList(task.getSubmitingList());
+		taskInfo.setCtime(task.getCtime());
+		taskInfo.setMtime(task.getMtime());
+		result.setData(taskInfo);
+		return result;
+	}
+
+	/**
+	 * 得到某个任务已经提交的人员的名单(即是文件名，在前端再取相应字段，文件名后端下载需要用到)
 	 *
 	 * @param uid
 	 *            用户id
@@ -198,6 +230,52 @@ public class TeacherController {
 	}
 
 	/**
+	 * 根据 任务id和提交的学号姓名得到该文件
+	 *
+	 * @param request
+	 * @param response
+	 * @param tid
+	 *            任务id
+	 * @param filename
+	 *            文件名 ，学号姓名
+	 */
+	@GetMapping("/file/{tid}")
+	public void getSubmitFile(HttpServletRequest request, HttpServletResponse response,
+			@PathVariable(value = "tid") Integer tid, @PathParam(value = "filename") String filename) {
+		FileInputStream fis = null;
+		HttpSession session = request.getSession();
+		TeacherUserPO userPO = (TeacherUserPO) session.getAttribute("user");
+		File file = new File(Constant.UPLOAD_FILE_STUDENT_PATH + "/" + userPO.getUid() + "/" + tid + "/" + filename);
+
+		try {
+			if (!file.exists()) {
+				response.setContentType("text/html");
+				response.sendRedirect("/404.html");
+				return;
+			}
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("application/octet-stream");
+			fis = new FileInputStream(file);
+			response.setHeader("Content-Disposition", "attachment; filename=" + file.getName());
+			IOUtils.copy(fis, response.getOutputStream());
+			response.flushBuffer();
+		} catch (IOException e) {
+			logger.error("获取文件时发生异常!", e);
+			throw new RuntimeException("获取文件时发生异常！" + e.getMessage());
+		} finally {
+			if (fis != null) {
+				try {
+					fis.close();
+				} catch (IOException e) {
+					logger.error("获取文件时发生异常!", e);
+					throw new RuntimeException("获取文件时发生异常！" + e.getMessage());
+				}
+			}
+		}
+
+	}
+
+	/**
 	 * 得到某个项目的链接
 	 *
 	 * @param tid
@@ -215,7 +293,7 @@ public class TeacherController {
 		TeacherUserPO userpo = (TeacherUserPO) session.getAttribute("user");
 		Integer uid = userpo.getUid();
 		// 构造链接
-		StringBuilder taskLink = new StringBuilder("http://localhost:8080/index.html?");
+		StringBuilder taskLink = new StringBuilder("http://localhost:8080/student.html?");
 		taskLink.append("uid=" + uid + "&tid=" + tid);
 		result.setData(taskLink.toString());
 		return result;

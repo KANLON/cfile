@@ -131,26 +131,55 @@ function showTaskInfo(){
 	
 }
 /**
- * 根据英文类型得到中文类型
+ * 根据英文类型得到中文类型，和设置上传文件的格式
  */
 function getChineseTypeByFileType(fileType){
 	if(fileType=='all'){
 		return "全部类型";
 	}else if(fileType=="word"){
+		$('#file').attr("accept","application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.wordprocessingml.template");
 		return "word文档"
 	}else if(fileType=="excel"){
+		$('#file').attr("accept","application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template,application/vnd.ms-excel.addin.macroEnabled.12");
 		return "excel文件"
 	}else if(fileType=="powerpoint"){
+		$('#file').attr("accept","application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation");
 		return "PowerPoint文件，PPT文件"
 	}else if(fileType=="image"){
+		$('#file').attr("accept","image/*");
 		return "图片"
 	}else if(fileType=="pdf"){
+		$('#file').attr("accept","application/pdf");
 		return "PDF文件"
 	}else if(fileType=="zip"){
+		//不能判断是不是rar压缩文件，所以暂时放弃了
+		//$('#file').attr("accept","");
 		return "压缩包"
 	}
 }
 
+/**
+ * 控制上传文件的大小
+ */
+function checkFileSize(target) {
+	let isIE = /msie/i.test(navigator.userAgent) && !window.opera; 
+	let fileSize = 0;         
+    if (isIE && !target.files) {     
+      let filePath = target.value;     
+      let fileSystem = new ActiveXObject("Scripting.FileSystemObject");        
+      let file = fileSystem.GetFile (filePath);     
+      fileSize = file.Size;    
+    } else {    
+     fileSize = target.files[0].size;     
+    }   
+     let size = fileSize / (1024*1000);    
+    if(size>10){
+      alert("附件不能大于10M");
+      target.value="";
+      return false;
+     }
+    return true;
+} 
 
 /**
  * 提交任务信息和文件
@@ -172,16 +201,16 @@ function submitFile(taskInfoFromData,uid,tid){
            //getSubmitStudentIdList();
            window.location.reload();
        }else if(json.code==1){  
-           alert('提交失敗,请求错误！');  
+           alert('提交失敗,请求错误！'+json.msg);  
        }else{
-    	   alert("内部服务器错误！请重试或联系管理者：zhangcanlong");
+    	   alert("内部服务器错误！请重试或联系管理者：zhangcanlong"+json.msg);
        }  
    });  
 }
 
 /*提交点击按钮的事件*/
 $("#student_submit").click(function() {
-	let flagVaild = checkName($('#name').val()) && checkName($('#student_id').val()) &&checkFile($('#file').get(0).files[0]);
+	let flagVaild = checkName($('#name').val()) && checkName($('#student_id').val()) && checkFileSize($('#file').get(0)) && checkFile($('#file').get(0).files[0]);
 	if(!flagVaild){
 		return;
 	}
@@ -206,6 +235,7 @@ $('#student_id').change(function(){
 /*提交文件改变事件*/
 $('#file').change(function(){
 	checkFile($('#file').get(0).files[0]);
+	checkFileSize($('#file').get(0));
 });
 
 

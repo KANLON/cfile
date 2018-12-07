@@ -83,6 +83,11 @@ public class StudentController {
 			result.setStateCode(Constant.REQUEST_ERROR, "所请求的任务不存在");
 			return result;
 		}
+		// 检查是否已经过了提交时间
+		if (new Date().after(task.getDendline())) {
+			result.setStateCode(Constant.REQUEST_ERROR, "已经过了截止时间，不能提交了");
+			return result;
+		}
 
 		// 新的文件名，学号姓名.后缀名
 		String suffix = submitVO.getFile().getOriginalFilename()

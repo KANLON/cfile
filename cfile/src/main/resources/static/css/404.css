@@ -5387,3 +5387,28 @@ div.wpcf7-mail-sent-ok {
   margin: 60px;
   float: right;
 }
+
+.video-js {
+	width: 300px;
+	height: 150px;
+}
+
+.vjs-fluid {
+	padding-top: 56.25%
+}
+
+img.wp-smiley, img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+
+.list-item-decimal {
+	list-style-type: decimal !important;
+}

@@ -80,7 +80,7 @@ function login(username,password,loginCaptcha) {
 		console.log(json);
 		if(json.code===0){
 			window.alert("登陆成功");
-			window.location.href = '/index.html';
+			window.location.href = '/teacher.html';
 		//登陆失败
 		}else if(json.code===1){
 			window.alert("登陆失败！"+json.msg);
