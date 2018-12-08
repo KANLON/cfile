@@ -3,3 +3,16 @@
 	left:0px,
 	right:0px
 } 
+label.control-label{
+	text-align:left!important;
+	letter-spacing:4px;
+}
+
+/*创建或修改任务时的错误信息展示*/
+.help-block{
+    display: table-row;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #cd2322;
+    font-size: 9px;
+}

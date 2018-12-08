@@ -41,4 +41,13 @@ public class TaskInfoListsVO implements Serializable {
 	 * 截止时间字符串(2018-11-11 11:12:12)这种形式
 	 */
 	private String dendlineStr;
+
+	/**
+	 * 限定提交的文件类型
+	 */
+	private String fileType;
+	/**
+	 * 备注信息
+	 */
+	private String remark;
 }

@@ -21,6 +21,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -93,6 +94,63 @@ public class TeacherController {
 	}
 
 	/**
+	 * 更新任务
+	 *
+	 * @param task
+	 *            任务信息
+	 * @param session
+	 * @return
+	 */
+	@PutMapping(value = "/task/{tid}")
+	public JsonResult<String> modifyTask(@RequestBody TaskVO task, @PathVariable(value = "tid") Integer tid,
+			HttpSession session) {
+		JsonResult<String> result = new JsonResult<>();
+		// 判断任务名是否为null
+		if (StringUtils.isEmpty(task.getTaskName())) {
+			result.setStateCode(Constant.REQUEST_ERROR, "任务名为null");
+			return result;
+		}
+		// 转化文件格式(如果传入的文件格式是null或""，则将其转化为null)
+		if (StringUtils.isEmpty(task.getFileType())) {
+			task.setFileType(null);
+		}
+		// 转化截止时间(如果传入的截止时间是null或""，则将其转化为null)
+		if (StringUtils.isEmpty(task.getDendlineStr())) {
+			task.setDendlineStr(null);
+		}
+		// 转化截止时间(如果传入的截止时间是null或""，则将其转化为null)
+		if (StringUtils.isEmpty(task.getSubmitNum())) {
+			task.setSubmitNum(null);
+		}
+
+		TaskPO taskPO = taskMapper.getOne(tid);
+		TeacherUserPO userPO = (TeacherUserPO) session.getAttribute("user");
+		Integer uid = userPO.getUid();
+		// 如果两个用户id不相等，则表示该用户没有权限修改该任务
+		if (taskPO.getUid() != uid) {
+			result.setStateCode(Constant.REQUEST_ERROR, "你没有权限修改该任务！");
+			return result;
+		}
+		// 判断是否有重复的任务名称()
+		if (taskMapper.selectTaskNameByUid(uid, task.getTaskName()) >= 1
+				&& !task.getTaskName().equals(taskPO.getTaskName())) {
+			result.setStateCode(Constant.REQUEST_ERROR, "任务名重复");
+			return result;
+		}
+		taskPO.setTid(tid);
+		taskPO.setUid(userPO.getUid());
+		taskPO.setTaskName(task.getTaskName());
+		taskPO.setMtime(new Date());
+		taskPO.setFileType(task.getFileType());
+		taskPO.setRemark(task.getRemark());
+		taskPO.setDendline(TimeUtil.getDateBySimpleDateStr(task.getDendlineStr()));
+		taskPO.setSubmitNum(task.getSubmitNum());
+		taskMapper.updateByKey(taskPO);
+
+		return result;
+	}
+
+	/**
 	 * 获取所有发布的任务列表
 	 *
 	 * @param request
@@ -116,6 +174,8 @@ public class TeacherController {
 			taskInfoList.setSubmitNum(po.getSubmitNum());
 			taskInfoList.setTaskName(po.getTaskName());
 			taskInfoList.setTid(po.getTid());
+			taskInfoList.setFileType(po.getFileType());
+			taskInfoList.setRemark(po.getRemark());
 			tasks.add(taskInfoList);
 		}
 		result.setData(tasks);

@@ -18,7 +18,11 @@
 
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
+    <!-- 时间控件的css样式 -->
+    <link href="css/datetimepicker.css" rel="stylesheet">
+    <!-- 自己设置的css样式 -->
     <link href="css/teacher.css" rel="stylesheet">
+    
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -33,6 +37,7 @@
 
   <body>
 
+	<!-- 导航栏 -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -50,7 +55,7 @@
           </ul>
         
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">发布(修改)任务</a></li>
+            <li><a href="#">创建/修改 任务</a></li>
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
@@ -60,16 +65,23 @@
         </div>
       </div>
     </nav>
+    <!-- /nav 结束导航栏 -->
 
-    <div class="container-fluid">
-      <div class="row">
+	
+    <div class="container-fluid" >
+    
+      <div class="row" id="all_task_info_div">
+      
+        <!--  所有任务信息的左则导航栏目录  -->
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">全部任务 <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">发布(修改)任务</a></li>
+            <li><a href="#">创建/修改 任务</a></li>
             <li><a href="#">关于</a></li>
           </ul>
         </div>
+        <!--  结束所有任务信息的 左则导航栏目录  -->
+        <!-- 右则内容 -->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header" id="task_name_overview">测试任务概述</h1>
 
@@ -142,12 +154,131 @@
             </table>
           </div>
           
-          
-             
+        </div>
+        <!-- /div 结束 展示所有任务 右则内容 -->
+      </div>
+       <!-- /row 结束 展示所有任务 页面的内容 -->
+       
+       
+       <!--  开始创建（修改）新任务的页面 -->
+       <div class="row" id="create_task_div">
+      
+        <!--  左则创建（修改）新任务导航栏目录  -->
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="#">全部任务 </a></li>
+            <li class="active"><a href="#">创建/修改 任务<span class="sr-only">(current)</span></a></li>
+            <li><a href="#">关于</a></li>
+          </ul>
+        </div>
+        <!--  结束创建（修改）新任务 左则导航栏目录  -->
+        
+        
+        <!-- 右则创建（修改）新任务内容 -->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">创建/修改 任务</h1>
+			
+          <div class="row placeholders">
+            <div class="col-xs-24 col-sm-12 placeholder">
+				 <!-- 创建任务提交的表单 -->   
+				 <form class="form-horizontal" role="form">
+				  <!-- 添加隐藏域，存储是修改还是创建任务(1,表示创建，2表示修改)，默认为1 -->
+				  <input type='hidden' id='create-or-modify' value='1'>
+				   <!-- 添加隐藏域，当为修改任务时，存储要修改的任务的tid -->
+				  <input type='hidden' id='input-hidden-tid' value=''>
+				  <div class="form-group">
+				    <label for='task_name_create' class="col-sm-2 control-label" >任务名</label>
+				    <div class="col-sm-10">
+				    <input class="form-control" id='task_name_create' type="text" placeholder="不能大于30个字符(必填)" >
+				    <p class="help-block" id="help-task-name-create">这里是块级帮助文本的实例。</p>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for='dendline_create' class="col-sm-2 control-label" >截止时间</label>
+				    <div class="col-sm-10">
+				    <input class="form-control form_datetime" id='dendline_create' type="text" placeholder="默认为：2099-12-12 00:00:00(选填)" >
+				    <p class="help-block" id="help-dendline-create">这里是块级帮助文本的实例。</p>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for='submit_num_create' class="col-sm-2 control-label" >预提交数</label>
+				    <div class="col-sm-10">
+				    <input class="form-control" id='submit_num_create' type="text" placeholder="默认为：10000(选填)" >
+				    <p class="help-block" id="help-submit-num-create">这里是块级帮助文本的实例。</p>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for='file_type_create' class="col-sm-2 control-label" >文件类型</label>
+				    <div class="col-sm-10">
+					    <select class="form-control" id="file_type_create">
+					      <option value="all">全部类型</option>
+					      <option value="word">Word文档</option>
+					      <option value="excel">Excel文件</option>
+					      <option value="powerpoint">PowerPoint文件，PPT文件</option>
+					      <option value="image">图片</option>
+					      <option value="pdf">PDF文件</option>
+					    </select>
+				        <p class="help-block" id="help-file-type-create">这里是块级帮助文本的实例。</p>
+				    </div>
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for='remark_create' class="col-sm-2 control-label" >任务备注</label>
+				    <div class="col-sm-10">
+					    <textarea class="form-control" id="remark_create" rows="3" placeholder="(选填，不大于500个字符)"></textarea>
+				        <p class="help-block" id="help-remark-create">这里是块级帮助文本的实例。</p>
+				    </div>
+				  </div>
+				  
+				  <div class="row">
+				    <div class="col-lg-12">
+					     <button class="btn btn-success" id="create_submit">创建/修改</button>
+				    </div>
+				  </div>
+				  
+				  
+				</form>
+				<!-- 结束创建任务提交的表单 -->
+            </div>
+            <!--  结束/col-xs-24 col-sm-12  行大小内容 -->
+            </div>
+            <!--  结束/row  内容 -->
+
+          <h2 class="sub-header">任务列表</h2>
+          <div class="table-responsive">
+            <table class="table table-striped" id="create-task-info-table">
+              <thead>
+                <tr>
+                  <th>序号</th>
+                  <th>任务名</th>
+                  <th>预提交数</th>
+                  <th>截止时间</th>
+                  <th>是否验证</th>
+                  <th>文件类型</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
           
         </div>
+        <!-- /div 结束 创建（修改）任务 右则内容 -->
       </div>
+       <!-- /row 结束 创建（修改） 任务的页面内容 -->
+       
+       
     </div>
+    <!-- 结束 /container内容 -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -159,9 +290,13 @@
     <script src="js/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <!-- 饼图的js -->
+    <script type="text/javascript" src="js/highcharts.js"></script>
+    <!-- 时间控件的js -->
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <!-- 自己的js -->
+    <script type="text/javascript" src="js/pie-picture.js"> </script>
   	<script type="text/javascript" src="common/string-utils.js"></script>
-  	<script type="text/javascript" src="js/highcharts.js"></script>
-  	<script type="text/javascript" src="js/pie-picture.js"> </script>
   	<script type="text/javascript" src="js/teacher.js"></script>
 
   </body>

@@ -85,7 +85,7 @@ var chart2 = Highcharts.chart('task_num', {
                     mouseOver: function(e) {  // 鼠标滑过时动态更新标题
                         // 标题更新函数，API 地址：https://api.hcharts.cn/highcharts#Chart.setTitle
                         chart2.setTitle({
-                            text: e.target.name+ '\t'+ e.target.y + ' %'
+                            text: e.target.name+ '\t'+ e.target.y + ''
                         });
                     }
                 }

@@ -23,7 +23,7 @@ import com.kanlon.cfile.domain.po.TaskPO;
  * @date 2018年11月28日
  */
 public interface TaskMapper {
-	@Select("SELECT * FROM task")
+	@Select("SELECT * FROM task order by mtime desc")
 	@Options(useCache = true, timeout = 10000)
 	@Results({ @Result(property = "taskName", column = "task_name"),
 			@Result(property = "fileType", column = "file_type"),
@@ -174,7 +174,7 @@ public interface TaskMapper {
 						SET("file_type=#{fileType}");
 					}
 					if (task.getSubmitNum() != null) {
-						SET("submit_num=#{submit_num}");
+						SET("submit_num=#{submitNum}");
 					}
 					if (task.getSubmitingNum() != null) {
 						SET("submiting_num=#{submitingNum}");

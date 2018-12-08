@@ -2,7 +2,7 @@
  * 判断字符串是否为null或者都是空格，如：str=null，str="  "
  */
 function isNullOrWhiteSpace(str){
-	if(str==null||str==undefined||str=="" || str.replace(/\s+/g,"")==""){
+	if(str===null||str===undefined||str==="" || str.replace(/\s+/g,"")===""){
 		return true;
 	}
 	return false;
@@ -12,7 +12,7 @@ function isNullOrWhiteSpace(str){
  * 判断是否为字符串是否为null，如：str="",str=null
  */
 function isNull(str){
-	if(str==null||str==undefined||str==""){
+	if(str===null||str===undefined||str===""){
 		return true;
 	}
 	return false;
@@ -27,7 +27,7 @@ function convertFormDataToJson(formData) {
      objData[entry[0]] = entry[1];
  }
  return JSON.stringify(objData);
-};
+}
 
 
 /**
@@ -39,8 +39,8 @@ function convertFormDataToJson(formData) {
  * 参数2 = Param['参数2'];
  */
 function getUrlParam(url) { 
-    var url = location.search; //获取url中"?"符后的字符串包括‘？’ ，window.location.href获取的是url完整的字符串
-    var theParam = new Object(); 
+    //var url = location.search; //获取url中"?"符后的字符串包括‘？’ ，window.location.href获取的是url完整的字符串
+    var theParam = {}; 
     if (url.indexOf("?") != -1) { //确保‘？’不是最后一个字符串，即携带的参数不为空
         var str = url.substr(url.indexOf("?")+1); //substr是字符串的用法之一，抽取指定字符的数目，这里抽取？后的所有字符
         strs = str.split("&"); //将获取到的字符串从&分割，输出参数数组，即输出[参数1=xx,参数2=xx,参数3=xx,...]的数组形式
@@ -70,7 +70,7 @@ function twoDecimal(x) {
 		alert('错误的参数');
 		return false;
 	}
-	var f_x = Math.round(x * 100) / 100;
+	f_x = Math.round(x * 100) / 100;
 	var s_x = f_x.toString();
 	var pos_decimal = s_x.indexOf('.');
 	if (pos_decimal < 0) {
@@ -83,6 +83,68 @@ function twoDecimal(x) {
 	return s_x;
 }
 
+/**
+ * 根据英文类型得到中文类型，和设置上传文件的格式
+ */
+function getChineseTypeByFileType(fileType){
+	if(fileType=='all'){
+		return "全部类型";
+	}else if(fileType=="word"){
+		$('#file').attr("accept","application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.wordprocessingml.template");
+		return "Word文档";
+	}else if(fileType=="excel"){
+		$('#file').attr("accept","application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template,application/vnd.ms-excel.addin.macroEnabled.12");
+		return "Excel文件";
+	}else if(fileType=="powerpoint"){
+		$('#file').attr("accept","application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation");
+		return "PPT文件";
+	}else if(fileType=="image"){
+		$('#file').attr("accept","image/*");
+		return "图片文件";
+	}else if(fileType=="pdf"){
+		$('#file').attr("accept","application/pdf");
+		return "PDF文件";
+	}else if(fileType=="zip"){
+		//不能判断是不是rar压缩文件，所以暂时放弃了
+		//$('#file').attr("accept","");
+		return "压缩包";
+	}else{
+		return "全部类型";
+	}
+	
+}
+
+
+/**
+ * 根据英文类型得到中文类型，和设置上传文件的格式
+ */
+function getEnglishFileTypeByChineseFileType(fileType){
+	if(fileType=="全部类型"){
+		return 'all';
+	}else if(fileType=="Word文档"){
+		$('#file').attr("accept","application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.wordprocessingml.template");
+		return "word";
+	}else if(fileType=="Excel文件"){
+		$('#file').attr("accept","application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template,application/vnd.ms-excel.addin.macroEnabled.12");
+		return "excel";
+	}else if(fileType=="PPT文件"){
+		$('#file').attr("accept","application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation");
+		return "powerpoint";
+	}else if(fileType=="图片文件"){
+		$('#file').attr("accept","image/*");
+		return "image";
+	}else if(fileType=="PDF文件"){
+		$('#file').attr("accept","application/pdf");
+		return "pdf";
+	}else if(fileType=="压缩包"){
+		//不能判断是不是rar压缩文件，所以暂时放弃了
+		//$('#file').attr("accept","");
+		return "zip";
+	}else{
+		return "全部类型";
+	}
+	
+}
 
 /*输入函数模块*/
 /*export default;*/

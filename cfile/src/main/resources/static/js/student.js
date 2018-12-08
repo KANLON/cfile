@@ -130,33 +130,7 @@ function showTaskInfo(){
 	   }); 
 	
 }
-/**
- * 根据英文类型得到中文类型，和设置上传文件的格式
- */
-function getChineseTypeByFileType(fileType){
-	if(fileType=='all'){
-		return "全部类型";
-	}else if(fileType=="word"){
-		$('#file').attr("accept","application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.wordprocessingml.template");
-		return "word文档"
-	}else if(fileType=="excel"){
-		$('#file').attr("accept","application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template,application/vnd.ms-excel.addin.macroEnabled.12");
-		return "excel文件"
-	}else if(fileType=="powerpoint"){
-		$('#file').attr("accept","application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation");
-		return "PowerPoint文件，PPT文件"
-	}else if(fileType=="image"){
-		$('#file').attr("accept","image/*");
-		return "图片"
-	}else if(fileType=="pdf"){
-		$('#file').attr("accept","application/pdf");
-		return "PDF文件"
-	}else if(fileType=="zip"){
-		//不能判断是不是rar压缩文件，所以暂时放弃了
-		//$('#file').attr("accept","");
-		return "压缩包"
-	}
-}
+
 
 /**
  * 控制上传文件的大小
@@ -205,6 +179,7 @@ function submitFile(taskInfoFromData,uid,tid){
        }else{
     	   alert("内部服务器错误！请重试或联系管理者：zhangcanlong"+json.msg);
        }  
+       
    });  
 }
 
