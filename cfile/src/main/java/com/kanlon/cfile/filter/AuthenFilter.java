@@ -65,7 +65,7 @@ public class AuthenFilter implements HandlerInterceptor {
 			if (isAjax(request)) {
 				printCNJSON("还没有登陆", response);
 			} else {
-				response.sendRedirect("/index.html");
+				response.sendRedirect("/login.html");
 			}
 			return false;
 		} else {
@@ -78,7 +78,7 @@ public class AuthenFilter implements HandlerInterceptor {
 		if (isAjax(request)) {
 			printCNJSON("还没有登陆", response);
 		} else {
-			response.sendRedirect("/index.html");
+			response.sendRedirect("/login.html");
 		}
 		return false;
 
