@@ -47,18 +47,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">教师或班委控制台</a>
+          <a class="navbar-brand" href="/">教师或班委控制台</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" id="nav-about">
             <li><a href="#">关于</a></li>
           </ul>
+
+          <ul class="nav navbar-nav navbar-right" id="nav-person-center">
+            <li><a href="#">个人中心</a></li>
+          </ul>
         
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" id="nav-create-or-modify-task">
             <li><a href="#">创建/修改 任务</a></li>
           </ul>
           
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" id="nav-all-task">
            <li><a href="#">全部任务</a></li>
           </ul>
 
@@ -69,25 +73,25 @@
 
 	
     <div class="container-fluid" >
-    
-      <div class="row" id="all_task_info_div">
-      
+      <div class="row" >
         <!--  所有任务信息的左则导航栏目录  -->
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">全部任务 <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">创建/修改 任务</a></li>
-            <li><a href="#">关于</a></li>
+            <li class="active" id="catalog-all-task"><a href="#">全部任务 <span class="sr-only">(current)</span></a></li>
+            <li id="catalog-create-or-modify-task" ><a href="#" >创建/修改 任务</a></li>
+            <li  id="catalog-person-center"><a href="#">个人中心</a></li>
+            <li  id="catalog-about"><a href="#">关于</a></li>
           </ul>
         </div>
         <!--  结束所有任务信息的 左则导航栏目录  -->
-        <!-- 右则内容 -->
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        
+        <!-- ------------------------------------开始所有页面右则内容 --------------------------------------------->
+        <!-- ------------------------------------开始所有任务页面的右则内容 --------------------------------------------->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="all-task-info-div">
           <h1 class="page-header" id="task_name_overview">测试任务概述</h1>
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
-              
             <div id="unsubmit_submiting_num" class="chart_combo" style="width:180px;height:180px;display:inline-block;border-radius:50%">
 			   <!-- 容器 -->
 		    </div>
@@ -156,32 +160,15 @@
           
         </div>
         <!-- /div 结束 展示所有任务 右则内容 -->
-      </div>
-       <!-- /row 结束 展示所有任务 页面的内容 -->
-       
-       
-       <!--  开始创建（修改）新任务的页面 -->
-       <div class="row" id="create_task_div">
       
-        <!--  左则创建（修改）新任务导航栏目录  -->
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li><a href="#">全部任务 </a></li>
-            <li class="active"><a href="#">创建/修改 任务<span class="sr-only">(current)</span></a></li>
-            <li><a href="#">关于</a></li>
-          </ul>
-        </div>
-        <!--  结束创建（修改）新任务 左则导航栏目录  -->
-        
-        
+       <!--------------------------------  开始创建（修改）新任务的页面 ------------------->
         <!-- 右则创建（修改）新任务内容 -->
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="create-task-div">
           <h1 class="page-header">创建/修改 任务</h1>
-			
           <div class="row placeholders">
             <div class="col-xs-24 col-sm-12 placeholder">
 				 <!-- 创建任务提交的表单 -->   
-				 <form class="form-horizontal" role="form">
+				 <form class="form-horizontal" role="form" action="#">
 				  <!-- 添加隐藏域，存储是修改还是创建任务(1,表示创建，2表示修改)，默认为1 -->
 				  <input type='hidden' id='create-or-modify' value='1'>
 				   <!-- 添加隐藏域，当为修改任务时，存储要修改的任务的tid -->
@@ -196,7 +183,7 @@
 				  <div class="form-group">
 				    <label for='dendline_create' class="col-sm-2 control-label" >截止时间</label>
 				    <div class="col-sm-10">
-				    <input class="form-control form_datetime" id='dendline_create' type="text" placeholder="默认为：2099-12-12 00:00:00(选填)" >
+				    <input class="form-control form_datetime" id='dendline_create' type="text" placeholder="默认为：2099-01-01 00:00(选填)" >
 				    <p class="help-block" id="help-dendline-create">这里是块级帮助文本的实例。</p>
 				    </div>
 				  </div>
@@ -273,8 +260,45 @@
           
         </div>
         <!-- /div 结束 创建（修改）任务 右则内容 -->
-      </div>
-       <!-- /row 结束 创建（修改） 任务的页面内容 -->
+       <!------------------------------------  结束 创建（修改） 任务的页面内容----------------- -->
+
+       <!--------------------  开始“个人中心”的页面 -------------------------->
+        <!-- 右则是“个人中心”的内容 -->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="person-center-div">
+          <h1 class="page-header">个人中心</h1>
+			
+          <div class="row placeholders">
+            <div class="col-xs-24 col-sm-12 placeholder">
+            <p>暂待开发</p>
+		    </div>
+            <!--  结束/col-xs-24 col-sm-12  行大小内容 -->
+            </div>
+            <!--  结束/row  内容 -->
+          
+        </div>
+        <!-- /div 结束"个人中心" 右则内容 -->
+
+       <!--------------------  开始“关于”的页面 -------------------------->
+        <!-- 右则是“关于”的内容 -->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="about-div">
+          <h1 class="page-header">关于</h1>
+			
+          <div class="row placeholders">
+            <div class="col-xs-24 col-sm-12 placeholder">
+            <p>这个项目主要是开发给老师或班委使用，帮助其减轻收集电子版文件的压力。</p>
+            <p>创造者：<a href='//github.com/kanlon' target="_blank">zhangcanlong</a></p>
+            <p>如果该项目有什么bug或想提反馈，欢迎发送邮件到：2078697336@qq.com</p>
+		    </div>
+            <!--  结束/col-xs-24 col-sm-12  行大小内容 -->
+            </div>
+            <!--  结束/row  内容 -->
+          
+        </div>
+        <!-- /div 结束"关于" 右则内容 -->
+
+
+       </div>
+       <!-- /row 结束 所有右则 页面的内容 -->
        
        
     </div>

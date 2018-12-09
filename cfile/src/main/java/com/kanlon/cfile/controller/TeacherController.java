@@ -72,6 +72,14 @@ public class TeacherController {
 		if (StringUtils.isEmpty(task.getFileType())) {
 			task.setFileType(null);
 		}
+		// 转化截止时间(如果传入的截止时间是null或""，则将其转化为null)
+		if (StringUtils.isEmpty(task.getDendlineStr())) {
+			task.setDendlineStr(null);
+		}
+		// 转化预提交数量(如果传入的截止时间是null或""，则将其转化为null)
+		if (StringUtils.isEmpty(task.getSubmitNum())) {
+			task.setSubmitNum(null);
+		}
 
 		TaskPO taskPO = new TaskPO();
 		TeacherUserPO userPO = (TeacherUserPO) session.getAttribute("user");
@@ -118,7 +126,7 @@ public class TeacherController {
 		if (StringUtils.isEmpty(task.getDendlineStr())) {
 			task.setDendlineStr(null);
 		}
-		// 转化截止时间(如果传入的截止时间是null或""，则将其转化为null)
+		// 转化预提交数量(如果传入的截止时间是null或""，则将其转化为null)
 		if (StringUtils.isEmpty(task.getSubmitNum())) {
 			task.setSubmitNum(null);
 		}
@@ -359,5 +367,4 @@ public class TeacherController {
 		return result;
 
 	}
-
 }

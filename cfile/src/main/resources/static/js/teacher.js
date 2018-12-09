@@ -11,9 +11,13 @@ function init() {
 	//画任务总数的饼图
 	drawingTaskNum(taskNumPieData, "task_num", 0);
 	//测试隐藏所有任务功能页面
-	$('#all_task_info_div').hide();
+	//$('#all-task-info-div').hide();
 	//隐藏创建（修改）任务的功能页面
-	//$('#create_task_div').hide();
+	$('#create-task-div').hide();
+	//隐藏“个人中心”页面
+	$("#person-center-div").hide();
+	//隐藏“关于”页面
+	$("#about-div").hide();
 	//时间控件的设置
 	$("#dendline_create").datetimepicker({
 		format : 'yyyy-mm-dd hh:ii'
@@ -63,8 +67,8 @@ function getAllTask() {
 
 				rowDataStr += "<tr id='create-row-task-" + json.data[i].tid + "'><td>" + cnt + "</td><td id='create-task-name-" + json.data[i].tid + "'>" + json.data[i].taskName +
 					"</td><td id='create-submit-num-" + json.data[i].tid + "'>" + json.data[i].submitNum + "</td><td id='create-dendline-str-" + json.data[i].tid + "'>" + json.data[i].dendlineStr + "</td>" +
-					"<td id='create-file-type-" + json.data[i].tid + "'>" + getChineseTypeByFileType(json.data[i].fileType) + "</td>"+
-					"<td>" + "<a href='#' id='create-row-a-"+ json.data[i].tid +"'>点击修改</a>" +"</td>"+
+					"<td id='create-file-type-" + json.data[i].tid + "'>" + getChineseTypeByFileType(json.data[i].fileType) + "</td>" +
+					"<td>" + "<a href='#' id='create-row-a-" + json.data[i].tid + "'>点击修改</a>" + "</td>" +
 					"<td id='create-remark-" + json.data[i].tid + "'>" + json.data[i].remark + "</td>" +
 					"</tr>";
 
@@ -118,10 +122,10 @@ function getAllTask() {
 					getTaskLink(taskLinkId.substr(taskLinkId.indexOf("_") + 1));
 				//alert("学生提交该任务文件的链接为(复制以下链接发送给学生，让其提交文件即可)：\n");
 				});
-				
+
 				//添加创建修改页面的任务修改的修改链接事件
-				let modifyAId = "#create-row-a-"+json.data[i].tid;
-				$(modifyAId).click(function(){
+				let modifyAId = "#create-row-a-" + json.data[i].tid;
+				$(modifyAId).click(function() {
 					setModifyTask(modifyAId);
 				});
 			}
@@ -267,28 +271,7 @@ function setAllTaskInCreatePage(rowDataStr) {
 /**
  * 创建任务
  */
-function createTask() {
-	//创建之前进行检验，检验不通过则返回
-	let flagVaild = (canInputTaskName($("#task_name_create").val()) && canInputDendline($("#dendline_create").val()) && 
-			         canInputSubmitNum($("#submit_num_create").val()) && canInputRemark($("#remark_create").val()));
-	if(!flagVaild){
-		return;
-	}
-	let taskName = $("#task_name_create").val();
-	//自己加上时间秒数（因为后台接受需要）
-	let dendline = $("#dendline_create").val();
-	dendline  = isNullOrWhiteSpace(dendline)?"":dendline+":00";
-	let submitNum = $("#submit_num_create").val();
-	let fileType = $("#file_type_create").val();
-	let remark = $("#remark_create").val();
-	let taskInfo = {
-		"taskName" : taskName,
-		"dendlineStr" : dendline,
-		"fileType" : fileType,
-		"submitNum" : submitNum,
-		"remark" : remark
-	};
-	let taskInfoStr = JSON.stringify(taskInfo);
+function createTask(taskInfoStr) {
 	console.log(taskInfoStr);
 	var settings = {
 		"async" : true,
@@ -305,7 +288,8 @@ function createTask() {
 		console.log(json);
 		if (json.code === 0) {
 			alert("创建任务 成功");
-		   //window.location.reload();
+			cleanTaskInfo();
+			getAllTask();
 		} else if (json.code === 1) {
 			alert('创建  失敗,请求错误！' + json.msg);
 		} else {
@@ -318,34 +302,12 @@ function createTask() {
 /**
  * 提交更新任务信息(根据提供的taskInfo数据和tid)
  */
-function updateTask(){
-	//更新之前进行检验，检验不通过则返回
-	let flagVaild = canInputTaskName($("#task_name_create").val()) && canInputDendline($("#dendline_create").val()) && 
-	                canInputSubmitNum($("#submit_num_create").val()) && canInputRemark($("#remark_create").val());
-	if(!flagVaild){
-		return;
-	}
-	let tid = $("#input-hidden-tid").val();
-	let taskName = $("#task_name_create").val();
-	//自己加上时间秒数（因为后台接受需要）
-	let dendline = $("#dendline_create").val();
-	dendline  = isNullOrWhiteSpace(dendline)?"":dendline+":00";
-	let submitNum = $("#submit_num_create").val();
-	let fileType = $("#file_type_create").val();
-	let remark = $("#remark_create").val();
-	let taskInfo = {
-		"taskName" : taskName,
-		"dendlineStr" : dendline,
-		"fileType" : fileType,
-		"submitNum" : submitNum,
-		"remark" : remark
-	};
-	let taskInfoStr = JSON.stringify(taskInfo);
+function updateTask(taskInfoStr, tid) {
 	console.log(taskInfoStr);
 	var settings = {
 		"async" : true,
 		"crossDomain" : true,
-		"url" : "teacher/task/"+tid,
+		"url" : "teacher/task/" + tid,
 		"method" : "PUT",
 		"headers" : {
 			"Content-Type" : "application/json"
@@ -357,7 +319,8 @@ function updateTask(){
 		console.log(json);
 		if (json.code === 0) {
 			alert("修改成功");
-		   // window.location.reload();
+			cleanTaskInfo();
+			getAllTask();
 		} else if (json.code === 1) {
 			alert('修改失敗,请求错误！' + json.msg);
 		} else {
@@ -367,17 +330,16 @@ function updateTask(){
 
 }
 
-
 /**
  * 检查这个任务名是否是能输入的任务名
  */
-function canInputTaskName(taskName){
+function canInputTaskName(taskName) {
 	$('#help-task-name-create').hide();
-	if(isNullOrWhiteSpace(taskName)){
+	if (isNullOrWhiteSpace(taskName)) {
 		$('#help-task-name-create').html("任务名为空");
 		$('#help-task-name-create').show();
 		return false;
-	}else if(taskName.length>30){
+	} else if (taskName.length > 30) {
 		$('#help-task-name-create').html("任务名长度大于30个字符");
 		$('#help-task-name-create').show();
 		return false;
@@ -388,9 +350,9 @@ function canInputTaskName(taskName){
 /**
  * 检查这个输入的截止时间是否正确
  */
-function canInputDendline(dendlineStr){
+function canInputDendline(dendlineStr) {
 	$('#help-dendline-create').hide();
-    if(!/^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$/.test(dendlineStr)){
+	if (!/^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$/.test(dendlineStr) && !isNull(dendlineStr)) {
 		$('#help-dendline-create').html("截止时间不符合格式要求");
 		$('#help-dendline-create').show();
 		return false;
@@ -401,9 +363,9 @@ function canInputDendline(dendlineStr){
 /**
  * 检查这个输入的预提交人数
  */
-function canInputSubmitNum(submitNum){
+function canInputSubmitNum(submitNum) {
 	$('#help-submit-num-create').hide();
-    if(!/^[0-9]{0,4}$/.test(submitNum)){
+	if (!(/^[0-9]{0,5}$/.test(submitNum) && submitNum <= 10000)) {
 		$('#help-submit-num-create').html("预提交人数大于10000或不全是数字");
 		$('#help-submit-num-create').show();
 		return false;
@@ -414,9 +376,9 @@ function canInputSubmitNum(submitNum){
 /**
  * 检查这个输入的备注是否正确
  */
-function canInputRemark(remark){
+function canInputRemark(remark) {
 	$('#help-remark-createe').hide();
-    if(remark.length>500){
+	if (remark.length > 500) {
 		$('#help-remark-create').html("输入的备注长度大于500!");
 		$('#help-remark-create').show();
 		return false;
@@ -426,57 +388,205 @@ function canInputRemark(remark){
 /**
  * 点击表格中每行的修改链接时，设置修改内容,传入该a标签的id
  */
-function setModifyTask(aId){
+function setModifyTask(aId) {
 	let tid = aId.split("-")[3];
 	//得到该行任务的信息
-	let taskName = $("#create-task-name-"+tid).html();
-	let dendlineStr = $("#create-dendline-str-"+tid).html();
-	let submitNum = $("#create-submit-num-"+tid).html();
-	let fileType = $("#create-file-type-"+tid).html();
-	fileType=getEnglishFileTypeByChineseFileType(fileType);
-	let remark = $("#create-remark-"+tid).html();
-	
-	
+	let taskName = $("#create-task-name-" + tid).html();
+	let dendlineStr = $("#create-dendline-str-" + tid).html();
+	let submitNum = $("#create-submit-num-" + tid).html();
+	let fileType = $("#create-file-type-" + tid).html();
+	fileType = getEnglishFileTypeByChineseFileType(fileType);
+	let remark = $("#create-remark-" + tid).html();
+
+
 	//设置隐藏域为修改，2和设置tid
 	$('#create-or-modify').val(2);
 	$('#input-hidden-tid').val(tid);
 	//设置各个输入框的值
 	$("#task_name_create").val(taskName);
-	$("#dendline_create").val(dendlineStr);
+	$("#dendline_create").val(dendlineStr.substr(0, 16));
 	$("#submit_num_create").val(submitNum);
 	$("#file_type_create").val(fileType);
 	$("#remark_create").val(remark);
 }
 
+/**
+ * 清除提交from中的任务信息，还原为默认值
+ */
+function cleanTaskInfo() {
+	//设置隐藏域为创建，1
+	$('#create-or-modify').val(1);
+	$('#input-hidden-tid').val("");
+	//设置各个输入框的值
+	$("#task_name_create").val("");
+	$("#dendline_create").val("");
+	$("#submit_num_create").val("");
+	$("#file_type_create").val("全部类型");
+	$("#remark_create").val("");
+}
+
+/**
+ * 所有任务按钮点击的事件
+ */
+function allTaskClick() {
+	//激活目录
+	$('#catalog-all-task').attr("class", "active");
+	$('#catalog-create-or-modify-task').attr("class", "");
+	$('#catalog-person-center').attr("class", "");
+	$('#catalog-about').attr("class", "");
+	//展所有任务功能页面
+	$('#all-task-info-div').show();
+	//隐藏创建（修改）任务的功能页面
+	$('#create-task-div').hide();
+	//隐藏“个人中心”页面
+	$("#person-center-div").hide();
+	//隐藏“关于”页面
+	$("#about-div").hide();
+
+}
+/**
+ * 创建/修改 按钮点击的事件
+ */
+function createOrModifyClick() {
+	//激活目录
+	$('#catalog-all-task').attr("class", "");
+	$('#catalog-create-or-modify-task').attr("class", "active");
+	$('#catalog-person-center').attr("class", "");
+	$('#catalog-about').attr("class", "");
+	//测试隐藏所有任务功能页面
+	$('#all-task-info-div').hide();
+	//隐藏创建（修改）任务的功能页面
+	$('#create-task-div').show();
+	//隐藏“个人中心”页面
+	$("#person-center-div").hide();
+	//隐藏“关于”页面
+	$("#about-div").hide();
+
+}
+/**
+ * 关于 按钮点击的事件
+ */
+function aboutClick() {
+	//激活目录
+	$('#catalog-all-task').attr("class", "");
+	$('#catalog-create-or-modify-task').attr("class", "");
+	$('#catalog-person-center').attr("class", "");
+	$('#catalog-about').attr("class", "active");
+	//测试隐藏所有任务功能页面
+	$('#all-task-info-div').hide();
+	//隐藏创建（修改）任务的功能页面
+	$('#create-task-div').hide();
+	//隐藏“关于”页面
+	$("#about-div").show();
+	//隐藏“个人中心”页面
+	$("#person-center-div").hide();
+
+}
+
+/**
+ * “个人中心” 按钮点击的事件
+ */
+function personCenterClick() {
+	//激活目录
+	$('#catalog-all-task').attr("class", "");
+	$('#catalog-create-or-modify-task').attr("class", "");
+	$('#catalog-person-center').attr("class", "active");
+	$('#catalog-about').attr("class", "");
+	//测试隐藏所有任务功能页面
+	$('#all-task-info-div').hide();
+	//隐藏创建（修改）任务的功能页面
+	$('#create-task-div').hide();
+	//隐藏“个人中心”页面
+	$("#person-center-div").show();
+	//隐藏“关于”页面
+	$("#about-div").hide();
+
+}
+
 // 给创建/修改按钮添加事件
 $("#create_submit").click(function() {
 	let modifyOrCreateFlag = $('#create-or-modify').val();
+	let tid = $("#input-hidden-tid").val();
+	let taskName = $("#task_name_create").val();
+	//自己加上时间秒数（因为后台接受需要）
+	let dendline = $("#dendline_create").val();
+	dendline = isNullOrWhiteSpace(dendline) ? "2099-01-01 00:00:00" : dendline + ":00";
+	let submitNum = $("#submit_num_create").val();
+	let fileType = $("#file_type_create").val();
+	let remark = $("#remark_create").val();
+	let taskInfo = {
+		"taskName" : taskName,
+		"dendlineStr" : dendline,
+		"fileType" : fileType,
+		"submitNum" : submitNum,
+		"remark" : remark
+	};
+	let taskInfoStr = JSON.stringify(taskInfo);
 	//创建任务
-	if(modifyOrCreateFlag==1){
-		createTask();
-	}else if(modifyOrCreateFlag==2){
+	if (modifyOrCreateFlag == 1) {
+		//创建之前进行检验，检验不通过则返回
+		let flagVaild = false;
+		flagVaild = (canInputTaskName($("#task_name_create").val()) && canInputDendline($("#dendline_create").val()) &&
+		canInputSubmitNum($("#submit_num_create").val()) && canInputRemark($("#remark_create").val()));
+		if (!flagVaild) {
+			return;
+		}
+		createTask(taskInfoStr);
+	} else if (modifyOrCreateFlag == 2) {
+		//更新之前进行检验，检验不通过则返回
+		flagVaild = canInputTaskName($("#task_name_create").val()) && canInputDendline($("#dendline_create").val()) &&
+		canInputSubmitNum($("#submit_num_create").val()) && canInputRemark($("#remark_create").val());
+		if (!flagVaild) {
+			return;
+		}
 		//修改任务
-		updateTask();
+		updateTask(taskInfoStr, tid);
 	}
-	
+
 });
 //任务名改变事件
-$("#task_name_create").change(function(){
+$("#task_name_create").change(function() {
 	canInputTaskName($("#task_name_create").val());
 });
 //截止时间改变事件
-$("#dendline_create").change(function(){
+$("#dendline_create").change(function() {
 	canInputDendline($("#dendline_create").val());
 });
 //预提交人数改变事件
-$("#submit_num_create").change(function(){
+$("#submit_num_create").change(function() {
 	canInputSubmitNum($("#submit_num_create").val());
 });
 //备注改变事件
-$("#remark_create").change(function(){
+$("#remark_create").change(function() {
 	canInputRemark($("#remark_create").val());
 });
-//点击
+//点击全部任务目录栏或导航栏
+$("#catalog-all-task").click(function() {
+	allTaskClick();
 
+});
+$("#nav-all-task").click(function() {
+	allTaskClick();
+});
+//点击创建/修改任务的目录栏或导航栏
+$("#catalog-create-or-modify-task").click(function() {
+	createOrModifyClick();
+});
+$("#nav-create-or-modify-task").click(function() {
+	createOrModifyClick();
+});
+//点击“个人中心”的目录栏或导航栏
+$("#catalog-person-center").click(function() {
+	personCenterClick();
+});
+$("#nav-person-center").click(function() {
+	personCenterClick();
+});
 
-
+//点击关于的目录栏或导航栏
+$("#catalog-about").click(function() {
+	aboutClick();
+});
+$("#nav-about").click(function() {
+	aboutClick();
+});

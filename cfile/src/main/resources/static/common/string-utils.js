@@ -1,3 +1,33 @@
+//登录的信息的全局变量，存储登录用户的信息()
+USER={
+	"username":"",
+	"nickname":"",
+	//表示登录的状态，0表示未登录，1表示已登录
+	"status":0 
+};
+/**
+ * 设置cookie
+ */
+function setCookie(cname,cvalue,exdays){
+    var d = new Date();
+    d.setTime(d.getTime()+(exdays*24*60*60*1000));
+    var expires = "expires="+d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
+}
+/**
+ * 得到cookie中的值
+ */
+function getCookie(cname){
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(name)===0) { return c.substring(name.length,c.length); }
+    }
+    return "";
+}
+
+
 /**
  * 判断字符串是否为null或者都是空格，如：str=null，str="  "
  */

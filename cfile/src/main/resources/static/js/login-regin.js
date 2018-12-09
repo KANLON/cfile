@@ -80,6 +80,10 @@ function login(username,password,loginCaptcha) {
 		console.log(json);
 		if(json.code===0){
 			window.alert("登陆成功");
+			//设置首页的 登录/注册按钮 // TODO(还要考虑退出，设置全局变量)
+			USER.status=1;
+			USER.username=username;
+			setCookie("user",JSON.stringify(USER),1/48);
 			window.location.href = '/teacher.html';
 		//登陆失败
 		}else if(json.code===1){
