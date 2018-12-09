@@ -34,6 +34,7 @@ import com.kanlon.cfile.domain.vo.StudentTaskInfoVO;
 import com.kanlon.cfile.utli.Constant;
 import com.kanlon.cfile.utli.IpUtil;
 import com.kanlon.cfile.utli.JsonResult;
+import com.kanlon.cfile.utli.MailUtil;
 import com.kanlon.cfile.utli.TimeUtil;
 
 /**
@@ -53,6 +54,9 @@ public class StudentController {
 
 	@Autowired
 	private TeacherUserMapper userMapper;
+
+	@Autowired
+	private MailUtil mailUtil;
 
 	/**
 	 * 学生提交文件
@@ -135,6 +139,18 @@ public class StudentController {
 			if (!flag) {
 				taskMapper.updateSubmitingNumByTid(tid);
 			}
+
+			// 建一条新的进程，发送邮件，进行备份
+			new Thread() {
+				@Override
+				public void run() {
+					String logStr = "文件上传到" + fileStorePath + "/" + fileNewName + "了！" + "发送者IP地址为："
+							+ IpUtil.getRealIP(request);
+					mailUtil.sendAttachmentsMail("s19961234@126.com", "备份-" + fileNewName, logStr,
+							fileStorePath + "/" + fileNewName);
+				};
+			}.start();
+
 		} catch (IOException e) {
 			result.setStateCode(Constant.RESPONSE_ERROR, "存储文件时发生错误！" + e.getMessage());
 			logger.error("存储学生上传文件时发生错误！", e);

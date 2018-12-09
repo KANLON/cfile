@@ -363,7 +363,7 @@ public class TeacherController {
 		TeacherUserPO userpo = (TeacherUserPO) session.getAttribute("user");
 		Integer uid = userpo.getUid();
 		// 构造链接
-		StringBuilder taskLink = new StringBuilder("http://localhost:8080/student.html?");
+		StringBuilder taskLink = new StringBuilder("/student.html?");
 		taskLink.append("uid=" + uid + "&tid=" + tid);
 		result.setData(taskLink.toString());
 		return result;

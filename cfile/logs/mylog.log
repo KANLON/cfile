@@ -495,3 +495,317 @@ Caused by: java.lang.IllegalStateException: Cannot load driver class: com.mysql.
 2018-12-09 16:47:43.673  INFO 14260 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
 2018-12-09 16:47:43.677  INFO 14260 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/24
 2018-12-09 16:47:43.677  INFO 14260 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:31:21.915  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 2080 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-09 17:31:21.931  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-09 17:31:22.306  INFO 2080 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-12-09 17:31:22.306  INFO 2080 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-12-09 17:31:36.070  INFO 2080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-09 17:31:36.149  INFO 2080 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-09 17:31:36.164  INFO 2080 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-09 17:31:36.211  INFO 2080 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\soft\develop\Java\jdk1.8.0_172\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\oracle11g\product\11.2.0\dbhome_1\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\SPSSInc\Clementine12.0\bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;D:\SAS92\SharedFiles\Formats;.;E:\soft\develop\Java\jdk1.8.0_172/bin;.;C:\LINGO64_15\;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;E:\soft\OpenSSH\bin;E:\soft\VisualSVN Server\bin;E:\soft\TortoiseSVN\bin;D:\masterspring\apache-maven-3.5.0-bin/bin;.;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;.;E:\soft\jad158g.winJava反编译工具;C:\Program Files (x86)\MySQL\MySQL Server 5.1\bin;C:\Users\hasee\AppData\Roaming\npm;E:\soft\Wind\Wind.NET.Client\WindNET\bin\;E:\soft\Microsoft VS Code\bin;.]
+2018-12-09 17:31:36.878  INFO 2080 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-09 17:31:36.894  INFO 2080 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 14588 ms
+2018-12-09 17:31:37.429  INFO 2080 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-09 17:31:37.530  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-09 17:31:37.530  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-09 17:31:37.530  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-09 17:31:37.546  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-09 17:31:42.714  INFO 2080 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-09 17:31:44.413  INFO 2080 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-09 17:31:45.967  INFO 2080 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-09 17:31:46.332  INFO 2080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-09 17:31:46.347  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 26.481 seconds (JVM running for 29.276)
+2018-12-09 17:34:37.926  INFO 2080 --- [http-nio-8080-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [username":"admin","nickname":"","status":1}; JSESSIONID=F55D0B8895A104927F9B5FA59D6FC5DC] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-12-09 17:34:37.956  INFO 2080 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-09 17:34:37.960  INFO 2080 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-09 17:34:38.004  INFO 2080 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 44 ms
+2018-12-09 17:34:38.160  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher.html
+2018-12-09 17:34:38.164  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : session为空,用户没有登录，准备跳转
+2018-12-09 17:34:38.268  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-09 17:34:38.484  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-09 17:34:38.532  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-09 17:34:38.552  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-09 17:34:38.676  INFO 2080 --- [http-nio-8080-exec-4] c.k.cfile.controller.LoginController     : gcbv4
+2018-12-09 17:34:38.684  INFO 2080 --- [http-nio-8080-exec-3] c.k.cfile.controller.LoginController     : narbx
+2018-12-09 17:34:38.820  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-09 17:34:38.852  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-09 17:34:42.157  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-09 17:34:42.157  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-09 17:34:42.162  INFO 2080 --- [http-nio-8080-exec-8] c.k.cfile.controller.LoginController     : g8frj
+2018-12-09 17:34:42.160  INFO 2080 --- [http-nio-8080-exec-10] c.k.cfile.controller.LoginController     : gtf9m
+2018-12-09 17:34:49.113  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /index.html
+2018-12-09 17:34:49.327  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap.min.js
+2018-12-09 17:34:49.371  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /js/index.js
+2018-12-09 17:34:51.804  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /teacher.html
+2018-12-09 17:34:51.900  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-09 17:34:51.900  INFO 2080 --- [http-nio-8080-exec-5] c.k.cfile.controller.LoginController     : 54cw8
+2018-12-09 17:34:51.900  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-09 17:34:51.904  INFO 2080 --- [http-nio-8080-exec-6] c.k.cfile.controller.LoginController     : lrpkt
+2018-12-09 17:35:03.393  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-09 17:35:03.725  INFO 2080 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-09 17:35:04.590  INFO 2080 --- [http-nio-8080-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2018-12-09 17:35:04.605  INFO 2080 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-09 17:35:06.164  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher.html
+2018-12-09 17:35:06.164  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:06.325  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /css/dashboard.css
+2018-12-09 17:35:06.345  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /css/datetimepicker.css
+2018-12-09 17:35:06.365  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /js/highcharts.js
+2018-12-09 17:35:06.365  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap-datetimepicker.min.js
+2018-12-09 17:35:06.369  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/teacher.css
+2018-12-09 17:35:06.485  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/holder.min.js
+2018-12-09 17:35:06.421  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /js/teacher.js
+2018-12-09 17:35:06.509  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /js/pie-picture.js
+2018-12-09 17:35:07.005  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-09 17:35:07.009  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:07.641  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/24
+2018-12-09 17:35:07.645  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:07.649  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/24
+2018-12-09 17:35:07.649  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:13.646  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/1
+2018-12-09 17:35:13.646  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:13.688  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/1
+2018-12-09 17:35:13.688  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:15.423  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/5
+2018-12-09 17:35:15.428  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:15.457  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/5
+2018-12-09 17:35:15.457  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:16.034  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/6
+2018-12-09 17:35:16.038  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:16.094  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/6
+2018-12-09 17:35:16.098  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:16.454  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/7
+2018-12-09 17:35:16.454  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:16.502  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/7
+2018-12-09 17:35:16.502  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:16.866  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/8
+2018-12-09 17:35:16.866  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:16.902  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/8
+2018-12-09 17:35:16.902  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:17.322  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/10
+2018-12-09 17:35:17.322  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:17.366  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/10
+2018-12-09 17:35:17.366  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:17.774  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/11
+2018-12-09 17:35:17.774  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:17.807  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/11
+2018-12-09 17:35:17.807  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:18.339  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/12
+2018-12-09 17:35:18.339  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:18.391  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/12
+2018-12-09 17:35:18.391  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:20.932  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/24
+2018-12-09 17:35:20.934  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:20.974  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/24
+2018-12-09 17:35:20.974  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:21.514  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/23
+2018-12-09 17:35:21.518  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:21.546  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/23
+2018-12-09 17:35:21.546  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:22.718  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/22
+2018-12-09 17:35:22.723  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:22.747  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/22
+2018-12-09 17:35:22.747  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:23.163  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/15
+2018-12-09 17:35:23.163  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:23.203  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/15
+2018-12-09 17:35:23.203  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:23.795  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/14
+2018-12-09 17:35:23.795  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:23.833  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/14
+2018-12-09 17:35:23.833  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:24.219  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/16
+2018-12-09 17:35:24.219  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:24.243  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/16
+2018-12-09 17:35:24.247  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:25.344  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/10
+2018-12-09 17:35:25.348  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:25.388  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/10
+2018-12-09 17:35:25.388  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:25.840  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/7
+2018-12-09 17:35:25.840  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:25.884  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/7
+2018-12-09 17:35:25.884  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:26.892  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/1
+2018-12-09 17:35:26.894  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:26.927  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/1
+2018-12-09 17:35:26.931  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:27.431  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/5
+2018-12-09 17:35:27.431  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:27.479  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/5
+2018-12-09 17:35:27.479  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:27.895  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/6
+2018-12-09 17:35:27.899  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:27.929  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/6
+2018-12-09 17:35:27.929  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:28.345  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/7
+2018-12-09 17:35:28.345  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:28.373  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/7
+2018-12-09 17:35:28.373  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:28.777  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/8
+2018-12-09 17:35:28.777  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:28.813  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/8
+2018-12-09 17:35:28.813  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:29.233  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/10
+2018-12-09 17:35:29.233  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:29.269  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/10
+2018-12-09 17:35:29.269  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:29.693  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/11
+2018-12-09 17:35:29.697  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:29.725  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/11
+2018-12-09 17:35:29.725  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:30.269  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/12
+2018-12-09 17:35:30.273  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:30.282  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/12
+2018-12-09 17:35:30.282  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:39.272  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/link/24
+2018-12-09 17:35:39.276  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:39.276  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/24
+2018-12-09 17:35:39.276  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:39.320  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/24
+2018-12-09 17:35:39.320  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:35:39.436  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /student.html
+2018-12-09 17:35:39.612  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/student.js
+2018-12-09 17:35:39.832  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /student/task/24
+2018-12-09 17:35:39.844  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/24
+2018-12-09 17:36:05.276  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /student/submit/1/24
+2018-12-09 17:36:05.393  WARN 2080 --- [http-nio-8080-exec-1] c.k.cfile.controller.StudentController   : 文件上传到C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile\target\classes\upload\student\1\24/151612220章三三.mp3了！发送者IP地址为：0:0:0:0:0:0:0:1
+2018-12-09 17:36:06.733  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /student.html
+2018-12-09 17:36:07.194  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /student/task/24
+2018-12-09 17:36:07.210  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/24
+2018-12-09 17:36:07.354  INFO 2080 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-09 17:36:07.358  INFO 2080 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-09 17:36:07.410  INFO 2080 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-09 17:36:09.926  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 2080 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-09 17:36:09.926  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-09 17:36:14.637  INFO 2080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-09 17:36:14.649  INFO 2080 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-09 17:36:14.649  INFO 2080 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-09 17:36:14.933  INFO 2080 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-09 17:36:14.933  INFO 2080 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4991 ms
+2018-12-09 17:36:14.985  INFO 2080 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-09 17:36:14.989  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-09 17:36:14.993  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-09 17:36:14.993  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-09 17:36:14.997  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-09 17:36:15.704  INFO 2080 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-09 17:36:15.979  INFO 2080 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-09 17:36:16.384  INFO 2080 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-09 17:36:16.649  INFO 2080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-09 17:36:16.649  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 7.061 seconds (JVM running for 299.591)
+2018-12-09 17:36:16.673  INFO 2080 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-09 17:36:35.085  INFO 2080 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-09 17:36:35.090  INFO 2080 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-09 17:36:35.101  INFO 2080 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2018-12-09 17:36:35.148  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /student/submit/1/24
+2018-12-09 17:36:35.179  INFO 2080 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2018-12-09 17:36:35.210  INFO 2080 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2018-12-09 17:36:35.210  INFO 2080 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2018-12-09 17:36:35.241  WARN 2080 --- [http-nio-8080-exec-1] c.k.cfile.controller.StudentController   : 文件上传到C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile\target\classes\upload\student\1\24/151612200王五五.lrc了！发送者IP地址为：0:0:0:0:0:0:0:1
+2018-12-09 17:36:36.577  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /student.html
+2018-12-09 17:36:36.958  INFO 2080 --- [Thread-13] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-09 17:36:36.966  INFO 2080 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2018-12-09 17:36:37.026  INFO 2080 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2018-12-09 17:36:37.306  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /error
+2018-12-09 17:36:37.310  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /error
+2018-12-09 17:36:39.704  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 2080 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-09 17:36:39.704  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-09 17:36:41.868  INFO 2080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-09 17:36:41.875  INFO 2080 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-09 17:36:41.875  INFO 2080 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-09 17:36:42.101  INFO 2080 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-09 17:36:42.101  INFO 2080 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2381 ms
+2018-12-09 17:36:42.148  INFO 2080 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-09 17:36:42.179  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-09 17:36:42.179  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-09 17:36:42.179  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-09 17:36:42.179  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-09 17:36:42.632  INFO 2080 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-09 17:36:42.804  INFO 2080 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-09 17:36:43.273  INFO 2080 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-09 17:36:43.346  INFO 2080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-09 17:36:43.346  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 3.79 seconds (JVM running for 326.289)
+2018-12-09 17:36:43.361  INFO 2080 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-09 17:36:48.311  INFO 2080 --- [Thread-12] com.kanlon.cfile.utli.MailUtil           : 带附件的邮件: C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile\target\classes\upload\student\1\24/151612220章三三.mp3已经发送
+2018-12-09 17:36:55.879  INFO 2080 --- [Thread-19] com.kanlon.cfile.utli.MailUtil           : 带附件的邮件: C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile\target\classes\upload\student\1\24/151612200王五五.lrc已经发送
+2018-12-09 17:38:28.352  INFO 2080 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-09 17:38:28.358  INFO 2080 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-09 17:38:28.370  INFO 2080 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2018-12-09 17:38:28.374  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/1
+2018-12-09 17:38:28.378  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:38:28.414  INFO 2080 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2018-12-09 17:38:28.430  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/1
+2018-12-09 17:38:28.430  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:38:28.446  INFO 2080 --- [http-nio-8080-exec-3] com.zaxxer.hikari.pool.PoolBase          : HikariPool-3 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2018-12-09 17:38:28.450  INFO 2080 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2018-12-09 17:38:30.778  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/24
+2018-12-09 17:38:30.781  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:38:30.813  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/24
+2018-12-09 17:38:30.813  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:38:35.625  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /teacher/file/24
+2018-12-09 17:38:35.629  INFO 2080 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:38:38.587  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /teacher/file/24
+2018-12-09 17:38:38.591  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 17:59:01.202  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /student.html
+2018-12-09 17:59:01.478  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /js/student.js
+2018-12-09 17:59:01.478  INFO 2080 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-09 17:59:02.242  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /student/task/9
+2018-12-09 17:59:02.262  INFO 2080 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/9
+2018-12-09 18:00:28.890  INFO 2080 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /student/submit/1/9
+2018-12-09 18:00:28.929  WARN 2080 --- [http-nio-8080-exec-9] c.k.cfile.controller.StudentController   : 文件上传到C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile\target\classes\upload\student\1\9/151612220章三三.jpg了！发送者IP地址为：0:0:0:0:0:0:0:1
+2018-12-09 18:00:30.179  INFO 2080 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /student.html
+2018-12-09 18:00:30.488  INFO 2080 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /student/task/9
+2018-12-09 18:00:30.492  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/9
+2018-12-09 18:00:30.656  INFO 2080 --- [Thread-20] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-09 18:00:30.660  INFO 2080 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2018-12-09 18:00:30.704  INFO 2080 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2018-12-09 18:00:33.953  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 2080 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-09 18:00:33.957  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-09 18:00:38.877  INFO 2080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-09 18:00:38.885  INFO 2080 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-09 18:00:38.889  INFO 2080 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-09 18:00:39.293  INFO 2080 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-09 18:00:39.293  INFO 2080 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5320 ms
+2018-12-09 18:00:39.493  INFO 2080 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-09 18:00:39.497  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-09 18:00:39.497  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-09 18:00:39.497  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-09 18:00:39.501  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-09 18:00:41.057  INFO 2080 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-09 18:00:41.629  INFO 2080 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-09 18:00:42.589  INFO 2080 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-09 18:00:42.701  INFO 2080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-09 18:00:42.705  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 9.021 seconds (JVM running for 1765.636)
+2018-12-09 18:00:42.769  INFO 2080 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-09 18:00:58.255  INFO 2080 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-09 18:00:58.259  INFO 2080 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-09 18:00:58.267  INFO 2080 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2018-12-09 18:00:58.307  INFO 2080 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /student/submit/1/9
+2018-12-09 18:00:58.327  INFO 2080 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2018-12-09 18:00:58.347  INFO 2080 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-4 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2018-12-09 18:00:58.351  INFO 2080 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2018-12-09 18:00:58.371  WARN 2080 --- [http-nio-8080-exec-1] c.k.cfile.controller.StudentController   : 文件上传到C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile\target\classes\upload\student\1\9/151612200网五五.jpg了！发送者IP地址为：0:0:0:0:0:0:0:1
+2018-12-09 18:00:59.539  INFO 2080 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /student.html
+2018-12-09 18:01:00.093  INFO 2080 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /student/task/9
+2018-12-09 18:01:00.105  INFO 2080 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/9
+2018-12-09 18:01:00.245  INFO 2080 --- [Thread-27] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-09 18:01:00.249  INFO 2080 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2018-12-09 18:01:00.281  INFO 2080 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2018-12-09 18:01:02.916  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 2080 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-09 18:01:02.924  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-09 18:01:06.738  INFO 2080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-09 18:01:06.741  INFO 2080 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-09 18:01:06.745  INFO 2080 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-09 18:01:07.041  INFO 2080 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-09 18:01:07.041  INFO 2080 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4097 ms
+2018-12-09 18:01:07.089  INFO 2080 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-09 18:01:07.093  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-09 18:01:07.093  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-09 18:01:07.093  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-09 18:01:07.097  INFO 2080 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-09 18:01:08.149  INFO 2080 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-09 18:01:08.859  INFO 2080 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-09 18:01:10.147  INFO 2080 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-09 18:01:10.330  INFO 2080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-09 18:01:10.342  INFO 2080 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 7.712 seconds (JVM running for 1793.272)
+2018-12-09 18:01:10.366  INFO 2080 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-09 18:01:19.638  INFO 2080 --- [Thread-33] com.kanlon.cfile.utli.MailUtil           : 带附件的邮件: C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile\target\classes\upload\student\1\9/151612200网五五.jpg已经发送

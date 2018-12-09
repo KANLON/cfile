@@ -64,6 +64,9 @@ UPDATE task SET  submiting_num=0 WHERE tid=1;
 -- 更新是否通过验证
 UPDATE task SET authentication=1 WHERE tid=1;
 
+-- 还原所有任务数据
+UPDATE task SET submiting_num=0;
+
 
 
 
