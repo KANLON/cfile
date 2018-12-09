@@ -2087,3 +2087,105 @@ java.lang.NullPointerException: null
 2018-12-09 12:01:23.977  INFO 15484 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher/file/1
 2018-12-09 12:01:23.978  INFO 15484 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
 2018-12-09 12:01:26.550  INFO 15484 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/file/1
+2018-12-09 12:01:26.550  INFO 15484 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 12:05:20.330  INFO 15484 --- [Thread-13] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-09 12:05:20.335  INFO 15484 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2018-12-09 12:05:20.351  INFO 15484 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2018-12-09 12:05:22.186  INFO 15484 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 15484 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-09 12:05:22.199  INFO 15484 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-09 12:05:25.786  INFO 15484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-09 12:05:25.798  INFO 15484 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-09 12:05:25.799  INFO 15484 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-09 12:05:25.984  INFO 15484 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-09 12:05:25.990  INFO 15484 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3771 ms
+2018-12-09 12:05:26.017  INFO 15484 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-09 12:05:26.019  INFO 15484 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-09 12:05:26.019  INFO 15484 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-09 12:05:26.020  INFO 15484 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-09 12:05:26.020  INFO 15484 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-09 12:05:26.458  INFO 15484 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-09 12:05:26.579  INFO 15484 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-09 12:05:26.829  INFO 15484 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-09 12:05:26.883  INFO 15484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-09 12:05:26.899  INFO 15484 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 4.888 seconds (JVM running for 6041.093)
+2018-12-09 12:05:26.899  INFO 15484 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-09 12:06:47.026  INFO 15484 --- [Thread-22] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-09 12:06:49.072  INFO 15484 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 15484 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-09 12:06:49.080  INFO 15484 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-09 12:06:54.276  INFO 15484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-09 12:06:54.788  INFO 15484 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-09 12:06:54.789  INFO 15484 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-09 12:06:54.934  INFO 15484 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-09 12:06:54.935  INFO 15484 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5847 ms
+2018-12-09 12:06:56.216  INFO 15484 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-09 12:06:56.295  INFO 15484 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-09 12:06:56.296  INFO 15484 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-09 12:06:56.296  INFO 15484 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-09 12:06:56.296  INFO 15484 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-09 12:07:01.141  INFO 15484 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-09 12:07:01.362  INFO 15484 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-09 12:07:02.196  INFO 15484 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-09 12:07:02.312  INFO 15484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-09 12:07:02.314  INFO 15484 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 13.355 seconds (JVM running for 6136.508)
+2018-12-09 12:07:02.320  INFO 15484 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-09 12:07:53.080  INFO 15484 --- [Thread-28] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-09 12:07:54.827  INFO 15484 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 15484 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-09 12:07:54.827  INFO 15484 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-09 12:07:55.883  INFO 15484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-09 12:07:55.885  INFO 15484 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-09 12:07:55.886  INFO 15484 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-09 12:07:55.938  INFO 15484 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-09 12:07:55.938  INFO 15484 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1104 ms
+2018-12-09 12:07:55.953  INFO 15484 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-09 12:07:55.954  INFO 15484 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-09 12:07:55.954  INFO 15484 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-09 12:07:55.954  INFO 15484 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-09 12:07:55.954  INFO 15484 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-09 12:07:58.749  INFO 15484 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-09 12:07:59.219  INFO 15484 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-09 12:07:59.423  INFO 15484 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-09 12:07:59.459  INFO 15484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-09 12:07:59.471  INFO 15484 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 4.77 seconds (JVM running for 6193.664)
+2018-12-09 12:07:59.482  INFO 15484 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-09 12:08:38.958  INFO 15484 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-09 12:08:38.960  INFO 15484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-09 12:08:38.967  INFO 15484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2018-12-09 12:08:38.968  INFO 15484 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher.html
+2018-12-09 12:08:38.969  INFO 15484 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 12:08:39.035  INFO 15484 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /css/bootstrap.min.css
+2018-12-09 12:08:39.043  INFO 15484 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-09 12:08:39.045  INFO 15484 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/teacher.css
+2018-12-09 12:08:39.048  INFO 15484 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /css/dashboard.css
+2018-12-09 12:08:39.048  INFO 15484 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /css/datetimepicker.css
+2018-12-09 12:08:39.048  INFO 15484 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-09 12:08:39.062  INFO 15484 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap.min.js
+2018-12-09 12:08:39.076  INFO 15484 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/holder.min.js
+2018-12-09 12:08:39.090  INFO 15484 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/highcharts.js
+2018-12-09 12:08:39.090  INFO 15484 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-09 12:08:39.108  INFO 15484 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap-datetimepicker.min.js
+2018-12-09 12:08:39.119  INFO 15484 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /js/pie-picture.js
+2018-12-09 12:08:39.131  INFO 15484 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-09 12:08:39.147  INFO 15484 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /js/teacher.js
+2018-12-09 12:08:39.379  INFO 15484 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /css/bootstrap.min.css.map
+2018-12-09 12:08:39.383  INFO 15484 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /error
+2018-12-09 12:08:39.454  INFO 15484 --- [http-nio-8080-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/jquery.min.js
+2018-12-09 12:08:39.685  INFO 15484 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-09 12:08:39.685  INFO 15484 --- [http-nio-8080-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 12:08:39.690  INFO 15484 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2018-12-09 12:08:39.702  INFO 15484 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2018-12-09 12:08:40.086  INFO 15484 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/highcharts.js.map
+2018-12-09 12:08:40.091  INFO 15484 --- [http-nio-8080-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /error
+2018-12-09 12:08:40.159  INFO 15484 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/24
+2018-12-09 12:08:40.159  INFO 15484 --- [http-nio-8080-exec-8] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 12:08:40.172  INFO 15484 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/24
+2018-12-09 12:08:40.173  INFO 15484 --- [http-nio-8080-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 12:08:46.010  INFO 15484 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/1
+2018-12-09 12:08:46.010  INFO 15484 --- [http-nio-8080-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 12:08:46.028  INFO 15484 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/1
+2018-12-09 12:08:46.028  INFO 15484 --- [http-nio-8080-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 12:08:48.516  INFO 15484 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /teacher/file/1
+2018-12-09 12:08:48.517  INFO 15484 --- [http-nio-8080-exec-6] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 12:08:52.193  INFO 15484 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /teacher/file/1
+2018-12-09 12:08:52.194  INFO 15484 --- [http-nio-8080-exec-2] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-09 12:08:55.334  INFO 15484 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/file/1
+2018-12-09 12:08:55.334  INFO 15484 --- [http-nio-8080-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录

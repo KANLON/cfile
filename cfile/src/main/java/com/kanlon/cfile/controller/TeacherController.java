@@ -324,7 +324,9 @@ public class TeacherController {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("application/octet-stream");
 			fis = new FileInputStream(file);
-			response.setHeader("Content-Disposition", "attachment; filename=" + file.getName());
+			// 解决显示不了下载文件时，中文文件名问题，大体的原因就是header中只支持ASCII，所以我们传输的文件名必须是ASCII
+			String fileName = new String(file.getName().getBytes(), "ISO-8859-1");
+			response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 			IOUtils.copy(fis, response.getOutputStream());
 			response.flushBuffer();
 		} catch (IOException e) {
