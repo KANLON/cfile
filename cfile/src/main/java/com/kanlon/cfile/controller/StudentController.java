@@ -77,6 +77,8 @@ public class StudentController {
 		JsonResult<String> result = new JsonResult<>();
 		// 标志是否已经是提交了重复的文件
 		boolean flag = false;
+		// 获取ip客户ip地址
+		String clientIP = IpUtil.getRealIP(request);
 		if (submitVO.getFile() == null || StringUtils.isEmptyOrWhitespace(submitVO.getName())
 				|| StringUtils.isEmptyOrWhitespace(submitVO.getStudentId())) {
 			result.setStateCode(Constant.REQUEST_ERROR, "学号或文件或姓名为null");
@@ -123,7 +125,10 @@ public class StudentController {
 					File repeatFile = new File(repeatFilePath + "/" + studentIdAndName
 							+ TimeUtil.getLocalDateTimeByDate(new Date()) + oldSuffix);
 					repeatFile.createNewFile();
+					// 这里复制文件名之后会热部署，把之前的request清空
+					logger.debug("复制前输出request：" + request);
 					FileCopyUtils.copy(tempFiles[i], repeatFile);
+					logger.debug("复制后输出request：" + request);
 					tempFiles[i].delete();
 					flag = true;
 				}
@@ -131,7 +136,7 @@ public class StudentController {
 
 			BufferedOutputStream out = new BufferedOutputStream(
 					new FileOutputStream(new File(fileStorePath + "/" + fileNewName)));
-			logger.warn("文件上传到" + fileStorePath + "/" + fileNewName + "了！" + "发送者IP地址为：" + IpUtil.getRealIP(request));
+			logger.warn("文件上传到" + fileStorePath + "/" + fileNewName + "了！" + "发送者IP地址为：" + clientIP);
 			out.write(submitVO.getFile().getBytes());
 			out.flush();
 			out.close();
@@ -139,15 +144,15 @@ public class StudentController {
 			if (!flag) {
 				taskMapper.updateSubmitingNumByTid(tid);
 			}
-
+			logger.debug("主线程内输出：" + request);
 			// 建一条新的进程，发送邮件，进行备份
 			new Thread() {
 				@Override
 				public void run() {
-					String logStr = "文件上传到" + fileStorePath + "/" + fileNewName + "了！" + "发送者IP地址为："
-							+ IpUtil.getRealIP(request);
+					String logStr = "文件上传到" + fileStorePath + "/" + fileNewName + "了！" + "发送者IP地址为：" + clientIP;
 					mailUtil.sendAttachmentsMail("s19961234@126.com", "备份-" + fileNewName, logStr,
 							fileStorePath + "/" + fileNewName);
+					logger.debug("另一条线程输出：" + request);
 				};
 			}.start();
 
