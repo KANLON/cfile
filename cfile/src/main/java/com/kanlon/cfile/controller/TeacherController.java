@@ -170,6 +170,7 @@ public class TeacherController {
 		JsonResult<List<TaskInfoListsVO>> result = new JsonResult<>();
 		List<TaskInfoListsVO> tasks = new ArrayList<>();
 		List<TaskPO> taskPOs = taskMapper.getAll();
+
 		if (taskPOs == null || taskPOs.isEmpty()) {
 			return result;
 		}

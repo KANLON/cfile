@@ -211,7 +211,7 @@ function getTaskLink(tid) {
 	}).done(function(json) {
 		console.log(json);
 		if (json.code === 0) {
-			window.open(json.data);
+			window.location.href=json.data;
 		} else if (json.code == 1) {
 			alert('获取错误！' + json.msg);
 		} else {

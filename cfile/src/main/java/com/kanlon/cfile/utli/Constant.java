@@ -38,9 +38,9 @@ public final class Constant {
 	 * 上传的目录
 	 */
 	// 测试可以使用这个
-	public static final String UPLOAD_FILE_PATH = WEB_ROOT + "/upload";
+	// public static final String UPLOAD_FILE_PATH = WEB_ROOT + "/upload";
 	// 部署的正式需要使用这个
-	// public static final String UPLOAD_FILE_PATH = "/opt/cfile" + "/upload";
+	public static final String UPLOAD_FILE_PATH = "/opt/cfile" + "/upload";
 
 	/**
 	 * 学生提交上传的目录
