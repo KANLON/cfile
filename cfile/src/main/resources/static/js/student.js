@@ -1,4 +1,7 @@
+//姓名的长度
 let lengthReg =  new RegExp("^.{0,20}$");
+//学生提交状态（用于防止重复提交表单）,默认为未提交（false）
+let studentSubmitStatu = false;
 
 /**
  * 初始化函数
@@ -159,6 +162,12 @@ function checkFileSize(target) {
  * 提交任务信息和文件
  */
 function submitFile(taskInfoFromData,uid,tid){
+   //如果是已经提交
+   if(studentSubmitStatu){
+	   return;
+   }
+   //设置为已经发送了异步提交
+   studentSubmitStatu=true;
    console.log("发送的fromdata"+convertFormDataToJson(taskInfoFromData));
    $.ajax({  
        url: 'student/submit/'+uid+'/'+tid,  
@@ -173,12 +182,15 @@ function submitFile(taskInfoFromData,uid,tid){
        if(json.code==0){  
            alert("提交成功");  
            //getSubmitStudentIdList();
+           //异步提交响应回来之后再设置为提交状态为默认值，才能再次提交
+           studentSubmitStatu=false;
            window.location.reload();
        }else if(json.code==1){  
            alert('提交失敗,请求错误！'+json.msg);  
        }else{
     	   alert("内部服务器错误！请重试或联系管理者：zhangcanlong"+json.msg);
-       }  
+       }
+       //提交之后清楚disabled
        
    });  
 }
@@ -196,6 +208,8 @@ $("#student_submit").click(function() {
 		window.alert("请确保url正确！，当前你的url缺少uid或tid参数");
 	}else{
 	    submitFile(taskInfoFromData,uid,tid);
+		//提交之后清楚不可用状态
+		$('#student_submit').removeAttr("disabled");
 	}
 });
 

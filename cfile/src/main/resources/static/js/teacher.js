@@ -1,3 +1,6 @@
+//创建/修改 任务 提交状态（用于防止重复提交表单）,默认为未提交（false）
+let createOrModifySubmitStatu = false;
+
 
 /************       全部任务信息的js   ****************/
 
@@ -272,6 +275,10 @@ function setAllTaskInCreatePage(rowDataStr) {
  * 创建任务
  */
 function createTask(taskInfoStr) {
+	//如果是已经发送异步请求，则直接返回
+	if(createOrModifySubmitStatu){return;}
+	//设置已经发送异步请求
+	createOrModifySubmitStatu=true;
 	console.log(taskInfoStr);
 	var settings = {
 		"async" : true,
@@ -290,6 +297,8 @@ function createTask(taskInfoStr) {
 			alert("创建任务 成功");
 			cleanTaskInfo();
 			getAllTask();
+			//等异步请求回来后设置提交状态为false
+			createOrModifySubmitStatu=false;
 		} else if (json.code === 1) {
 			alert('创建  失敗,请求错误！' + json.msg);
 		} else {
@@ -303,6 +312,10 @@ function createTask(taskInfoStr) {
  * 提交更新任务信息(根据提供的taskInfo数据和tid)
  */
 function updateTask(taskInfoStr, tid) {
+	//如果是已经发送异步请求，则直接返回
+	if(createOrModifySubmitStatu){return;}
+	//设置已经发送异步请求
+	createOrModifySubmitStatu=true;
 	console.log(taskInfoStr);
 	var settings = {
 		"async" : true,
@@ -321,6 +334,8 @@ function updateTask(taskInfoStr, tid) {
 			alert("修改成功");
 			cleanTaskInfo();
 			getAllTask();
+			//等异步请求回来后设置提交状态为false
+			createOrModifySubmitStatu=false;
 		} else if (json.code === 1) {
 			alert('修改失敗,请求错误！' + json.msg);
 		} else {
