@@ -16,7 +16,7 @@
 
 3. 学生（游客）端主要页面是以下这个页面。<br/>
 <img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/student-submit.png" width="200" hight="400"></img>
-<img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/student-submit.git" width="600" hight="400"></img>
+<img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/student-submit.gif" width="600" hight="400"></img>
 
 `说明:`学生通过填写学号，姓名和上传要求的文件，然后点击提交就可以完成该任务的提交，提交完之后，下方会出现该任务所有人学号的提交名单。学生提交之后要留意一下是否出现了自己的名单，只有出现了自己的名单才是提交成功，另外主要注意，下面的名单最多显示100条，要查看完整的名单，请点击最下面的链接。
 
@@ -28,7 +28,7 @@
 
 
 <p>创建/修改 任务功能页面</p>
-<img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/teacher-create-or-modify-task.png" width="200" hight="300"></img><br/>
+<img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/teacher-create-or-modify-task.png" width="200" hight="250"></img><br/>
 
 `说明:`在这个页面，老师或班委可以创建任务或修改任务的信息（任务名，截止提交时间，预提交数，要提交的文件类型，该任务描述（备注））。<br/>
 创建新任务：直接在该页面填写上面的信息，然后点击【创建/修改】按钮，则会弹出【创建成功】消息窗，表示完成创建。创建的新任务会立即出现在下面的任务信息表格中的第一行。<br/>
