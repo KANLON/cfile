@@ -1,5 +1,5 @@
 # 在线收集文件项目
-项目展示链接：<a href="http://kanlon.ink:8082">kanlon.ink:8082</a><br/><br/>
+项目展示链接：<a href="http://cfile.kanlon.ink/">cfile.kanlon.ink/</a><br/><br/>
 &emsp;&emsp;这个项目主要是帮助班级班委，老师等便捷收集班级同学的文件的小项目。 <br/><br/>
 &emsp;&emsp;传统收集文件，图片的方式都是通过微信或邮箱收集，这种收集方法难以统计人数和浪费大量同学们发送邮箱的时间，收集人统计的时间。这个项目采用web项目在线收集和自动统计名单，大大减轻收集人的时间和发送者的时间。
 <hr/>
@@ -22,17 +22,25 @@
 
 4. 老师或班委端的页面主要有以下两个功能页面。<br/>
 <p>任务概况功能页面</p>
-<img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/task-overview.png" width="600" hight="1000"></img><br/>
+<img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/task-overview.gif" width="600" hight="1000"></img><br/>
 
 `说明:`在这个页面，老师或班委可以查看到所有任务的信息（任务名，已提交数，预提交数，截止提交时间等），还可以对某个人提交的文件或对整个任务所有提交的文件进行下载。另外通过点击该页面中【提交链接->点击获取】超链接，可以获取到某个任务学生应该提交的链接，只要复制新页面的链接或在微信端转发新的学生提交页面给学生，则学生可以通过该学生提交页面提交该任务。
 
 
 <p>创建/修改 任务功能页面</p>
-<img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/teacher-create-or-modify-task.png" width="200" hight="250"></img><br/>
+<img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/teacher-create-or-modify-task.png" width="1000" hight="600"></img><br/>
 
 `说明:`在这个页面，老师或班委可以创建任务或修改任务的信息（任务名，截止提交时间，预提交数，要提交的文件类型，该任务描述（备注））。<br/>
-创建新任务：直接在该页面填写上面的信息，然后点击【创建/修改】按钮，则会弹出【创建成功】消息窗，表示完成创建。创建的新任务会立即出现在下面的任务信息表格中的第一行。<br/>
-修改任务信息：首先在任务信息表格中点击某项任务中的【点击修改】超链接，然后该任务的信息会填写在上面的任务信息输出框中，修改你需要修改的任务信息栏，然后点击【创建/修改】按钮，则会弹出【修改成功】消息窗，表示完成修改。修改的新任务会立即出现在下面的任务信息表格中的第一行。<br/>
+
+###### 创建新任务
+直接在该页面填写上面的信息，然后点击【创建/修改】按钮，则会弹出【创建成功】消息窗，表示完成创建。创建的新任务会立即出现在下面的任务信息表格中的第一行。<br/>
+
+<img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/create-task.gif" width="1000" hight="600"></img><br/>
+
+###### 修改任务信息
+首先在任务信息表格中点击某项任务中的【点击修改】超链接，然后该任务的信息会填写在上面的任务信息输出框中，修改你需要修改的任务信息栏，然后点击【创建/修改】按钮，则会弹出【修改成功】消息窗，表示完成修改。修改的新任务会立即出现在下面的任务信息表格中的第一行。<br/>
+
+<img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/modify-task.gif" width="1000" hight="600"></img><br/>
 
 
 ### 开发进度记录
