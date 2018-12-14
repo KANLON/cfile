@@ -1,0 +1,917 @@
+2018-12-14 09:43:03.318  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 10884 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-14 09:43:03.380  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-14 09:43:03.755  INFO 10884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-12-14 09:43:03.755  INFO 10884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-12-14 09:43:15.500  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2018-12-14 09:43:15.623  INFO 10884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-14 09:43:15.639  INFO 10884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-14 09:43:15.717  INFO 10884 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\soft\develop\Java\jdk1.8.0_172\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\oracle11g\product\11.2.0\dbhome_1\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\SPSSInc\Clementine12.0\bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;D:\SAS92\SharedFiles\Formats;.;E:\soft\develop\Java\jdk1.8.0_172/bin;.;C:\LINGO64_15\;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;E:\soft\OpenSSH\bin;E:\soft\VisualSVN Server\bin;E:\soft\TortoiseSVN\bin;D:\masterspring\apache-maven-3.5.0-bin/bin;.;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;.;E:\soft\jad158g.winJava反编译工具;C:\Program Files (x86)\MySQL\MySQL Server 5.1\bin;C:\Users\hasee\AppData\Roaming\npm;E:\soft\Wind\Wind.NET.Client\WindNET\bin\;E:\soft\Microsoft VS Code\bin;.]
+2018-12-14 09:43:16.566  INFO 10884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-14 09:43:16.581  INFO 10884 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 12826 ms
+2018-12-14 09:43:16.800  INFO 10884 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-14 09:43:16.831  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-14 09:43:16.847  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-14 09:43:16.847  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-14 09:43:16.847  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-14 09:43:21.425  INFO 10884 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-14 09:43:23.048  INFO 10884 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-14 09:43:24.128  INFO 10884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-14 09:43:24.400  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2018-12-14 09:43:24.415  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 23.602 seconds (JVM running for 26.44)
+2018-12-14 09:43:38.081  INFO 10884 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-14 09:43:38.085  INFO 10884 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-14 09:43:38.177  INFO 10884 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 92 ms
+2018-12-14 09:43:38.545  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /index.html
+2018-12-14 09:43:38.901  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /css/bootstrap.min.css
+2018-12-14 09:43:38.969  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /css/cover.css
+2018-12-14 09:43:38.981  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 09:43:39.021  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap.min.js
+2018-12-14 09:43:39.033  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 09:43:39.089  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 09:43:39.133  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 09:43:39.197  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/index.js
+2018-12-14 09:43:39.425  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /js/jquery.min.js
+2018-12-14 09:43:42.277  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 09:43:42.375  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 09:43:42.375  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 09:43:42.395  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 09:43:42.395  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:43:42.487  INFO 10884 --- [http-nio-8082-exec-2] c.k.cfile.controller.LoginController     : fhz7n
+2018-12-14 09:43:42.487  INFO 10884 --- [http-nio-8082-exec-6] c.k.cfile.controller.LoginController     : wdxtc
+2018-12-14 09:43:42.559  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 09:43:53.965  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 09:44:17.587  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 09:45:17.396  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 09:45:17.568  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 09:45:17.572  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 09:45:17.576  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 09:45:17.584  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 09:45:17.600  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:45:17.604  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 09:45:17.604  INFO 10884 --- [http-nio-8082-exec-9] c.k.cfile.controller.LoginController     : gtet3
+2018-12-14 09:45:17.604  INFO 10884 --- [http-nio-8082-exec-8] c.k.cfile.controller.LoginController     : 7tcs6
+2018-12-14 09:45:18.036  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 09:45:18.196  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 09:45:18.204  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 09:45:32.817  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 09:45:32.905  INFO 10884 --- [http-nio-8082-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-14 09:45:33.850  INFO 10884 --- [http-nio-8082-exec-3] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2018-12-14 09:45:33.861  INFO 10884 --- [http-nio-8082-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-14 09:45:33.893 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==>  Preparing: SELECT * FROM teacher WHERE username = ? or email=? 
+2018-12-14 09:45:33.986 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==> Parameters: admin(String), admin(String)
+2018-12-14 09:45:34.252 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.m.T.getUserByUsernameOrEmail     : <==      Total: 1
+2018-12-14 09:48:47.110  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 09:48:47.359  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 09:48:47.371  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 09:48:47.379  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 09:48:47.439  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 09:48:47.475  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:48:47.479  INFO 10884 --- [http-nio-8082-exec-2] c.k.cfile.controller.LoginController     : kzcvy
+2018-12-14 09:48:47.499  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 09:48:47.503  INFO 10884 --- [http-nio-8082-exec-8] c.k.cfile.controller.LoginController     : 3zrnf
+2018-12-14 09:48:47.983  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 09:48:48.099  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 09:48:48.119  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 09:49:04.641  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 09:49:04.648 DEBUG 10884 --- [http-nio-8082-exec-10] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==>  Preparing: SELECT * FROM teacher WHERE username = ? or email=? 
+2018-12-14 09:49:04.652 DEBUG 10884 --- [http-nio-8082-exec-10] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==> Parameters: dmin(String), dmin(String)
+2018-12-14 09:49:04.656 DEBUG 10884 --- [http-nio-8082-exec-10] c.k.c.d.m.T.getUserByUsernameOrEmail     : <==      Total: 0
+2018-12-14 09:49:07.462  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:49:07.465  INFO 10884 --- [http-nio-8082-exec-1] c.k.cfile.controller.LoginController     : 2qdkz
+2018-12-14 09:49:54.883  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 09:49:54.991  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 09:49:55.003  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 09:49:55.027  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 09:49:55.027  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 09:49:55.031  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:49:55.031  INFO 10884 --- [http-nio-8082-exec-6] c.k.cfile.controller.LoginController     : u9scd
+2018-12-14 09:49:55.095  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 09:49:55.099  INFO 10884 --- [http-nio-8082-exec-10] c.k.cfile.controller.LoginController     : j2tef
+2018-12-14 09:49:55.407  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 09:49:55.491  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 09:49:55.599  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 09:50:11.861  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 09:50:11.868 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==>  Preparing: SELECT * FROM teacher WHERE username = ? or email=? 
+2018-12-14 09:50:11.868 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==> Parameters: adnin(String), adnin(String)
+2018-12-14 09:50:11.872 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.m.T.getUserByUsernameOrEmail     : <==      Total: 0
+2018-12-14 09:50:14.017  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:50:14.023  INFO 10884 --- [http-nio-8082-exec-4] c.k.cfile.controller.LoginController     : e8ng3
+2018-12-14 09:50:52.598  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 09:50:52.811  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 09:50:52.823  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 09:50:52.867  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 09:50:52.823  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 09:50:52.927  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:50:52.927  INFO 10884 --- [http-nio-8082-exec-6] c.k.cfile.controller.LoginController     : 92md2
+2018-12-14 09:50:52.939  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 09:50:52.939  INFO 10884 --- [http-nio-8082-exec-1] c.k.cfile.controller.LoginController     : ryr6m
+2018-12-14 09:50:53.611  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 09:50:53.792  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 09:50:53.836  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 09:53:47.755  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 09:53:47.893  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 09:53:47.961  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 09:53:47.973  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 09:53:48.025  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:53:48.089  INFO 10884 --- [http-nio-8082-exec-2] c.k.cfile.controller.LoginController     : qnbrw
+2018-12-14 09:53:48.089  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 09:53:48.089  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 09:53:48.093  INFO 10884 --- [http-nio-8082-exec-10] c.k.cfile.controller.LoginController     : qfba5
+2018-12-14 09:53:48.545  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 09:53:48.629  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 09:53:48.629  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 09:54:08.373  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 09:54:08.418  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:54:08.418  INFO 10884 --- [http-nio-8082-exec-4] c.k.cfile.controller.LoginController     : ybg3a
+2018-12-14 09:58:06.893  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 09:58:07.057  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 09:58:07.085  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 09:58:07.189  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 09:58:07.189  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 09:58:07.221  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:58:07.221  INFO 10884 --- [http-nio-8082-exec-4] c.k.cfile.controller.LoginController     : 6u9zd
+2018-12-14 09:58:07.261  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 09:58:07.265  INFO 10884 --- [http-nio-8082-exec-6] c.k.cfile.controller.LoginController     : q3ql8
+2018-12-14 09:58:07.697  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 09:58:07.713  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 09:58:07.717  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 09:59:08.220  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 09:59:08.228 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==>  Preparing: SELECT * FROM teacher WHERE username = ? or email=? 
+2018-12-14 09:59:08.232 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==> Parameters: admin(String), admin(String)
+2018-12-14 09:59:08.236 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.c.d.m.T.getUserByUsernameOrEmail     : <==      Total: 1
+2018-12-14 09:59:08.345  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:59:08.345  INFO 10884 --- [http-nio-8082-exec-3] c.k.cfile.controller.LoginController     : 4hfc2
+2018-12-14 09:59:20.136  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 09:59:20.162  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:59:20.166  INFO 10884 --- [http-nio-8082-exec-7] c.k.cfile.controller.LoginController     : bgk9y
+2018-12-14 09:59:28.961  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 09:59:28.967 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==>  Preparing: SELECT * FROM teacher WHERE username = ? or email=? 
+2018-12-14 09:59:28.967 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==> Parameters: admi(String), admi(String)
+2018-12-14 09:59:28.971 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.c.d.m.T.getUserByUsernameOrEmail     : <==      Total: 0
+2018-12-14 09:59:29.026  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 09:59:29.030  INFO 10884 --- [http-nio-8082-exec-1] c.k.cfile.controller.LoginController     : jkbdm
+2018-12-14 10:04:49.036  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 10:04:49.127  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 10:04:49.135  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:04:49.167  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 10:04:49.183  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:04:49.187  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:04:49.187  INFO 10884 --- [http-nio-8082-exec-10] c.k.cfile.controller.LoginController     : ejsd3
+2018-12-14 10:04:49.283  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 10:04:49.283  INFO 10884 --- [http-nio-8082-exec-7] c.k.cfile.controller.LoginController     : qqqhy
+2018-12-14 10:04:49.631  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:04:49.727  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:04:49.783  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 10:05:07.521  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 10:05:07.526 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==>  Preparing: SELECT * FROM teacher WHERE username = ? or email=? 
+2018-12-14 10:05:07.530 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==> Parameters: admin(String), admin(String)
+2018-12-14 10:05:07.530 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.m.T.getUserByUsernameOrEmail     : <==      Total: 1
+2018-12-14 10:05:07.629  INFO 10884 --- [http-nio-8082-exec-8] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [username":"admin","nickname":"","status":1}] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-12-14 10:05:07.637  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /teacher.html
+2018-12-14 10:05:07.637  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:05:07.785  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/bootstrap.min.css
+2018-12-14 10:05:07.785  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:05:07.797  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /css/dashboard.css
+2018-12-14 10:05:07.849  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /css/teacher.css
+2018-12-14 10:05:07.885  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap.min.js
+2018-12-14 10:05:07.909  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/highcharts.js
+2018-12-14 10:05:08.025  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /css/datetimepicker.css
+2018-12-14 10:05:08.081  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:05:08.093  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/pie-picture.js
+2018-12-14 10:05:08.117  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:05:08.121  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:05:08.129  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/holder.min.js
+2018-12-14 10:05:08.201  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /js/teacher.js
+2018-12-14 10:05:08.269  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap-datetimepicker.min.js
+2018-12-14 10:05:09.469  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/jquery.min.js
+2018-12-14 10:05:10.342  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /css/bootstrap.min.css.map
+2018-12-14 10:05:10.346  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-14 10:05:10.350  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:05:10.358 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==>  Preparing: SELECT * FROM task order by mtime desc 
+2018-12-14 10:05:10.358 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==> Parameters: 
+2018-12-14 10:05:10.410  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /error
+2018-12-14 10:05:10.562 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getAll   : <==      Total: 22
+2018-12-14 10:05:10.710  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /js/highcharts.js.map
+2018-12-14 10:05:10.734  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /error
+2018-12-14 10:05:11.334  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/25
+2018-12-14 10:05:11.334  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:05:11.334  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/25
+2018-12-14 10:05:11.338  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:05:11.386 DEBUG 10884 --- [http-nio-8082-exec-10] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:05:11.386 DEBUG 10884 --- [http-nio-8082-exec-10] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 25(Integer)
+2018-12-14 10:05:11.390 DEBUG 10884 --- [http-nio-8082-exec-10] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:05:16.096  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /index.html
+2018-12-14 10:05:16.204  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /css/bootstrap.min.css
+2018-12-14 10:05:16.220  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:05:16.252  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /css/cover.css
+2018-12-14 10:05:16.304  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:05:16.376  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap.min.js
+2018-12-14 10:05:16.376  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:05:16.412  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:05:16.436  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /js/index.js
+2018-12-14 10:05:16.828  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/jquery.min.js
+2018-12-14 10:05:17.104  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /css/bootstrap.min.css.map
+2018-12-14 10:05:17.116  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /error
+2018-12-14 10:05:22.319  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 10:05:22.443  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:05:22.451  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 10:05:22.455  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 10:05:22.459  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:05:22.463  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:05:22.463  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 10:05:22.463  INFO 10884 --- [http-nio-8082-exec-6] c.k.cfile.controller.LoginController     : qaw84
+2018-12-14 10:05:22.463  INFO 10884 --- [http-nio-8082-exec-1] c.k.cfile.controller.LoginController     : nsxh2
+2018-12-14 10:05:22.847  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:05:22.939  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:05:23.023  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 10:06:40.693  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 10:06:40.745  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:06:40.749  INFO 10884 --- [http-nio-8082-exec-8] c.k.cfile.controller.LoginController     : bnsxq
+2018-12-14 10:26:12.067  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher.html
+2018-12-14 10:26:12.070  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:12.362  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /css/bootstrap.min.css
+2018-12-14 10:26:12.398  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:26:12.430  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/dashboard.css
+2018-12-14 10:26:12.478  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/datetimepicker.css
+2018-12-14 10:26:12.478  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /css/teacher.css
+2018-12-14 10:26:12.490  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap.min.js
+2018-12-14 10:26:12.494  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:26:12.530  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /js/holder.min.js
+2018-12-14 10:26:12.534  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap-datetimepicker.min.js
+2018-12-14 10:26:12.538  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/highcharts.js
+2018-12-14 10:26:12.558  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /js/pie-picture.js
+2018-12-14 10:26:12.578  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:26:12.610  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/teacher.js
+2018-12-14 10:26:12.618  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:26:12.978  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /js/jquery.min.js
+2018-12-14 10:26:13.254  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-14 10:26:13.254  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:13.260 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==>  Preparing: SELECT * FROM task order by mtime desc 
+2018-12-14 10:26:13.264 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==> Parameters: 
+2018-12-14 10:26:13.292 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getAll   : <==      Total: 22
+2018-12-14 10:26:13.628  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/25
+2018-12-14 10:26:13.632  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:13.632 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:26:13.636 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 25(Integer)
+2018-12-14 10:26:13.640  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/25
+2018-12-14 10:26:13.640  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:13.640 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:26:16.660  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/1
+2018-12-14 10:26:16.662  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:16.663 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:26:16.667 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 1(Integer)
+2018-12-14 10:26:16.671 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:26:16.711  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/1
+2018-12-14 10:26:16.715  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:18.159  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/25
+2018-12-14 10:26:18.161  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:18.162 DEBUG 10884 --- [http-nio-8082-exec-7] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:26:18.162 DEBUG 10884 --- [http-nio-8082-exec-7] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 25(Integer)
+2018-12-14 10:26:18.170 DEBUG 10884 --- [http-nio-8082-exec-7] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:26:18.198  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/25
+2018-12-14 10:26:18.198  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:47.932  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /teacher.html
+2018-12-14 10:26:47.936  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:48.304  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-14 10:26:48.304  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:48.308 DEBUG 10884 --- [http-nio-8082-exec-10] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==>  Preparing: SELECT * FROM task order by mtime desc 
+2018-12-14 10:26:48.308 DEBUG 10884 --- [http-nio-8082-exec-10] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==> Parameters: 
+2018-12-14 10:26:48.332 DEBUG 10884 --- [http-nio-8082-exec-10] c.k.cfile.dao.mapper.TaskMapper.getAll   : <==      Total: 22
+2018-12-14 10:26:48.724  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/25
+2018-12-14 10:26:48.724  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:48.724 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:26:48.728 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 25(Integer)
+2018-12-14 10:26:48.728  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/25
+2018-12-14 10:26:48.732  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:48.736 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:26:51.101  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /teacher.html
+2018-12-14 10:26:51.105  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:51.421  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-14 10:26:51.425  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:51.429 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==>  Preparing: SELECT * FROM task order by mtime desc 
+2018-12-14 10:26:51.429 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==> Parameters: 
+2018-12-14 10:26:51.449 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.cfile.dao.mapper.TaskMapper.getAll   : <==      Total: 22
+2018-12-14 10:26:51.705  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/25
+2018-12-14 10:26:51.705  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/25
+2018-12-14 10:26:51.709  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:51.709  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:26:51.709 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:26:51.713 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 25(Integer)
+2018-12-14 10:26:51.729 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:27:30.010  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-14 10:27:30.012  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:27:30.013 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==>  Preparing: SELECT * FROM task order by mtime desc 
+2018-12-14 10:27:30.017 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==> Parameters: 
+2018-12-14 10:27:30.053 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getAll   : <==      Total: 22
+2018-12-14 10:27:30.745  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/25
+2018-12-14 10:27:30.749  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:27:30.749 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:27:30.749 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 25(Integer)
+2018-12-14 10:27:30.753 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:27:30.773  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/25
+2018-12-14 10:27:30.773  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:27:47.950  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /index.html
+2018-12-14 10:27:48.087  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /css/cover.css
+2018-12-14 10:27:48.111  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /js/index.js
+2018-12-14 10:27:50.202  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /student.html
+2018-12-14 10:27:50.317  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /css/jumbotron-narrow.css
+2018-12-14 10:27:50.321  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/student.css
+2018-12-14 10:27:50.325  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/student.js
+2018-12-14 10:27:50.629  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /student/task/1
+2018-12-14 10:27:50.625  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/1
+2018-12-14 10:27:50.637 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:27:50.637 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 1(Integer)
+2018-12-14 10:27:50.641 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:27:50.649 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.c.d.mapper.TeacherUserMapper.getOne  : ==>  Preparing: SELECT * FROM teacher WHERE uid = ? 
+2018-12-14 10:27:50.653 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.c.d.mapper.TeacherUserMapper.getOne  : ==> Parameters: 1(Integer)
+2018-12-14 10:27:50.657 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.c.d.mapper.TeacherUserMapper.getOne  : <==      Total: 1
+2018-12-14 10:28:04.238  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /student/submit/1/1
+2018-12-14 10:28:04.367 DEBUG 10884 --- [http-nio-8082-exec-9] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:28:04.367 DEBUG 10884 --- [http-nio-8082-exec-9] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 1(Integer)
+2018-12-14 10:28:04.371 DEBUG 10884 --- [http-nio-8082-exec-9] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:28:04.419  WARN 10884 --- [http-nio-8082-exec-9] c.k.cfile.controller.StudentController   : 文件上传到C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile\target\classes\upload\student\1\1/151612220zhangsansan.lrc了！发送者IP地址为：0:0:0:0:0:0:0:1
+2018-12-14 10:28:04.431 DEBUG 10884 --- [http-nio-8082-exec-9] c.k.c.d.m.T.updateSubmitingNumByTid      : ==>  Preparing: UPDATE TASK SET SUBMITING_NUM=SUBMITING_NUM+1 WHERE TID=? 
+2018-12-14 10:28:04.431 DEBUG 10884 --- [http-nio-8082-exec-9] c.k.c.d.m.T.updateSubmitingNumByTid      : ==> Parameters: 1(Integer)
+2018-12-14 10:28:04.439 DEBUG 10884 --- [http-nio-8082-exec-9] c.k.c.d.m.T.updateSubmitingNumByTid      : <==    Updates: 1
+2018-12-14 10:28:04.443 DEBUG 10884 --- [http-nio-8082-exec-9] c.k.cfile.controller.StudentController   : 主线程内输出：org.springframework.web.multipart.support.StandardMultipartHttpServletRequest@313edb6f
+2018-12-14 10:28:05.519  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /student.html
+2018-12-14 10:28:06.004  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /student/task/1
+2018-12-14 10:28:06.008 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:28:06.008 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 1(Integer)
+2018-12-14 10:28:06.016 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:28:06.020 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.mapper.TeacherUserMapper.getOne  : ==>  Preparing: SELECT * FROM teacher WHERE uid = ? 
+2018-12-14 10:28:06.020 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.mapper.TeacherUserMapper.getOne  : ==> Parameters: 1(Integer)
+2018-12-14 10:28:06.028 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.mapper.TeacherUserMapper.getOne  : <==      Total: 1
+2018-12-14 10:28:06.032  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/1
+2018-12-14 10:28:06.540  INFO 10884 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-14 10:28:06.546  INFO 10884 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-14 10:28:06.562  INFO 10884 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-14 10:28:09.416  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 10884 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-14 10:28:09.420  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-14 10:28:12.304  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2018-12-14 10:28:12.324  INFO 10884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-14 10:28:12.328  INFO 10884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-14 10:28:12.441  INFO 10884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-14 10:28:12.441  INFO 10884 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3016 ms
+2018-12-14 10:28:12.488  INFO 10884 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-14 10:28:12.488  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-14 10:28:12.488  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-14 10:28:12.488  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-14 10:28:12.488  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-14 10:28:13.344  INFO 10884 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-14 10:28:13.635  INFO 10884 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-14 10:28:14.297  INFO 10884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-14 10:28:14.487  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2018-12-14 10:28:14.493  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 5.416 seconds (JVM running for 2716.518)
+2018-12-14 10:28:14.505  INFO 10884 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-14 10:28:43.299  INFO 10884 --- [Thread-13] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-14 10:28:49.177  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 10884 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-14 10:28:49.177  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-14 10:28:59.789  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2018-12-14 10:28:59.797  INFO 10884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-14 10:28:59.849  INFO 10884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-14 10:29:00.261  INFO 10884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-14 10:29:00.261  INFO 10884 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11037 ms
+2018-12-14 10:29:00.321  INFO 10884 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-14 10:29:00.325  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-14 10:29:00.329  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-14 10:29:00.329  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-14 10:29:00.329  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-14 10:29:10.191  INFO 10884 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-14 10:29:12.992  INFO 10884 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-14 10:29:14.376  INFO 10884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-14 10:29:14.839  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2018-12-14 10:29:14.843  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 25.988 seconds (JVM running for 2776.869)
+2018-12-14 10:29:14.883  INFO 10884 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-14 10:29:43.729  INFO 10884 --- [http-nio-8082-exec-10] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-14 10:29:43.737  INFO 10884 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-14 10:29:43.773  INFO 10884 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed initialization in 24 ms
+2018-12-14 10:29:43.777  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /student_submit_list.html
+2018-12-14 10:29:44.001  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/student_submit_list.js
+2018-12-14 10:29:44.286  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/1
+2018-12-14 10:29:46.418  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /student/task/1
+2018-12-14 10:29:46.421  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/1
+2018-12-14 10:29:46.423  INFO 10884 --- [http-nio-8082-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2018-12-14 10:29:46.479  INFO 10884 --- [http-nio-8082-exec-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2018-12-14 10:29:46.483  INFO 10884 --- [http-nio-8082-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2018-12-14 10:29:46.487 DEBUG 10884 --- [http-nio-8082-exec-7] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:29:46.503 DEBUG 10884 --- [http-nio-8082-exec-7] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 1(Integer)
+2018-12-14 10:29:46.507 DEBUG 10884 --- [http-nio-8082-exec-7] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:29:46.531 DEBUG 10884 --- [http-nio-8082-exec-7] c.k.c.d.mapper.TeacherUserMapper.getOne  : ==>  Preparing: SELECT * FROM teacher WHERE uid = ? 
+2018-12-14 10:29:46.531 DEBUG 10884 --- [http-nio-8082-exec-7] c.k.c.d.mapper.TeacherUserMapper.getOne  : ==> Parameters: 1(Integer)
+2018-12-14 10:29:46.535 DEBUG 10884 --- [http-nio-8082-exec-7] c.k.c.d.mapper.TeacherUserMapper.getOne  : <==      Total: 1
+2018-12-14 10:30:06.256  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /student/submit/1/1
+2018-12-14 10:30:06.290 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:30:06.290 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 1(Integer)
+2018-12-14 10:30:06.290 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:30:06.305  WARN 10884 --- [http-nio-8082-exec-5] c.k.cfile.controller.StudentController   : 文件上传到C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile\target\classes\upload\student\1\1/15161222123.lrc了！发送者IP地址为：0:0:0:0:0:0:0:1
+2018-12-14 10:30:06.305 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.m.T.updateSubmitingNumByTid      : ==>  Preparing: UPDATE TASK SET SUBMITING_NUM=SUBMITING_NUM+1 WHERE TID=? 
+2018-12-14 10:30:06.305 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.m.T.updateSubmitingNumByTid      : ==> Parameters: 1(Integer)
+2018-12-14 10:30:06.305 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.m.T.updateSubmitingNumByTid      : <==    Updates: 1
+2018-12-14 10:30:06.321 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.controller.StudentController   : 主线程内输出：org.springframework.web.multipart.support.StandardMultipartHttpServletRequest@672b73c5
+2018-12-14 10:30:07.441  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /student.html
+2018-12-14 10:30:07.597  INFO 10884 --- [Thread-19] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-14 10:30:07.605  INFO 10884 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2018-12-14 10:30:07.653  INFO 10884 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2018-12-14 10:30:10.250  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 10884 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-14 10:30:10.250  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-14 10:30:13.867  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2018-12-14 10:30:13.877  INFO 10884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-14 10:30:13.881  INFO 10884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-14 10:30:14.041  INFO 10884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-14 10:30:14.041  INFO 10884 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3775 ms
+2018-12-14 10:30:14.089  INFO 10884 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-14 10:30:14.093  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-14 10:30:14.093  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-14 10:30:14.093  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-14 10:30:14.093  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-14 10:30:14.889  INFO 10884 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-14 10:30:15.056  INFO 10884 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-14 10:30:16.136  INFO 10884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-14 10:30:16.298  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2018-12-14 10:30:16.302  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 6.288 seconds (JVM running for 2838.329)
+2018-12-14 10:30:16.314  INFO 10884 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-14 10:30:16.350  INFO 10884 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-14 10:30:16.354  INFO 10884 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-14 10:30:16.378  INFO 10884 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 24 ms
+2018-12-14 10:30:16.382  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /student.html
+2018-12-14 10:30:17.134  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/1
+2018-12-14 10:30:17.148  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /student/task/1
+2018-12-14 10:30:17.188  INFO 10884 --- [http-nio-8082-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2018-12-14 10:30:17.416  INFO 10884 --- [http-nio-8082-exec-5] com.zaxxer.hikari.pool.PoolBase          : HikariPool-3 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2018-12-14 10:30:17.416  INFO 10884 --- [http-nio-8082-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2018-12-14 10:30:17.420 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:30:17.420 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 1(Integer)
+2018-12-14 10:30:17.424 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:30:17.436 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.mapper.TeacherUserMapper.getOne  : ==>  Preparing: SELECT * FROM teacher WHERE uid = ? 
+2018-12-14 10:30:17.436 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.mapper.TeacherUserMapper.getOne  : ==> Parameters: 1(Integer)
+2018-12-14 10:30:17.516 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.mapper.TeacherUserMapper.getOne  : <==      Total: 1
+2018-12-14 10:30:27.817  INFO 10884 --- [Thread-25] com.kanlon.cfile.utli.MailUtil           : 带附件的邮件: C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile\target\classes\upload\student\1\1/15161222123.lrc已经发送
+2018-12-14 10:30:27.823 DEBUG 10884 --- [Thread-25] c.k.cfile.controller.StudentController   : 另一条线程输出：org.springframework.web.multipart.support.StandardMultipartHttpServletRequest@672b73c5
+2018-12-14 10:31:58.077  INFO 10884 --- [Thread-26] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-14 10:31:58.121  INFO 10884 --- [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2018-12-14 10:31:58.277  INFO 10884 --- [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2018-12-14 10:32:03.162  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 10884 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-14 10:32:03.177  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-14 10:32:15.127  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2018-12-14 10:32:15.131  INFO 10884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-14 10:32:15.135  INFO 10884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-14 10:32:15.274  INFO 10884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-14 10:32:15.278  INFO 10884 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 12085 ms
+2018-12-14 10:32:15.370  INFO 10884 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-14 10:32:15.378  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-14 10:32:15.378  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-14 10:32:15.378  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-14 10:32:15.378  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-14 10:32:17.458  INFO 10884 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-14 10:32:17.884  INFO 10884 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-14 10:32:18.756  INFO 10884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-14 10:32:18.941  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2018-12-14 10:32:18.953  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 16.093 seconds (JVM running for 2960.978)
+2018-12-14 10:32:18.969  INFO 10884 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-14 10:32:39.855  INFO 10884 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-14 10:32:39.860  INFO 10884 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-14 10:32:39.876  INFO 10884 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2018-12-14 10:32:39.880  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /student.html
+2018-12-14 10:32:40.504  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /student/task/1
+2018-12-14 10:32:40.516  INFO 10884 --- [http-nio-8082-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2018-12-14 10:32:40.524  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/1
+2018-12-14 10:32:40.564  INFO 10884 --- [http-nio-8082-exec-2] com.zaxxer.hikari.pool.PoolBase          : HikariPool-4 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2018-12-14 10:32:40.572  INFO 10884 --- [http-nio-8082-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2018-12-14 10:32:40.572 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:32:40.572 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 1(Integer)
+2018-12-14 10:32:40.576 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:32:40.648 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.c.d.mapper.TeacherUserMapper.getOne  : ==>  Preparing: SELECT * FROM teacher WHERE uid = ? 
+2018-12-14 10:32:40.652 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.c.d.mapper.TeacherUserMapper.getOne  : ==> Parameters: 1(Integer)
+2018-12-14 10:32:40.656 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.c.d.mapper.TeacherUserMapper.getOne  : <==      Total: 1
+2018-12-14 10:32:53.463  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/1
+2018-12-14 10:32:55.580  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /student/task/1
+2018-12-14 10:32:55.587  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /student/task/list/1/1
+2018-12-14 10:32:55.591 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:32:55.599 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 1(Integer)
+2018-12-14 10:32:55.607 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:32:55.611 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.c.d.mapper.TeacherUserMapper.getOne  : ==>  Preparing: SELECT * FROM teacher WHERE uid = ? 
+2018-12-14 10:32:55.615 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.c.d.mapper.TeacherUserMapper.getOne  : ==> Parameters: 1(Integer)
+2018-12-14 10:32:55.619 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.c.d.mapper.TeacherUserMapper.getOne  : <==      Total: 1
+2018-12-14 10:33:15.046  INFO 10884 --- [Thread-32] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-14 10:33:15.051  INFO 10884 --- [Thread-32] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2018-12-14 10:33:15.151  INFO 10884 --- [Thread-32] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2018-12-14 10:33:22.046  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 10884 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-14 10:33:22.050  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-14 10:33:25.730  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2018-12-14 10:33:25.734  INFO 10884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-14 10:33:25.742  INFO 10884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-14 10:33:25.894  INFO 10884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-14 10:33:25.894  INFO 10884 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3688 ms
+2018-12-14 10:33:25.934  INFO 10884 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-14 10:33:25.938  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-14 10:33:25.938  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-14 10:33:25.938  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-14 10:33:25.938  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-14 10:33:26.536  INFO 10884 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-14 10:33:26.848  INFO 10884 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-14 10:33:27.453  INFO 10884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-14 10:33:27.957  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2018-12-14 10:33:27.960  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 7.076 seconds (JVM running for 3029.987)
+2018-12-14 10:33:28.024  INFO 10884 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-14 10:34:08.035  INFO 10884 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-14 10:34:08.041  INFO 10884 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-14 10:34:08.065  INFO 10884 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 24 ms
+2018-12-14 10:34:08.065  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-14 10:34:08.069  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:34:08.077  INFO 10884 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2018-12-14 10:34:08.105  INFO 10884 --- [http-nio-8082-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-5 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2018-12-14 10:34:08.109  INFO 10884 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2018-12-14 10:34:08.113 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==>  Preparing: SELECT * FROM task order by mtime desc 
+2018-12-14 10:34:08.113 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==> Parameters: 
+2018-12-14 10:34:08.189 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.cfile.dao.mapper.TaskMapper.getAll   : <==      Total: 22
+2018-12-14 10:34:08.821  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/25
+2018-12-14 10:34:08.821  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:34:08.825  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/25
+2018-12-14 10:34:08.829  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:34:08.837 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:34:08.837 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 25(Integer)
+2018-12-14 10:34:08.841 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:34:11.797  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/5
+2018-12-14 10:34:11.799  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:34:11.800 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:34:11.800 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 5(Integer)
+2018-12-14 10:34:11.804 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:34:11.836  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/5
+2018-12-14 10:34:11.840  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:34:13.168  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/25
+2018-12-14 10:34:13.169  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:34:13.170 DEBUG 10884 --- [http-nio-8082-exec-8] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 10:34:13.170 DEBUG 10884 --- [http-nio-8082-exec-8] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 25(Integer)
+2018-12-14 10:34:13.174 DEBUG 10884 --- [http-nio-8082-exec-8] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 10:34:13.202  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/25
+2018-12-14 10:34:13.202  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 10:34:37.832  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/bootstrap.min.css
+2018-12-14 10:34:37.847  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap.min.js
+2018-12-14 10:34:37.859  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:34:37.863  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:34:37.875  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:34:37.895  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:34:38.071  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /js/jquery.min.js
+2018-12-14 10:39:20.728  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /index.html
+2018-12-14 10:39:20.954  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /css/cover.css
+2018-12-14 10:39:21.062  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/index.js
+2018-12-14 10:39:23.698  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 10:39:23.803  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 10:39:23.843  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 10:39:23.847  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:39:23.875  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 10:39:23.903  INFO 10884 --- [http-nio-8082-exec-10] c.k.cfile.controller.LoginController     : umm6g
+2018-12-14 10:39:23.903  INFO 10884 --- [http-nio-8082-exec-9] c.k.cfile.controller.LoginController     : uczjk
+2018-12-14 10:39:24.099  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 10:40:43.624  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 10:40:43.783  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:40:43.783  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 10:40:43.827  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 10:40:43.839  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:40:43.887  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:40:43.887  INFO 10884 --- [http-nio-8082-exec-6] c.k.cfile.controller.LoginController     : cv3cl
+2018-12-14 10:40:43.891  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 10:40:43.899  INFO 10884 --- [http-nio-8082-exec-5] c.k.cfile.controller.LoginController     : axaww
+2018-12-14 10:40:44.311  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:40:44.451  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:40:44.495  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 10:41:47.842  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 10:41:48.027  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:41:48.031  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 10:41:48.033  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:41:48.037  INFO 10884 --- [http-nio-8082-exec-1] c.k.cfile.controller.LoginController     : 8dnjb
+2018-12-14 10:41:48.028  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:41:48.058  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 10:41:48.090  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 10:41:48.093  INFO 10884 --- [http-nio-8082-exec-7] c.k.cfile.controller.LoginController     : ndntc
+2018-12-14 10:41:48.499  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:41:48.663  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:41:48.679  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 10:41:51.558  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:41:51.562  INFO 10884 --- [http-nio-8082-exec-9] c.k.cfile.controller.LoginController     : k796n
+2018-12-14 10:42:05.297  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 10:42:05.309 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==>  Preparing: SELECT * FROM teacher WHERE username = ? or email=? 
+2018-12-14 10:42:05.313 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==> Parameters: admin(String), admin(String)
+2018-12-14 10:42:05.313 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.m.T.getUserByUsernameOrEmail     : <==      Total: 1
+2018-12-14 10:42:05.372  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:42:05.376  INFO 10884 --- [http-nio-8082-exec-10] c.k.cfile.controller.LoginController     : fhv9p
+2018-12-14 10:42:28.011  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 10:42:28.015  INFO 10884 --- [http-nio-8082-exec-6] c.k.cfile.controller.LoginController     : 7zljp
+2018-12-14 10:42:48.254  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 10:43:46.839  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 10:44:35.510  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 10:44:35.618  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:44:35.622  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 10:44:35.634  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:44:35.638  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 10:44:35.698  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:44:35.702  INFO 10884 --- [http-nio-8082-exec-7] c.k.cfile.controller.LoginController     : 8zcv4
+2018-12-14 10:44:35.714  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 10:44:35.718  INFO 10884 --- [http-nio-8082-exec-3] c.k.cfile.controller.LoginController     : x7m4f
+2018-12-14 10:44:36.150  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:44:36.234  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:44:36.282  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 10:44:38.242  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:44:38.242  INFO 10884 --- [http-nio-8082-exec-9] c.k.cfile.controller.LoginController     : zadkx
+2018-12-14 10:44:49.356  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 10:44:49.361 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.c.d.m.T.selectTeacherByUsername      : ==>  Preparing: select count(*) from teacher where username=? 
+2018-12-14 10:44:49.363 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.c.d.m.T.selectTeacherByUsername      : ==> Parameters: 2(String)
+2018-12-14 10:44:49.369 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.c.d.m.T.selectTeacherByUsername      : <==      Total: 1
+2018-12-14 10:46:59.682  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 10:49:15.824  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 10:49:16.004  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 10:49:16.004  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:49:16.040  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:49:16.076  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 10:49:16.076  INFO 10884 --- [http-nio-8082-exec-6] c.k.cfile.controller.LoginController     : 67p8h
+2018-12-14 10:49:16.104  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 10:49:16.124  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:49:16.128  INFO 10884 --- [http-nio-8082-exec-10] c.k.cfile.controller.LoginController     : mp4t4
+2018-12-14 10:49:16.404  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:49:16.456  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:49:16.496  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 10:49:18.048  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:49:18.052  INFO 10884 --- [http-nio-8082-exec-8] c.k.cfile.controller.LoginController     : j3gbr
+2018-12-14 10:49:47.526  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 10:50:48.982  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 10:50:49.089  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:50:49.117  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 10:50:49.137  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 10:50:49.141  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:50:49.157  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:50:49.157  INFO 10884 --- [http-nio-8082-exec-2] c.k.cfile.controller.LoginController     : sh9um
+2018-12-14 10:50:49.181  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 10:50:49.181  INFO 10884 --- [http-nio-8082-exec-9] c.k.cfile.controller.LoginController     : 5q2td
+2018-12-14 10:50:49.529  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:50:49.637  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:50:49.649  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 10:50:51.422  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:50:51.426  INFO 10884 --- [http-nio-8082-exec-10] c.k.cfile.controller.LoginController     : zvper
+2018-12-14 10:51:17.723  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 10:53:49.040  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 10:53:49.066  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:53:49.066  INFO 10884 --- [http-nio-8082-exec-2] c.k.cfile.controller.LoginController     : t7hlu
+2018-12-14 10:56:36.249  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 10:56:36.380  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:56:36.384  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 10:56:36.412  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 10:56:36.416  INFO 10884 --- [http-nio-8082-exec-8] c.k.cfile.controller.LoginController     : hxuug
+2018-12-14 10:56:36.416  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:56:36.416  INFO 10884 --- [http-nio-8082-exec-4] c.k.cfile.controller.LoginController     : xpk6m
+2018-12-14 10:56:36.416  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:56:36.480  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 10:56:36.724  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:56:36.776  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:56:36.896  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 10:56:38.604  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:56:38.608  INFO 10884 --- [http-nio-8082-exec-6] c.k.cfile.controller.LoginController     : 58tne
+2018-12-14 10:56:59.709  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 10:57:35.702  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 10:57:39.458  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 10:57:39.561  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:57:39.573  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 10:57:39.581  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 10:57:39.641  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:57:39.649  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:57:39.649  INFO 10884 --- [http-nio-8082-exec-7] c.k.cfile.controller.LoginController     : e7elr
+2018-12-14 10:57:39.681  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 10:57:39.685  INFO 10884 --- [http-nio-8082-exec-3] c.k.cfile.controller.LoginController     : swppa
+2018-12-14 10:57:39.981  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:57:40.025  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:57:40.165  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 10:57:41.577  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:57:41.581  INFO 10884 --- [http-nio-8082-exec-2] c.k.cfile.controller.LoginController     : c227e
+2018-12-14 10:57:48.830  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 10:58:51.157  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 10:58:51.293  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 10:58:51.293  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 10:58:51.297  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 10:58:51.309  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 10:58:51.373  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 10:58:51.373  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:58:51.373  INFO 10884 --- [http-nio-8082-exec-5] c.k.cfile.controller.LoginController     : ektv3
+2018-12-14 10:58:51.373  INFO 10884 --- [http-nio-8082-exec-2] c.k.cfile.controller.LoginController     : ajnas
+2018-12-14 10:58:51.733  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 10:58:51.877  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 10:58:51.889  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 10:58:54.185  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 10:58:54.185  INFO 10884 --- [http-nio-8082-exec-7] c.k.cfile.controller.LoginController     : w3pdm
+2018-12-14 10:59:01.197  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 10:59:26.213  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 11:00:53.237  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 11:00:53.461  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 11:00:53.465  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 11:00:53.473  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 11:00:53.537  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 11:00:53.477  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 11:00:53.541  INFO 10884 --- [http-nio-8082-exec-9] c.k.cfile.controller.LoginController     : rravs
+2018-12-14 11:00:53.541  INFO 10884 --- [http-nio-8082-exec-4] c.k.cfile.controller.LoginController     : 9sdsq
+2018-12-14 11:00:53.477  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 11:00:54.081  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 11:00:54.197  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 11:00:54.205  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 11:00:57.153  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 11:00:57.157  INFO 10884 --- [http-nio-8082-exec-4] c.k.cfile.controller.LoginController     : yu6ww
+2018-12-14 11:01:05.912  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 11:01:10.804  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 11:01:10.808  INFO 10884 --- [http-nio-8082-exec-2] c.k.cfile.controller.LoginController     : ssx8v
+2018-12-14 11:01:33.512  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 11:01:33.636  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 11:01:33.648  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 11:01:33.656  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 11:01:33.676  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 11:01:33.676  INFO 10884 --- [http-nio-8082-exec-7] c.k.cfile.controller.LoginController     : l94db
+2018-12-14 11:01:33.676  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 11:01:33.684  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 11:01:33.684  INFO 10884 --- [http-nio-8082-exec-9] c.k.cfile.controller.LoginController     : ld4c8
+2018-12-14 11:01:33.948  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 11:01:34.064  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 11:01:34.112  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 11:01:35.453  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 11:01:35.457  INFO 10884 --- [http-nio-8082-exec-10] c.k.cfile.controller.LoginController     : 85ar4
+2018-12-14 11:01:48.765  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /login/register
+2018-12-14 11:01:48.773 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.m.T.selectTeacherByUsername      : ==>  Preparing: select count(*) from teacher where username=? 
+2018-12-14 11:01:48.776 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.m.T.selectTeacherByUsername      : ==> Parameters: a(String)
+2018-12-14 11:01:48.779 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.m.T.selectTeacherByUsername      : <==      Total: 1
+2018-12-14 11:01:48.788 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.mapper.TeacherUserMapper.insert  : ==>  Preparing: INSERT INTO teacher(username,password,salt,nickname,email,ctime) VALUES(?, ?, ?,?,?,?) 
+2018-12-14 11:01:48.788 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.mapper.TeacherUserMapper.insert  : ==> Parameters: a(String), fd9421fd1f3c2363c184140671ae4f18(String), cYV7aRSneEFgUkOA43F3dw==(String), null, (String), 2018-12-14 11:01:48.788(Timestamp)
+2018-12-14 11:01:48.795 DEBUG 10884 --- [http-nio-8082-exec-3] c.k.c.d.mapper.TeacherUserMapper.insert  : <==    Updates: 1
+2018-12-14 11:01:50.763  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login.html
+2018-12-14 11:01:50.916  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/ie10-viewport-bug-workaround.css
+2018-12-14 11:01:50.916  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /css/signin.css
+2018-12-14 11:01:50.924  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /css/login.css
+2018-12-14 11:01:50.940  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /js/ie-emulation-modes-warning.js
+2018-12-14 11:01:50.960  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 11:01:50.964  INFO 10884 --- [http-nio-8082-exec-4] c.k.cfile.controller.LoginController     : k92f4
+2018-12-14 11:01:50.980  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /login/register/captcha
+2018-12-14 11:01:50.980  INFO 10884 --- [http-nio-8082-exec-5] c.k.cfile.controller.LoginController     : wh4du
+2018-12-14 11:01:51.216  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /js/ie10-viewport-bug-workaround.js
+2018-12-14 11:01:51.308  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /common/string-utils.js
+2018-12-14 11:01:51.332  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/login-regin.js
+2018-12-14 11:01:52.708  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /login/login/captcha
+2018-12-14 11:01:52.708  INFO 10884 --- [http-nio-8082-exec-1] c.k.cfile.controller.LoginController     : 6sywc
+2018-12-14 11:02:13.505  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /login/teacher
+2018-12-14 11:02:13.510 DEBUG 10884 --- [http-nio-8082-exec-8] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==>  Preparing: SELECT * FROM teacher WHERE username = ? or email=? 
+2018-12-14 11:02:13.510 DEBUG 10884 --- [http-nio-8082-exec-8] c.k.c.d.m.T.getUserByUsernameOrEmail     : ==> Parameters: a(String), a(String)
+2018-12-14 11:02:13.514 DEBUG 10884 --- [http-nio-8082-exec-8] c.k.c.d.m.T.getUserByUsernameOrEmail     : <==      Total: 1
+2018-12-14 11:02:13.547  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher.html
+2018-12-14 11:02:13.547  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:02:13.661  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/bootstrap.min.css
+2018-12-14 11:02:13.661  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /css/dashboard.css
+2018-12-14 11:02:13.673  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /css/datetimepicker.css
+2018-12-14 11:02:13.685  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /css/teacher.css
+2018-12-14 11:02:13.697  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap.min.js
+2018-12-14 11:02:13.869  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /js/holder.min.js
+2018-12-14 11:02:13.917  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /js/highcharts.js
+2018-12-14 11:02:13.973  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /js/bootstrap-datetimepicker.min.js
+2018-12-14 11:02:14.009  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /js/pie-picture.js
+2018-12-14 11:02:14.057  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /js/teacher.js
+2018-12-14 11:02:15.089  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /js/jquery.min.js
+2018-12-14 11:02:15.333  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-14 11:02:15.333  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:02:15.333 DEBUG 10884 --- [http-nio-8082-exec-9] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==>  Preparing: SELECT * FROM task order by mtime desc 
+2018-12-14 11:02:15.337 DEBUG 10884 --- [http-nio-8082-exec-9] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==> Parameters: 
+2018-12-14 11:02:15.345 DEBUG 10884 --- [http-nio-8082-exec-9] c.k.cfile.dao.mapper.TaskMapper.getAll   : <==      Total: 22
+2018-12-14 11:02:15.789  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/25
+2018-12-14 11:02:15.789  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:02:15.793  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/25
+2018-12-14 11:02:15.793 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 11:02:15.797  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:02:15.797 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 25(Integer)
+2018-12-14 11:02:15.801 DEBUG 10884 --- [http-nio-8082-exec-6] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 11:02:23.379  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : /teacher.html
+2018-12-14 11:02:23.383  INFO 10884 --- [http-nio-8082-exec-3] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:02:23.708  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-14 11:02:23.708  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:02:23.712 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==>  Preparing: SELECT * FROM task order by mtime desc 
+2018-12-14 11:02:23.716 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==> Parameters: 
+2018-12-14 11:02:23.736 DEBUG 10884 --- [http-nio-8082-exec-1] c.k.cfile.dao.mapper.TaskMapper.getAll   : <==      Total: 22
+2018-12-14 11:02:24.153  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/25
+2018-12-14 11:02:24.157  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:02:24.153  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/25
+2018-12-14 11:02:24.161  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:02:24.165 DEBUG 10884 --- [http-nio-8082-exec-8] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 11:02:24.169 DEBUG 10884 --- [http-nio-8082-exec-8] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 25(Integer)
+2018-12-14 11:02:24.173 DEBUG 10884 --- [http-nio-8082-exec-8] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 11:04:33.605  INFO 10884 --- [Thread-38] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-14 11:04:33.608  INFO 10884 --- [Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2018-12-14 11:04:33.628  INFO 10884 --- [Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2018-12-14 11:04:39.393  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 10884 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-14 11:04:39.393  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-14 11:04:44.653  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2018-12-14 11:04:44.658  INFO 10884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-14 11:04:44.690  INFO 10884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-14 11:04:45.154  INFO 10884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-14 11:04:45.158  INFO 10884 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5749 ms
+2018-12-14 11:04:45.218  INFO 10884 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-14 11:04:45.222  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-14 11:04:45.222  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-14 11:04:45.222  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-14 11:04:45.222  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-14 11:04:46.478  INFO 10884 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-14 11:04:46.682  INFO 10884 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-14 11:04:47.861  INFO 10884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-14 11:04:48.237  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2018-12-14 11:04:48.241  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 9.108 seconds (JVM running for 4910.268)
+2018-12-14 11:04:48.285  INFO 10884 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-14 11:06:03.190  INFO 10884 --- [Thread-44] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-14 11:06:06.639  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 10884 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-14 11:06:06.647  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-14 11:06:09.667  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2018-12-14 11:06:09.673  INFO 10884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-14 11:06:09.673  INFO 10884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-14 11:06:09.777  INFO 10884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-14 11:06:09.777  INFO 10884 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3106 ms
+2018-12-14 11:06:09.821  INFO 10884 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-14 11:06:09.825  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-14 11:06:09.825  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-14 11:06:09.829  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-14 11:06:09.857  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-14 11:06:10.329  INFO 10884 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-14 11:06:10.513  INFO 10884 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-14 11:06:11.049  INFO 10884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-14 11:06:11.170  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2018-12-14 11:06:11.262  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 5.056 seconds (JVM running for 4993.288)
+2018-12-14 11:06:11.266  INFO 10884 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-14 11:08:45.282  INFO 10884 --- [Thread-50] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-14 11:08:50.358  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Starting DemoApplication on hasee-pc with PID 10884 (started by hasee in C:\Users\hasee\OneDrive\大四上学期\20181125收集文件的项目\collect-file\cfile)
+2018-12-14 11:08:50.362  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-12-14 11:08:53.134  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2018-12-14 11:08:53.138  INFO 10884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-14 11:08:53.142  INFO 10884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-14 11:08:53.262  INFO 10884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-14 11:08:53.262  INFO 10884 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2876 ms
+2018-12-14 11:08:53.298  INFO 10884 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-14 11:08:53.302  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-14 11:08:53.302  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-14 11:08:53.302  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-14 11:08:53.302  INFO 10884 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-14 11:08:57.566  INFO 10884 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-14 11:08:57.822  INFO 10884 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-14 11:08:59.398  INFO 10884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-14 11:08:59.517  INFO 10884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2018-12-14 11:08:59.525  INFO 10884 --- [restartedMain] com.kanlon.cfile.DemoApplication         : Started DemoApplication in 9.907 seconds (JVM running for 5161.551)
+2018-12-14 11:08:59.533  INFO 10884 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-14 11:09:26.716  INFO 10884 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-14 11:09:26.721  INFO 10884 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-14 11:09:26.745  INFO 10884 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 24 ms
+2018-12-14 11:09:26.745  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /teacher.html
+2018-12-14 11:09:26.749  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:09:27.829  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-14 11:09:27.831  INFO 10884 --- [http-nio-8082-exec-2] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:09:27.840  INFO 10884 --- [http-nio-8082-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2018-12-14 11:09:27.868  INFO 10884 --- [http-nio-8082-exec-2] com.zaxxer.hikari.pool.PoolBase          : HikariPool-6 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2018-12-14 11:09:27.868  INFO 10884 --- [http-nio-8082-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2018-12-14 11:09:27.872 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==>  Preparing: SELECT * FROM task where uid=? order by mtime desc 
+2018-12-14 11:09:27.872 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==> Parameters: 5(Integer)
+2018-12-14 11:09:27.876 DEBUG 10884 --- [http-nio-8082-exec-2] c.k.cfile.dao.mapper.TaskMapper.getAll   : <==      Total: 0
+2018-12-14 11:10:13.606  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task
+2018-12-14 11:10:13.611  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:10:13.648  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher.html
+2018-12-14 11:10:13.648  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:10:13.692 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.m.T.selectTaskNameByUid          : ==>  Preparing: SELECT COUNT(*) NUM FROM TASK WHERE UID=? AND TASK_NAME=? 
+2018-12-14 11:10:13.692 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.m.T.selectTaskNameByUid          : ==> Parameters: 5(Integer), 用户a的任务1(String)
+2018-12-14 11:10:13.696 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.d.m.T.selectTaskNameByUid          : <==      Total: 1
+2018-12-14 11:10:13.724 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.dao.mapper.TaskMapper.insertOne    : ==>  Preparing: INSERT INTO task (uid, task_name, dendline, file_type, submit_num, remark, ctime, mtime, dr) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-12-14 11:10:13.728 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.dao.mapper.TaskMapper.insertOne    : ==> Parameters: 5(Integer), 用户a的任务1(String), 2018-12-06 11:50:00.0(Timestamp), image(String), 100(Integer), 用户a的任务1(String), 2018-12-14 11:10:13.7(Timestamp), 2018-12-14 11:10:13.664(Timestamp), 0(Integer)
+2018-12-14 11:10:13.740 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.c.dao.mapper.TaskMapper.insertOne    : <==    Updates: 1
+2018-12-14 11:10:14.564  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-14 11:10:14.564  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:10:14.568 DEBUG 10884 --- [http-nio-8082-exec-8] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==>  Preparing: SELECT * FROM task where uid=? order by mtime desc 
+2018-12-14 11:10:14.568 DEBUG 10884 --- [http-nio-8082-exec-8] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==> Parameters: 5(Integer)
+2018-12-14 11:10:14.572 DEBUG 10884 --- [http-nio-8082-exec-8] c.k.cfile.dao.mapper.TaskMapper.getAll   : <==      Total: 1
+2018-12-14 11:10:14.980  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/26
+2018-12-14 11:10:14.980  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:10:14.983  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/26
+2018-12-14 11:10:14.983  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:10:14.983 DEBUG 10884 --- [http-nio-8082-exec-7] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 11:10:14.987 DEBUG 10884 --- [http-nio-8082-exec-7] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 26(Integer)
+2018-12-14 11:10:14.991 DEBUG 10884 --- [http-nio-8082-exec-7] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 11:11:09.403  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/highcharts.js.map
+2018-12-14 11:11:09.420  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /error
+2018-12-14 11:11:09.828  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /css/bootstrap.min.css.map
+2018-12-14 11:11:09.836  INFO 10884 --- [http-nio-8082-exec-1] com.kanlon.cfile.filter.AuthenFilter     : /error
+2018-12-14 11:12:23.802  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task
+2018-12-14 11:12:23.806  INFO 10884 --- [http-nio-8082-exec-4] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:12:23.810 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.c.d.m.T.selectTaskNameByUid          : ==>  Preparing: SELECT COUNT(*) NUM FROM TASK WHERE UID=? AND TASK_NAME=? 
+2018-12-14 11:12:23.814 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.c.d.m.T.selectTaskNameByUid          : ==> Parameters: 5(Integer), a1(String)
+2018-12-14 11:12:23.842 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.c.d.m.T.selectTaskNameByUid          : <==      Total: 1
+2018-12-14 11:12:23.846 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.c.dao.mapper.TaskMapper.insertOne    : ==>  Preparing: INSERT INTO task (uid, task_name, dendline, file_type, remark, ctime, mtime, dr) VALUES (?, ?, ?, ?, ?, ?, ?, ?) 
+2018-12-14 11:12:23.846 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.c.dao.mapper.TaskMapper.insertOne    : ==> Parameters: 5(Integer), a1(String), 2099-01-01 00:00:00.0(Timestamp), all(String), (String), 2018-12-14 11:12:23.842(Timestamp), 2018-12-14 11:12:23.806(Timestamp), 0(Integer)
+2018-12-14 11:12:23.854 DEBUG 10884 --- [http-nio-8082-exec-4] c.k.c.dao.mapper.TaskMapper.insertOne    : <==    Updates: 1
+2018-12-14 11:12:25.091  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : /teacher/all/tasks
+2018-12-14 11:12:25.094  INFO 10884 --- [http-nio-8082-exec-10] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:12:25.094 DEBUG 10884 --- [http-nio-8082-exec-10] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==>  Preparing: SELECT * FROM task where uid=? order by mtime desc 
+2018-12-14 11:12:25.098 DEBUG 10884 --- [http-nio-8082-exec-10] c.k.cfile.dao.mapper.TaskMapper.getAll   : ==> Parameters: 5(Integer)
+2018-12-14 11:12:25.098 DEBUG 10884 --- [http-nio-8082-exec-10] c.k.cfile.dao.mapper.TaskMapper.getAll   : <==      Total: 2
+2018-12-14 11:12:25.126  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/27
+2018-12-14 11:12:25.126  INFO 10884 --- [http-nio-8082-exec-5] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:12:25.126 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==>  Preparing: SELECT * FROM task WHERE tid = ? 
+2018-12-14 11:12:25.126  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : /teacher/task/list/27
+2018-12-14 11:12:25.126 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : ==> Parameters: 27(Integer)
+2018-12-14 11:12:25.126  INFO 10884 --- [http-nio-8082-exec-8] com.kanlon.cfile.filter.AuthenFilter     : 用户已经登录
+2018-12-14 11:12:25.130 DEBUG 10884 --- [http-nio-8082-exec-5] c.k.cfile.dao.mapper.TaskMapper.getOne   : <==      Total: 1
+2018-12-14 11:12:40.258  INFO 10884 --- [http-nio-8082-exec-6] com.kanlon.cfile.filter.AuthenFilter     : /index.html
+2018-12-14 11:12:40.352  INFO 10884 --- [http-nio-8082-exec-7] com.kanlon.cfile.filter.AuthenFilter     : /css/cover.css
+2018-12-14 11:12:40.356  INFO 10884 --- [http-nio-8082-exec-9] com.kanlon.cfile.filter.AuthenFilter     : /js/index.js
