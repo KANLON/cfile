@@ -27,7 +27,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kanlon.cfile.dao.mapper.TaskMapper;
-import com.kanlon.cfile.dao.mapper.TeacherUserMapper;
 import com.kanlon.cfile.domain.po.TaskPO;
 import com.kanlon.cfile.domain.po.TeacherUserPO;
 import com.kanlon.cfile.domain.vo.TaskInfoListsVO;
@@ -52,9 +51,6 @@ public class TeacherController {
 
 	@Autowired
 	private TaskMapper taskMapper;
-
-	@Autowired
-	private TeacherUserMapper teacherUserMapper;
 
 	/**
 	 * 创建提交任务
@@ -288,6 +284,12 @@ public class TeacherController {
 			response.setHeader("Content-Disposition", "attachment; filename=" + file.getName());
 			IOUtils.copy(fis, response.getOutputStream());
 			response.flushBuffer();
+			// 删除压缩成子文件的重复提交文件
+			File childFilesZip = new File(Constant.UPLOAD_FILE_STUDENT_PATH + "/" + userPO.getUid() + "/" + tid + "/"
+					+ Constant.UPLOAD_FILE_STUDENT_REPEAT_FOLDER + ".zip");
+			if (childFilesZip.exists()) {
+				childFilesZip.delete();
+			}
 		} catch (IOException e) {
 			logger.error("获取文件时发生异常!", e);
 			throw new RuntimeException("获取文件时发生异常！" + e.getMessage());

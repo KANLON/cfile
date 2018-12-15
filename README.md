@@ -1,11 +1,11 @@
 # 在线收集文件项目
-项目展示链接：<a href="http://cfile.kanlon.ink/">cfile.kanlon.ink/</a><br/><br/>
+项目展示链接：<a href="http://cfile.kanlon.ink/">cfile.kanlon.ink</a><br/><br/>
 restful接口文档地址：<a href="https://documenter.getpostman.com/view/3892535/RzffHouP">https://documenter.getpostman.com/view/3892535/RzffHouP</a><br/><br/>
 &emsp;&emsp;这个项目主要是帮助班级班委，老师等便捷收集班级同学的文件的小项目。 <br/><br/>
 &emsp;&emsp;传统收集文件，图片的方式都是通过微信或邮箱收集，这种收集方法难以统计人数和浪费大量同学们发送邮箱的时间，收集人统计的时间。这个项目采用web项目在线收集和自动统计名单，大大减轻收集人的时间和发送者的时间。
 <hr/>
 
-### 项目架构：SpringBoot+Mybatis+MySql+Bootstrap+Jquery
+### 项目架构：SpringBoot+Mybatis+MySql+Bootstrap+Jquery+Lombok
 #### 包结构
 
 <img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/package-structure.png" width="600" hight="400"></img>

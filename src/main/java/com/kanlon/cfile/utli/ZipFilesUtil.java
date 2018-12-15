@@ -13,8 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 将指定文件夹下的所有文件压缩(暂时不对子文件夹进行压缩).
- * 参考资料：https://blog.csdn.net/u010366748/article/details/78615004
+ * 将指定文件夹下的所有文件压缩 参考资料：https://blog.csdn.net/u010366748/article/details/78615004
  *
  * @author zhangcanlong
  * @date 2018年11月30日
@@ -63,7 +62,7 @@ public class ZipFilesUtil {
 					// fs[i].delete();
 				} else if (fs[i].isDirectory()) {
 					// 如果需要对子文件夹进行压缩，再执行这条
-					// compress(fs[i], baseDir + fName + "/");
+					compress(fs[i], baseDir + fName + "/");
 				}
 			}
 		} catch (IOException e) {
