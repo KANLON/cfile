@@ -200,13 +200,22 @@ public class TeacherController {
 	 * @return
 	 */
 	@GetMapping("/task/{tid}")
-	public JsonResult<TeacherTaskInfo> getTaskInfo(@PathVariable(value = "tid") @NotNull Integer tid) {
+	public JsonResult<TeacherTaskInfo> getTaskInfo(@PathVariable(value = "tid") @NotNull Integer tid,
+			HttpSession session) {
 		JsonResult<TeacherTaskInfo> result = new JsonResult<>();
 		TaskPO task = taskMapper.getOne(tid);
 		if (task == null) {
 			result.setStateCode(Constant.REQUEST_ERROR, "所请求的任务不存在");
 			return result;
 		}
+		TeacherUserPO userPO = (TeacherUserPO) session.getAttribute("user");
+		Integer uid = userPO.getUid();
+		// 如果两个用户id不相等，则表示该用户没有权限修改该任务
+		if (task.getUid() != uid) {
+			result.setStateCode(Constant.REQUEST_ERROR, "你没有权限修改该任务！");
+			return result;
+		}
+
 		TeacherTaskInfo taskInfo = new TeacherTaskInfo();
 		taskInfo.setTid(tid);
 		taskInfo.setTaskName(task.getTaskName());
