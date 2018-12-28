@@ -3,12 +3,15 @@ package com.kanlon.cfile.domain.po;
 import java.io.Serializable;
 import java.util.Date;
 
+import lombok.Data;
+
 /**
  * 教师或班委用户对应的数据库的持久层实体类
  *
  * @author zhangcanlong
  * @date 2018年11月28日
  */
+@Data
 public class TeacherUserPO implements Serializable {
 
 	/**
@@ -18,7 +21,7 @@ public class TeacherUserPO implements Serializable {
 	/**
 	 * 自增主键id
 	 */
-	private int uid;
+	private Integer uid;
 	/**
 	 * 用户名
 	 */
@@ -50,85 +53,6 @@ public class TeacherUserPO implements Serializable {
 	/**
 	 * 删除标志
 	 */
-	private int dr;
-
-	public int getUid() {
-		return uid;
-	}
-
-	public void setUid(int uid) {
-		this.uid = uid;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getSalt() {
-		return salt;
-	}
-
-	public void setSalt(String salt) {
-		this.salt = salt;
-	}
-
-	public String getNickname() {
-		return nickname;
-	}
-
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Date getCtime() {
-		return ctime;
-	}
-
-	public void setCtime(Date ctime) {
-		this.ctime = ctime;
-	}
-
-	public Date getMtime() {
-		return mtime;
-	}
-
-	public void setMtime(Date mtime) {
-		this.mtime = mtime;
-	}
-
-	public int getDr() {
-		return dr;
-	}
-
-	public void setDr(int dr) {
-		this.dr = dr;
-	}
-
-	@Override
-	public String toString() {
-		return "TeacherUserPO [uid=" + uid + ", username=" + username + ", password=" + password + ", salt=" + salt
-				+ ", nickname=" + nickname + ", email=" + email + ", ctime=" + ctime + ", mtime=" + mtime + ", dr=" + dr
-				+ "]";
-	}
+	private Integer dr;
 
 }

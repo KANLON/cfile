@@ -27,10 +27,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kanlon.cfile.dao.mapper.TaskMapper;
+import com.kanlon.cfile.dao.mapper.TeacherUserMapper;
 import com.kanlon.cfile.domain.po.TaskPO;
 import com.kanlon.cfile.domain.po.TeacherUserPO;
 import com.kanlon.cfile.domain.vo.TaskInfoListsVO;
 import com.kanlon.cfile.domain.vo.TaskVO;
+import com.kanlon.cfile.domain.vo.TeacherCenterVO;
 import com.kanlon.cfile.domain.vo.TeacherTaskInfo;
 import com.kanlon.cfile.utli.Constant;
 import com.kanlon.cfile.utli.JsonResult;
@@ -52,16 +54,21 @@ public class TeacherController {
 	@Autowired
 	private TaskMapper taskMapper;
 
+	@Autowired
+	private TeacherUserMapper userMapper;
+
+	@Autowired
+	private HttpSession session;
+
 	/**
 	 * 创建提交任务
 	 *
 	 * @param task
 	 *            任务信息
-	 * @param session
 	 * @return
 	 */
 	@PostMapping(value = "/task")
-	public JsonResult<String> createTask(@RequestBody TaskVO task, HttpSession session) {
+	public JsonResult<String> createTask(@RequestBody TaskVO task) {
 		JsonResult<String> result = new JsonResult<>();
 		// 判断任务名是否为null
 		if (StringUtils.isEmpty(task.getTaskName())) {
@@ -106,12 +113,10 @@ public class TeacherController {
 	 *
 	 * @param task
 	 *            任务信息
-	 * @param session
 	 * @return
 	 */
 	@PutMapping(value = "/task/{tid}")
-	public JsonResult<String> modifyTask(@RequestBody TaskVO task, @PathVariable(value = "tid") Integer tid,
-			HttpSession session) {
+	public JsonResult<String> modifyTask(@RequestBody TaskVO task, @PathVariable(value = "tid") Integer tid) {
 		JsonResult<String> result = new JsonResult<>();
 		// 判断任务名是否为null
 		if (StringUtils.isEmpty(task.getTaskName())) {
@@ -159,6 +164,50 @@ public class TeacherController {
 	}
 
 	/**
+	 * 得到个人信息
+	 *
+	 * @return 返回教师或班委个人信息类
+	 */
+	@GetMapping(value = "/center/info")
+	public JsonResult<TeacherCenterVO> getCenterInfo() {
+		JsonResult<TeacherCenterVO> result = new JsonResult<>();
+		TeacherUserPO user = (TeacherUserPO) session.getAttribute(Constant.SESSION_USER);
+		TeacherCenterVO userVO = new TeacherCenterVO();
+		userVO.setAuthentication(0);
+		userVO.setEmail(user.getEmail());
+		userVO.setNickname(user.getNickname());
+		userVO.setUsername(user.getUsername());
+		result.setData(userVO);
+		return result;
+	}
+
+	/**
+	 * 修改个人中心信息(暂时只能修改昵称)
+	 *
+	 * @param newUserInfo
+	 * @return
+	 */
+	@PutMapping(value = "/center/info")
+	public JsonResult<String> modifyCenterInfo(TeacherCenterVO newUserInfo) {
+		JsonResult<String> result = new JsonResult<>();
+		TeacherUserPO user = (TeacherUserPO) session.getAttribute(Constant.SESSION_USER);
+		int uid = user.getUid();
+		TeacherUserPO userPO = new TeacherUserPO();
+		userPO.setUid(uid);
+		userPO.setNickname(StringUtils.isEmpty(newUserInfo.getNickname()) ? null : newUserInfo.getNickname());
+		try {
+			userMapper.updateUserOneByKey(userPO);
+			// 修改完后，更新session里面的用户信息
+			user = userMapper.getOne(uid);
+			session.setAttribute(Constant.SESSION_USER, user);
+		} catch (Exception e) {
+			logger.error("更新用户信息时错误！", e);
+			result.setStateCode(Constant.RESPONSE_ERROR, "修改失败!" + e.getMessage());
+		}
+		return result;
+	}
+
+	/**
 	 * 获取所有发布的任务列表
 	 *
 	 * @param request
@@ -200,8 +249,7 @@ public class TeacherController {
 	 * @return
 	 */
 	@GetMapping("/task/{tid}")
-	public JsonResult<TeacherTaskInfo> getTaskInfo(@PathVariable(value = "tid") @NotNull Integer tid,
-			HttpSession session) {
+	public JsonResult<TeacherTaskInfo> getTaskInfo(@PathVariable(value = "tid") @NotNull Integer tid) {
 		JsonResult<TeacherTaskInfo> result = new JsonResult<>();
 		TaskPO task = taskMapper.getOne(tid);
 		if (task == null) {
@@ -242,11 +290,9 @@ public class TeacherController {
 	 * @return
 	 */
 	@GetMapping("/task/list/{tid}")
-	public JsonResult<List<String>> getSubmitList(@PathVariable(value = "tid") @NotNull Integer tid,
-			HttpServletRequest request) {
+	public JsonResult<List<String>> getSubmitList(@PathVariable(value = "tid") @NotNull Integer tid) {
 		JsonResult<List<String>> result = new JsonResult<>();
 		List<String> submitList = new ArrayList<>();
-		HttpSession session = request.getSession(false);
 		TeacherUserPO user = (TeacherUserPO) session.getAttribute("user");
 		result.setData(submitList);
 		File submitFile = new File(Constant.UPLOAD_FILE_STUDENT_PATH + "/" + user.getUid() + "/" + tid);
@@ -268,15 +314,13 @@ public class TeacherController {
 	/**
 	 * 根据 任务id获取所有提交的文件的压缩包
 	 *
-	 * @param request
 	 * @param response
 	 * @param tid
 	 *            任务id
 	 */
 	@GetMapping("/files/{tid}")
-	public void getSubmitFileZip(HttpServletRequest request, HttpServletResponse response, @PathVariable Integer tid) {
+	public void getSubmitFileZip(HttpServletResponse response, @PathVariable Integer tid) {
 		FileInputStream fis = null;
-		HttpSession session = request.getSession();
 		TeacherUserPO userPO = (TeacherUserPO) session.getAttribute("user");
 		File files = new File(Constant.UPLOAD_FILE_STUDENT_PATH + "/" + userPO.getUid() + "/" + tid);
 
@@ -326,10 +370,9 @@ public class TeacherController {
 	 *            文件名 ，学号姓名
 	 */
 	@GetMapping("/file/{tid}")
-	public void getSubmitFile(HttpServletRequest request, HttpServletResponse response,
-			@PathVariable(value = "tid") Integer tid, @PathParam(value = "filename") String filename) {
+	public void getSubmitFile(HttpServletResponse response, @PathVariable(value = "tid") Integer tid,
+			@PathParam(value = "filename") String filename) {
 		FileInputStream fis = null;
-		HttpSession session = request.getSession();
 		TeacherUserPO userPO = (TeacherUserPO) session.getAttribute("user");
 		File file = new File(Constant.UPLOAD_FILE_STUDENT_PATH + "/" + userPO.getUid() + "/" + tid + "/" + filename);
 
@@ -368,11 +411,10 @@ public class TeacherController {
 	 *
 	 * @param tid
 	 *            项目id
-	 * @param session
 	 * @return
 	 */
 	@GetMapping("/task/link/{tid}")
-	public JsonResult<String> getTaskLink(@PathVariable(value = "tid") Integer tid, HttpSession session) {
+	public JsonResult<String> getTaskLink(@PathVariable(value = "tid") Integer tid) {
 		JsonResult<String> result = new JsonResult<>();
 		if (taskMapper.getOne(tid) == null) {
 			result.setStateCode(Constant.REQUEST_ERROR, "该项目不存在！");

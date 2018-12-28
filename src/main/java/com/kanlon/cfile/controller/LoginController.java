@@ -6,12 +6,14 @@ import java.io.OutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.NotNull;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +26,7 @@ import com.kanlon.cfile.domain.vo.RegisterInfoVO;
 import com.kanlon.cfile.utli.Constant;
 import com.kanlon.cfile.utli.JsonResult;
 import com.kanlon.cfile.utli.MD5Util;
+import com.kanlon.cfile.utli.MailUtil;
 import com.kanlon.cfile.utli.RandomUtil;
 import com.kanlon.cfile.utli.captcha.Captcha;
 import com.kanlon.cfile.utli.captcha.CaptchaUtil;
@@ -42,6 +45,9 @@ public class LoginController {
 
 	@Autowired
 	private TeacherUserMapper teacherUserMapper;
+
+	@Autowired
+	private MailUtil mailUtil;
 
 	/**
 	 * 老师或班委注册
@@ -89,7 +95,7 @@ public class LoginController {
 		userPO.setUsername(registerVO.getUsername());
 		userPO.setPassword(md5Password);
 		userPO.setSalt(salt);
-		teacherUserMapper.insert(userPO);
+		teacherUserMapper.insertUserOne(userPO);
 		return result;
 	}
 
@@ -152,7 +158,7 @@ public class LoginController {
 			result.setStateCode(Constant.REQUEST_ERROR, "用户名或密码错误");
 			return result;
 		}
-		session.setAttribute("user", userPO);
+		session.setAttribute(Constant.SESSION_USER, userPO);
 		return result;
 	}
 
@@ -182,6 +188,62 @@ public class LoginController {
 	}
 
 	/**
+	 * 获取忘记密码的邮箱验证码
+	 *
+	 * @param response
+	 * @param request
+	 */
+	@GetMapping(value = "/forget/password/captcha")
+	public JsonResult<String> getForgetPasswordEmailCaptcha(String email, HttpServletRequest request) {
+		JsonResult<String> result = new JsonResult<>();
+		Captcha captcha = CaptchaUtil.create();
+		String code = captcha.getCode().toLowerCase();
+		logger.info(code);
+		// 将验证码放入session中
+		HttpSession session = request.getSession(true);
+		// 十分钟有效
+		session.setMaxInactiveInterval(10 * 60);
+		session.setAttribute(Constant.SESSION_FORGET_PASSWORD_EMAIL_CAPTCHA, code);
+		// 将用户id存入session中
+		TeacherUserPO userPO = teacherUserMapper.getUserByUsernameOrEmail(email);
+		session.setAttribute(Constant.SESSION_FORGET_PASSWORD_UID, userPO.getUid());
+		// 验证是否存在该邮箱
+		if (teacherUserMapper.selectTeacherByEmail(email) <= 0) {
+			result.setStateCode(Constant.REQUEST_ERROR, "该邮箱还没注册");
+			return result;
+		}
+		// 发送邮箱
+		mailUtil.sendHtmlMail(email, "忘记密码邮箱验证码", "你的忘记密码邮箱验证码为(十分钟内有效):<br/>" + code);
+		return result;
+	}
+
+	/**
+	 * 忘记密码功能中，根据邮箱验证码修改密码
+	 *
+	 * @param newPassword
+	 *            新的密码
+	 * @param emailCaptcha
+	 *            邮箱验证码
+	 * @param session
+	 * @return
+	 */
+	@PutMapping(value = "/find/password")
+	public JsonResult<String> modifyPassword(@NotNull String newPassword, @NotNull String emailCaptcha,
+			HttpSession session) {
+		JsonResult<String> result = new JsonResult<>();
+		String sessionCaptcha = (String) session.getAttribute(Constant.SESSION_FORGET_PASSWORD_EMAIL_CAPTCHA);
+		if (!emailCaptcha.toLowerCase().equals(sessionCaptcha)) {
+			result.setStateCode(Constant.REQUEST_ERROR, "邮箱验证码错误");
+			return result;
+		}
+		int uid = (Integer) session.getAttribute(Constant.SESSION_FORGET_PASSWORD_UID);
+		TeacherUserPO userPO = teacherUserMapper.getOne(uid);
+		userPO.setPassword(MD5Util.encryptPwd(newPassword, userPO.getSalt()));
+		teacherUserMapper.updateUserOneByKey(userPO);
+		return result;
+	}
+
+	/**
 	 * 登出
 	 *
 	 * @param request
@@ -193,4 +255,5 @@ public class LoginController {
 		session.removeAttribute("user");
 		return result;
 	}
+
 }

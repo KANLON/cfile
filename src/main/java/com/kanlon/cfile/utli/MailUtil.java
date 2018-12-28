@@ -82,6 +82,7 @@ public class MailUtil {
 			logger.info("html邮件发送成功");
 		} catch (MessagingException e) {
 			logger.error("发送html邮件时发生异常！", e);
+			throw new RuntimeException("发送邮件时发送异常");
 		}
 	}
 

@@ -78,4 +78,24 @@ public final class Constant {
 	 */
 	public static final int AUTHENTICATING = 2;
 
+	/**
+	 * session中的存放用户信息的常量
+	 */
+	public static final String SESSION_USER = "user";
+
+	/**
+	 * session中存放忘记密码的的邮箱验证码的key
+	 */
+	public static final String SESSION_FORGET_PASSWORD_EMAIL_CAPTCHA = "ForgetPasswordEmailCaptcha";
+
+	/**
+	 * 忘记密码时，发送邮箱验证码，在session存放该用户的uid
+	 */
+	public static final String SESSION_FORGET_PASSWORD_UID = "ForgetPasswordUid";
+
+	/**
+	 * session中存放修改邮箱验证码的key
+	 */
+	public static final String SESSION_MODIFY_EMAIL_CAPTCHA = "ModifyEmailCaptcha";
+
 }

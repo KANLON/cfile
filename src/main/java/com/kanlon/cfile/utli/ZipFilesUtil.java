@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -88,9 +87,9 @@ public class ZipFilesUtil {
 
 	}
 
-	public static void main(String[] args) throws ParseException {
-		String sourceFilePath = "D:\\程序猿\\bootstrap-3.3.7\\less";
-		compress(new File(sourceFilePath), "");
-	}
+	// public static void main(String[] args) throws ParseException {
+	// String sourceFilePath = "D:\\程序猿\\bootstrap-3.3.7\\less";
+	// compress(new File(sourceFilePath), "");
+	// }
 
 }
