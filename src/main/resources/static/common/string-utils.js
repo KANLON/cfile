@@ -9,6 +9,7 @@ USER={
  * 设置cookie
  */
 function setCookie(cname,cvalue,exdays){
+	if(isNull(exdays)){exdays=0;}
     var d = new Date();
     d.setTime(d.getTime()+(exdays*24*60*60*1000));
     var expires = "expires="+d.toGMTString();

@@ -98,4 +98,14 @@ public final class Constant {
 	 */
 	public static final String SESSION_MODIFY_EMAIL_CAPTCHA = "ModifyEmailCaptcha";
 
+	/**
+	 * session中存放注册验证码的key
+	 */
+	public static final String SESSION_REG_CAPTCHA = "regCaptcha";
+
+	/**
+	 * session中存放登录验证的key
+	 */
+	public static final String SESSION_LOGIN_CAPTCHA = "loginCaptcha";
+
 }

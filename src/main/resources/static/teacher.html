@@ -50,6 +50,10 @@
           <a class="navbar-brand" href="/">教师或班委控制台</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right" id="nav-logout">
+            <li><a href="#">退出</a></li>
+          </ul>
+        
           <ul class="nav navbar-nav navbar-right" id="nav-about">
             <li><a href="#">关于</a></li>
           </ul>
@@ -81,6 +85,7 @@
             <li id="catalog-create-or-modify-task" ><a href="#" >创建/修改 任务</a></li>
             <li  id="catalog-person-center"><a href="#">个人中心</a></li>
             <li  id="catalog-about"><a href="#">关于</a></li>
+            <li  id="catalog-logout"><a href="#">退出</a></li>
           </ul>
         </div>
         <!--  结束所有任务信息的 左则导航栏目录  -->
@@ -268,8 +273,53 @@
           <h1 class="page-header">个人中心</h1>
 			
           <div class="row placeholders">
-            <div class="col-xs-24 col-sm-12 placeholder">
-            <p>暂待开发</p>
+            <!-- <div class="col-xs-12 col-sm-6 placeholder"> -->
+            <div class="placeholder">
+				<form class="form-group clear m-b-0 ng-valid-email ng-dirty ng-valid ng-valid-required" name="center-from">
+				    <div class="no-gutter row b-b p-a">
+				        <!-- 用户名 -->
+				        <div class="col-sm-10 col-xs-12 sm-down-w-266 center-info">
+				            <div class="w-xs pull-left">
+				                <label class="col-sm-12 col-xs-12 form-control-label l-h grey-text">用户名</label>
+				            </div>
+				            <div class="w-xxl pull-left m-r-xs sm-down-w-172">
+				                <input class="form-control pull-right ng-valid-email ng-not-empty ng-dirty ng-valid ng-valid-required ng-touched" type="text"  name="username" placeholder="用户名" id="center-username">
+				            </div>
+				            <div class="w-xs pull-left">
+				                <!-- <button class="btn white pull-right h-38 pad-0 p-x w-xs text-green primary-hover green-border" >Save</button> -->
+				            </div>
+				        </div>
+				        <br/>
+				        <!-- 昵称 -->
+				        <div class="col-sm-10 col-xs-12 sm-down-w-266  center-info">
+				            <div class="w-xs pull-left">
+				                <label class="col-sm-12 col-xs-12 form-control-label l-h grey-text">昵&emsp;称</label>
+				            </div>
+				            <div class="w-xxl pull-left m-r-xs sm-down-w-172">
+				                <input class="form-control pull-right ng-valid-email ng-not-empty ng-dirty ng-valid ng-valid-required ng-touched" type="text"  name="nickname" placeholder="昵称" id="center-nickname">
+				            </div>
+				            <div class="w-xs pull-left">
+				                <button class="btn white pull-right h-38 pad-0 p-x w-xs text-green primary-hover green-border" id="center-nickname-save">保存</button>
+				            </div>
+				        </div>
+
+				        <!-- 邮箱信息 -->
+				        <div class="col-sm-10 col-xs-12 sm-down-w-266  center-info">
+				            <div class="w-xs pull-left">
+				                <label class="col-sm-12 col-xs-12 form-control-label l-h grey-text">邮&emsp;箱</label>
+				            </div>
+				            <div class="w-xxl pull-left m-r-xs sm-down-w-172">
+				                <input class="form-control pull-right ng-valid-email ng-not-empty ng-dirty ng-valid ng-valid-required ng-touched" type="email"  name="email" placeholder="邮箱" id="center-email">
+				            </div>
+				            <div class="w-xs pull-left">
+				                <button class="btn white pull-right h-38 pad-0 p-x w-xs text-green primary-hover green-border" id="center-email-save" >保存</button>
+				            </div>
+				        </div>
+
+				    </div>
+				</form>
+
+
 		    </div>
             <!--  结束/col-xs-24 col-sm-12  行大小内容 -->
             </div>

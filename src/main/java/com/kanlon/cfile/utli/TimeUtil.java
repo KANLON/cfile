@@ -18,6 +18,11 @@ public class TimeUtil {
 	private static final Logger logger = LoggerFactory.getLogger(TimeUtil.class);
 
 	/**
+	 * 十分钟的毫秒值
+	 */
+	public static final long TEN_MINUTE = 10 * 60 * 1000;
+
+	/**
 	 * 根据当前时间得到例如20181112190311的时间格式
 	 *
 	 * @param millis

@@ -16,3 +16,7 @@ label.control-label{
     color: #cd2322;
     font-size: 9px;
 }
+/*个人中心信息栏，一栏的div*/
+.center-info{
+	padding-bottom:10px;
+}

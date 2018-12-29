@@ -3,7 +3,6 @@ package com.kanlon.cfile.controller;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.constraints.NotNull;
@@ -28,6 +27,7 @@ import com.kanlon.cfile.utli.JsonResult;
 import com.kanlon.cfile.utli.MD5Util;
 import com.kanlon.cfile.utli.MailUtil;
 import com.kanlon.cfile.utli.RandomUtil;
+import com.kanlon.cfile.utli.TimeUtil;
 import com.kanlon.cfile.utli.captcha.Captcha;
 import com.kanlon.cfile.utli.captcha.CaptchaUtil;
 
@@ -49,30 +49,31 @@ public class LoginController {
 	@Autowired
 	private MailUtil mailUtil;
 
+	@Autowired
+	private HttpSession session;
+
 	/**
 	 * 老师或班委注册
 	 *
 	 * @param registerVO
 	 *            注册信息
-	 * @param request
 	 * @return
 	 */
 	@PostMapping(value = "/register")
-	public JsonResult<String> teachRegister(@RequestBody RegisterInfoVO registerVO, HttpServletRequest request) {
+	public JsonResult<String> teachRegister(@RequestBody RegisterInfoVO registerVO) {
 		JsonResult<String> result = new JsonResult<>();
 		if (StringUtils.isEmptyOrWhitespace(registerVO.getPassword())
 				|| StringUtils.isEmptyOrWhitespace(registerVO.getUsername())) {
 			result.setStateCode(Constant.REQUEST_ERROR, "用户名或密码不能为null或全是空白字符");
 			return result;
 		}
-		HttpSession session = request.getSession(true);
-		String sessionCode = (String) session.getAttribute("regCaptcha");
+		String sessionCode = (String) session.getAttribute(Constant.SESSION_REG_CAPTCHA);
 		if (!registerVO.getImgCaptcha().toLowerCase().equals(sessionCode)) {
 			result.setStateCode(Constant.REQUEST_ERROR, "验证码错误！");
-			session.removeAttribute("regCaptcha");
+			session.removeAttribute(Constant.SESSION_REG_CAPTCHA);
 			return result;
 		}
-		session.removeAttribute("regCaptcha");
+		session.removeAttribute(Constant.SESSION_REG_CAPTCHA);
 		// 检查用户名是否已经存在了
 		int userNum = teacherUserMapper.selectTeacherByUsername(registerVO.getUsername());
 		if (userNum >= 1) {
@@ -103,10 +104,9 @@ public class LoginController {
 	 * 获取注册验证码
 	 *
 	 * @param response
-	 * @param request
 	 */
 	@GetMapping(value = "/register/captcha")
-	public void getRegisterCaptcha(HttpServletResponse response, HttpServletRequest request) {
+	public void getRegisterCaptcha(HttpServletResponse response) {
 		try {
 			response.setContentType("image/png");
 			OutputStream out = response.getOutputStream();
@@ -114,9 +114,7 @@ public class LoginController {
 			String code = captcha.getCode().toLowerCase();
 			logger.info(code);
 			// 将验证码放入session中
-			HttpSession session = request.getSession(true);
-			session.setMaxInactiveInterval(30 * 60);
-			session.setAttribute("regCaptcha", code);
+			session.setAttribute(Constant.SESSION_REG_CAPTCHA, code);
 			captcha.createCaptchaImg(out);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -129,25 +127,23 @@ public class LoginController {
 	 *
 	 * @param loginVO
 	 *            注册时的信息
-	 * @param request
 	 * @return
 	 */
 	@PostMapping(value = "/teacher")
-	public JsonResult<String> teachLogin(@RequestBody LoginInfoVO loginVO, HttpServletRequest request) {
+	public JsonResult<String> teachLogin(@RequestBody LoginInfoVO loginVO) {
 		JsonResult<String> result = new JsonResult<>();
 		if (StringUtils.isEmptyOrWhitespace(loginVO.getPassword())
 				|| StringUtils.isEmptyOrWhitespace(loginVO.getUsername())) {
 			result.setStateCode(Constant.REQUEST_ERROR, "用户名或密码不能为null或全是空白字符");
 			return result;
 		}
-		HttpSession session = request.getSession(true);
-		String sessionCode = (String) session.getAttribute("loginCaptcha");
+		String sessionCode = (String) session.getAttribute(Constant.SESSION_LOGIN_CAPTCHA);
 		if (!loginVO.getCaptcha().toLowerCase().equals(sessionCode)) {
 			result.setStateCode(Constant.REQUEST_ERROR, "验证码错误");
-			session.removeAttribute("loginCaptcha");
+			session.removeAttribute(Constant.SESSION_LOGIN_CAPTCHA);
 			return result;
 		}
-		session.removeAttribute("loginCaptcha");
+		session.removeAttribute(Constant.SESSION_LOGIN_CAPTCHA);
 		// 根据用户名获取用户信息
 		TeacherUserPO userPO = teacherUserMapper.getUserByUsernameOrEmail(loginVO.getUsername());
 		if (userPO == null) {
@@ -166,10 +162,9 @@ public class LoginController {
 	 * 获取登陆验证码
 	 *
 	 * @param response
-	 * @param request
 	 */
 	@GetMapping(value = "/login/captcha")
-	public void getLoginCaptcha(HttpServletResponse response, HttpServletRequest request) {
+	public void getLoginCaptcha(HttpServletResponse response) {
 		try {
 			response.setContentType("image/png");
 			OutputStream out = response.getOutputStream();
@@ -177,9 +172,7 @@ public class LoginController {
 			String code = captcha.getCode().toLowerCase();
 			logger.info(code);
 			// 将验证码放入session中
-			HttpSession session = request.getSession(true);
-			session.setMaxInactiveInterval(30 * 60);
-			session.setAttribute("loginCaptcha", code);
+			session.setAttribute(Constant.SESSION_LOGIN_CAPTCHA, code);
 			captcha.createCaptchaImg(out);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -191,19 +184,16 @@ public class LoginController {
 	 * 获取忘记密码的邮箱验证码
 	 *
 	 * @param response
-	 * @param request
 	 */
 	@GetMapping(value = "/forget/password/captcha")
-	public JsonResult<String> getForgetPasswordEmailCaptcha(String email, HttpServletRequest request) {
+	public JsonResult<String> getForgetPasswordEmailCaptcha(String email) {
 		JsonResult<String> result = new JsonResult<>();
 		Captcha captcha = CaptchaUtil.create();
 		String code = captcha.getCode().toLowerCase();
 		logger.info(code);
 		// 将验证码放入session中
-		HttpSession session = request.getSession(true);
-		// 十分钟有效
-		session.setMaxInactiveInterval(10 * 60);
-		session.setAttribute(Constant.SESSION_FORGET_PASSWORD_EMAIL_CAPTCHA, code);
+		// 十分钟有效,session中存放验证码和创建时间的毫秒值,code#createTime
+		session.setAttribute(Constant.SESSION_FORGET_PASSWORD_EMAIL_CAPTCHA, code + "#" + System.currentTimeMillis());
 		// 将用户id存入session中
 		TeacherUserPO userPO = teacherUserMapper.getUserByUsernameOrEmail(email);
 		session.setAttribute(Constant.SESSION_FORGET_PASSWORD_UID, userPO.getUid());
@@ -228,12 +218,22 @@ public class LoginController {
 	 * @return
 	 */
 	@PutMapping(value = "/find/password")
-	public JsonResult<String> modifyPassword(@NotNull String newPassword, @NotNull String emailCaptcha,
-			HttpSession session) {
+	public JsonResult<String> modifyPassword(@NotNull String newPassword, @NotNull String emailCaptcha) {
 		JsonResult<String> result = new JsonResult<>();
-		String sessionCaptcha = (String) session.getAttribute(Constant.SESSION_FORGET_PASSWORD_EMAIL_CAPTCHA);
-		if (!emailCaptcha.toLowerCase().equals(sessionCaptcha)) {
+		String sessionCaptchaAndCreateTime = (String) session
+				.getAttribute(Constant.SESSION_FORGET_PASSWORD_EMAIL_CAPTCHA);
+		if (sessionCaptchaAndCreateTime == null) {
+			result.setStateCode(Constant.REQUEST_ERROR, "还没发送验证码");
+			return result;
+		}
+		String sessionCaptcha = sessionCaptchaAndCreateTime.split("#")[0];
+		long createTime = Long.parseLong(sessionCaptchaAndCreateTime.split("#")[1]);
+		emailCaptcha = emailCaptcha.toLowerCase();
+		if (!emailCaptcha.equals(sessionCaptcha)) {
 			result.setStateCode(Constant.REQUEST_ERROR, "邮箱验证码错误");
+			return result;
+		} else if (createTime + TimeUtil.TEN_MINUTE < System.currentTimeMillis()) {
+			result.setStateCode(Constant.REQUEST_ERROR, "邮箱验证码已过期");
 			return result;
 		}
 		int uid = (Integer) session.getAttribute(Constant.SESSION_FORGET_PASSWORD_UID);
@@ -245,14 +245,11 @@ public class LoginController {
 
 	/**
 	 * 登出
-	 *
-	 * @param request
 	 */
 	@GetMapping(value = "/logout")
-	public JsonResult<String> logout(HttpServletRequest request) {
+	public JsonResult<String> logout() {
 		JsonResult<String> result = new JsonResult<>();
-		HttpSession session = request.getSession(true);
-		session.removeAttribute("user");
+		session.removeAttribute(Constant.SESSION_USER);
 		return result;
 	}
 

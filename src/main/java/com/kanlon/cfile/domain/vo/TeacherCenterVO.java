@@ -1,5 +1,7 @@
 package com.kanlon.cfile.domain.vo;
 
+import java.io.Serializable;
+
 import lombok.Data;
 
 /**
@@ -9,7 +11,12 @@ import lombok.Data;
  * @date 2018年12月27日
  */
 @Data
-public class TeacherCenterVO {
+public class TeacherCenterVO implements Serializable {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * 用户名
 	 */

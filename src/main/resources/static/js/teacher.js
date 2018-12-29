@@ -49,6 +49,10 @@ function getAllTask() {
 			let s = '';
 			// 创建/修改任务页面的表格row结果
 			let rowDataStr = "";
+			//如果名单为null,直接返回
+			if(isNull(json.data)){
+				return;
+			}
 			// 遍历所有名单
 			for (let i = 0; i < json.data.length; i++) {
 				cnt++;
@@ -497,6 +501,32 @@ function aboutClick() {
 	$("#person-center-div").hide();
 
 }
+/**
+ * 退出按钮点击之后
+ */
+function logoutClick(){
+	var settings = {
+			"async" : true,
+			"crossDomain" : true,
+			"url" : "/login/logout",
+			"method" : "GET",
+			"processData" : false
+		};
+		$.ajax(settings).done(function(json) {
+			console.log(json);
+			if (json.code === 0) {
+				console.log("退出成功");
+				//登出设置cookie为null
+				setCookie("user",null);
+				window.location="/index.html";
+			} else if (json.code === 1) {
+				alert('修改失敗,请求错误！' + json.msg);
+			} else {
+				alert("内部服务器错误！请重试或联系管理者：zhangcanlong" + json.msg);
+			}
+		});
+	
+}
 
 /**
  * “个人中心” 按钮点击的事件
@@ -515,8 +545,39 @@ function personCenterClick() {
 	$("#person-center-div").show();
 	//隐藏“关于”页面
 	$("#about-div").hide();
-
 }
+
+/**********            个人中心页面功能函数                     **********/
+/**
+ * 进入个人中心页面，得到个人用户信息
+ */
+function getPersonCenterInfo(){
+	var settings = {
+			"async" : true,
+			"crossDomain" : true,
+			"url" : "/teacher/center/info",
+			"method" : "GET",
+			"processData" : false
+		};
+		$.ajax(settings).done(function(json) {
+			console.log(json);
+			if (json.code === 0) {
+				console.log(json);
+				$("#center-username").val(json.data.username);
+				$("#center-nickname").val(json.data.nickname);
+				$("#center-email").val(json.data.email);
+			} else if (json.code === 1) {
+				alert('修改失敗,请求错误！' + json.msg);
+			} else {
+				alert("内部服务器错误！请重试或联系管理者：zhangcanlong" + json.msg);
+			}
+		});
+}
+
+/**********             个人中心功能函数结束                               ***********/
+
+
+
 
 // 给创建/修改按钮添加事件
 $("#create_submit").click(function() {
@@ -593,9 +654,11 @@ $("#nav-create-or-modify-task").click(function() {
 //点击“个人中心”的目录栏或导航栏
 $("#catalog-person-center").click(function() {
 	personCenterClick();
+	getPersonCenterInfo();
 });
 $("#nav-person-center").click(function() {
 	personCenterClick();
+	getPersonCenterInfo();
 });
 
 //点击关于的目录栏或导航栏
@@ -604,4 +667,12 @@ $("#catalog-about").click(function() {
 });
 $("#nav-about").click(function() {
 	aboutClick();
+});
+
+//点击退出的目录栏或导航栏
+$("#catalog-logout").click(function() {
+	logoutClick();
+});
+$("#nav-logout").click(function() {
+	logoutClick();
 });
