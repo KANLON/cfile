@@ -548,6 +548,7 @@ function personCenterClick() {
 }
 
 /**********            个人中心页面功能函数                     **********/
+
 /**
  * 进入个人中心页面，得到个人用户信息
  */
@@ -574,9 +575,53 @@ function getPersonCenterInfo(){
 		});
 }
 
+/**
+ * 修改个人中心信息（目前这个只能修改昵称）
+ */
+function setCenterInfo(centerInfoStr){
+	var settings = {
+			"async" : true,
+			"crossDomain" : true,
+			"url" : "/teacher/center/info",
+			"method" : "PUT",
+			"processData" : false,
+			"headers" : {
+				"Content-Type" : "application/json"
+			},
+			"data":centerInfoStr
+		};
+		$.ajax(settings).done(function(json) {
+			console.log(json);
+			if (json.code === 0) {
+				window.alert("修改成功！");
+				$("#center-nickname-save").attr('disabled',true);
+			} else if (json.code === 1) {
+				window.alert('修改失敗,请求错误！' + json.msg);
+			} else {
+				window.alert("内部服务器错误！请重试或联系管理者：zhangcanlong" + json.msg);
+			}
+		});	
+}
+
+
 /**********             个人中心功能函数结束                               ***********/
 
-
+/**
+ * 点击昵称修改
+ */
+$("#center-nickname-save").click(function(){
+	/**
+	 * 个人信息的对象，主要用来封装修改的个人信息
+	 */
+	let centerInfo={};
+	centerInfo.nickname=$("#center-nickname").val();
+	let centerInfoStr = JSON.stringify(centerInfo);
+	setCenterInfo(centerInfoStr);
+});
+//昵称输入框改变事件，设置按钮可以输入
+$("#center-nickname").change(function(){
+	$("#center-nickname-save").attr("disabled",false);
+});
 
 
 // 给创建/修改按钮添加事件

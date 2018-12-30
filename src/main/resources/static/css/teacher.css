@@ -20,3 +20,9 @@ label.control-label{
 .center-info{
 	padding-bottom:10px;
 }
+/*个人中心的保存修改按钮div的样式*/
+.center-save-div{
+	padding-left:8px;
+}
+
+

@@ -188,7 +188,7 @@ public class TeacherController {
 	 * @return
 	 */
 	@PutMapping(value = "/center/info")
-	public JsonResult<String> modifyCenterInfo(TeacherCenterVO newUserInfo) {
+	public JsonResult<String> modifyCenterInfo(@RequestBody TeacherCenterVO newUserInfo) {
 		JsonResult<String> result = new JsonResult<>();
 		TeacherUserPO user = (TeacherUserPO) session.getAttribute(Constant.SESSION_USER);
 		int uid = user.getUid();
