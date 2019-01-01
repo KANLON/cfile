@@ -333,16 +333,23 @@ public class TeacherController {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("application/octet-stream");
 			File file = ZipFilesUtil.compress(files, "");
+			// 压缩之后可以立刻异步执行删除操作
+			// 如果不新建一条线程来删除文件，则一旦发生异常，不会继续继续执行删除操作（常见点击下载后，不下载文件）
+			new Thread() {
+				@Override
+				public void run() {
+					// 删除压缩成子文件的重复提交文件
+					File childFilesZip = new File(Constant.UPLOAD_FILE_STUDENT_PATH + "/" + userPO.getUid() + "/" + tid
+							+ "/" + Constant.UPLOAD_FILE_STUDENT_REPEAT_FOLDER + ".zip");
+					if (childFilesZip.exists()) {
+						childFilesZip.delete();
+					}
+				}
+			};
 			fis = new FileInputStream(file);
 			response.setHeader("Content-Disposition", "attachment; filename=" + file.getName());
 			IOUtils.copy(fis, response.getOutputStream());
 			response.flushBuffer();
-			// 删除压缩成子文件的重复提交文件
-			File childFilesZip = new File(Constant.UPLOAD_FILE_STUDENT_PATH + "/" + userPO.getUid() + "/" + tid + "/"
-					+ Constant.UPLOAD_FILE_STUDENT_REPEAT_FOLDER + ".zip");
-			if (childFilesZip.exists()) {
-				childFilesZip.delete();
-			}
 		} catch (IOException e) {
 			logger.error("获取文件时发生异常!", e);
 			throw new RuntimeException("获取文件时发生异常！" + e.getMessage());
