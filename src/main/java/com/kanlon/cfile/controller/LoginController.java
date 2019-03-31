@@ -183,7 +183,7 @@ public class LoginController {
 	/**
 	 * 获取忘记密码的邮箱验证码
 	 *
-	 * @param response
+	 * @param email 邮箱
 	 */
 	@GetMapping(value = "/forget/password/captcha")
 	public JsonResult<String> getForgetPasswordEmailCaptcha(String email) {

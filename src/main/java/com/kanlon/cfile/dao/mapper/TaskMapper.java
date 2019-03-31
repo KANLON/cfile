@@ -23,59 +23,55 @@ import com.kanlon.cfile.domain.po.TaskPO;
  * @date 2018年11月28日
  */
 public interface TaskMapper {
+	/**
+	 * 获取所有发布的任务
+	 * @param uid 用户id
+	 * @return 任务信息列表集合
+	 **/
 	@Select("SELECT * FROM task  where uid=#{uid} order by mtime desc")
-	@Options(useCache = true, timeout = 10000)
-	@Results({ @Result(property = "taskName", column = "task_name"),
-			@Result(property = "fileType", column = "file_type"),
-			@Result(property = "submitNum", column = "submit_num"),
-			@Result(property = "submitingNum", column = "submiting_num"),
-			@Result(property = "submitingList", column = "submiting_list") })
-	List<TaskPO> getAll(@Param(value = "uid") Integer uid) throws Exception;
+	List<TaskPO> getAll(@Param(value = "uid") Integer uid);
 
+
+	/**
+	 * 得到所有任务的数量
+	 * @param uid 用户id
+	 * @return 任务总数
+	 **/
 	@Select("SELECT count(*) FROM task where uid=#{uid}")
 	Integer getAllNum(@Param(value = "uid") Integer uid);
 
 	/**
 	 * 根据主键id查询出任务信息
 	 *
-	 * @param id
-	 * @return
+	 * @param tid 用户id
+	 * @return 任务信息类
 	 */
-	@Options(useCache = true, timeout = 10000)
 	@Select("SELECT * FROM task WHERE tid = #{tid}")
-	@Results({ @Result(property = "taskName", column = "task_name"),
-			@Result(property = "fileType", column = "file_type"),
-			@Result(property = "submitNum", column = "submit_num"),
-			@Result(property = "submitingNum", column = "submiting_num"),
-			@Result(property = "submitingList", column = "submiting_list") })
 	TaskPO getOne(@Param(value = "tid") Integer tid);
 
 	/**
 	 * 根据用户id和任务名查询出任务信息
 	 *
-	 * @param uid
-	 * @param taskName
+	 * @param uid 用户id主键
+	 * @param taskName 任务名
 	 * @return
 	 */
 	@Select("SELECT COUNT(*) NUM FROM TASK WHERE UID=#{uid} AND TASK_NAME=#{taskName}")
-	@ResultType(value = Integer.class)
 	Integer selectTaskNameByUid(@Param(value = "uid") Integer uid, @Param(value = "taskName") String taskName);
 
 	/**
 	 * 将一个新的任务插入到数据库中去
-	 *
-	 * @param taskPO
+	 * @param taskPO 任务信息
+	 * @return 1
 	 */
-
 	@InsertProvider(type = TaskProvider.class, method = "insertTaskOneSql")
-	// 将插入后的id传回到实体类中
 	@Options(useGeneratedKeys = true, keyProperty = "tid")
 	Integer insertOne(TaskPO taskPO);
 
 	/**
 	 * 根据一个新的任务信息中的id，更新该任务所有信息
-	 *
-	 * @param taskPO
+	 * @param taskPO 新的任务信息
+	 * @return 1
 	 */
 	@UpdateProvider(type = TaskProvider.class, method = "updateTaskOneByKeySql")
 	Integer updateByKey(TaskPO taskPO);
@@ -85,15 +81,16 @@ public interface TaskMapper {
 	 *
 	 * @param tid
 	 *            任务id
-	 * @return
+	 * @return 1 表示1行
 	 */
 	@Update("UPDATE TASK SET SUBMITING_NUM=SUBMITING_NUM+1 WHERE TID=#{TID}")
-	int updateSubmitingNumByTid(Integer tid);
+	Integer updateSubmitingNumByTid(Integer tid);
 
 	/**
 	 * 根据任务id删除某条任务
 	 *
-	 * @param id
+	 * @param id 任务id主键
+	 * @return 1
 	 */
 	@Delete("DELETE FROM task WHERE tid =#{tid}")
 	Integer deleteByKey(Integer id);
