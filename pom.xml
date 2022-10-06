@@ -6,7 +6,7 @@
 	<groupId>com.kanlon.cfile</groupId>
 	<artifactId>cfile</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>cfile</name>
 	<description>在线收集文件并自动统计名单的小项目</description>
@@ -80,7 +80,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<!-- 必须有，因为自己数据库版本太低，需要该版本数据库 jar才能链接，否则会报错-->
-			<version>5.1.6</version>
+			<version>5.1.42</version>
 		</dependency>
 		<!-- 开发时保证支持热启动 -->
 		<dependency>
