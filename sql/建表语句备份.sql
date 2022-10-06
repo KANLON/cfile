@@ -20,10 +20,13 @@ CREATE TABLE IF NOT EXISTS teacher(
   dr INT(1) NOT NULL DEFAULT 0 COMMENT '是否有效,标记删除'
 ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='教师用户表';
 
--- 插入一条默认用户数据
-INSERT INTO teacher(username,PASSWORD,salt,nickname,email,ctime) VALUES('admin','ea48576f30be1669971699c09ad05c94','123456','默认用户','s19961234@126.com','2018-11-28 23:14:00');
+
 -- 截断表
 TRUNCATE TABLE teacher;
+
+-- 插入一条默认用户数据
+INSERT INTO teacher(username,PASSWORD,salt,nickname,email,ctime) VALUES('admin','ea48576f30be1669971699c09ad05c94','123456','默认用户','s19961234@126.com','2018-11-28 23:14:00');
+
 -- 查询表
 SELECT * FROM teacher;
 
