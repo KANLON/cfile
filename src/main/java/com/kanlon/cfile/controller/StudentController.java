@@ -10,9 +10,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
 
+import com.kanlon.cfile.service.AsyncMailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +37,6 @@ import com.kanlon.cfile.domain.vo.StudentTaskInfoVO;
 import com.kanlon.cfile.utli.Constant;
 import com.kanlon.cfile.utli.IpUtil;
 import com.kanlon.cfile.utli.JsonResult;
-import com.kanlon.cfile.utli.MailUtil;
 import com.kanlon.cfile.utli.TimeUtil;
 
 /**
@@ -52,12 +53,10 @@ public class StudentController {
 
     @Autowired
     private TaskMapper taskMapper;
-
     @Autowired
     private TeacherUserMapper userMapper;
-
-    @Autowired
-    private MailUtil mailUtil;
+    @Resource
+    private AsyncMailService asyncMailService;
 
     /**
      * 学生提交文件
@@ -141,7 +140,7 @@ public class StudentController {
                 taskMapper.updateSubmitingNumByTid(tid);
             }
             // 异步发送邮件，进行备份
-            this.sentEmail(fileStorePath,fileNewName,clientIP);
+            asyncMailService.sentEmail(fileStorePath,fileNewName,clientIP);
         } catch (IOException e) {
             result.setStateCode(Constant.RESPONSE_ERROR, "存储文件时发生错误！" + e.getMessage());
             logger.error("存储学生上传文件时发生错误！", e);
@@ -230,19 +229,5 @@ public class StudentController {
         }
         return null;
 
-    }
-
-    /**
-     * 异步发送邮件
-     *
-     * @param fileStorePath 文件存储的地址
-     * @param fileNewName 新的文件名
-     * @param clientIP 上传者的ip
-     **/
-    @Async
-    protected void sentEmail(File fileStorePath,String fileNewName,String clientIP) {
-        // 发送邮件，进行备份
-        String logStr = "文件上传到" + fileStorePath + "/" + fileNewName + "了！" + "发送者IP地址为：" + clientIP;
-        mailUtil.sendAttachmentsMail("s19961234@126.com", "备份-" + fileNewName, logStr, fileStorePath + "/" + fileNewName);
     }
 }
