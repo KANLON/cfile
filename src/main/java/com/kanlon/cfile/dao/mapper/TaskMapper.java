@@ -6,9 +6,6 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.ResultType;
-import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
@@ -56,7 +53,7 @@ public interface TaskMapper {
 	 * @param taskName 任务名
 	 * @return
 	 */
-	@Select("SELECT COUNT(*) NUM FROM TASK WHERE UID=#{uid} AND TASK_NAME=#{taskName}")
+	@Select("SELECT COUNT(*) NUM FROM task WHERE UID=#{uid} AND TASK_NAME=#{taskName}")
 	Integer selectTaskNameByUid(@Param(value = "uid") Integer uid, @Param(value = "taskName") String taskName);
 
 	/**
@@ -83,7 +80,7 @@ public interface TaskMapper {
 	 *            任务id
 	 * @return 1 表示1行
 	 */
-	@Update("UPDATE TASK SET SUBMITING_NUM=SUBMITING_NUM+1 WHERE TID=#{TID}")
+	@Update("UPDATE task SET SUBMITING_NUM=SUBMITING_NUM+1 WHERE TID=#{TID}")
 	Integer updateSubmitingNumByTid(Integer tid);
 
 	/**

@@ -10,6 +10,16 @@ restful接口文档地址：<a href="https://documenter.getpostman.com/view/3892
 
 <img src="https://raw.githubusercontent.com/KANLON/collect-file/master/img/package-structure.png" width="600" hight="400"></img>
 
+
+#### 部署注意
+1. 需要授权/opt/cfile下的目录权限，该目录用于文件上传和日志记录，可以执行下面两个命令来获取授权
+```shell
+sudo mkdir -vp /opt/cfile
+sudo chmod -R 777 /opt/cfile
+```
+2. 0.0.1-SNAPSHOT版本程序中有些地方用了大写的表名，如果部署了0.0.1-SNAPSHOT版本，需要设置mysql服务不区分大小写表名
+
+
 ### 项目使用说明
 1. 目前该项目主要分为两类用户，一类是学生（游客）用户，另一类是老师（班委）用户。只有老师（班委）用户有登录功能。<br/><br/>
 
