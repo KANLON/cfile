@@ -8,6 +8,7 @@ import com.kanlon.cfile.domain.po.TeacherUserPO;
 import com.kanlon.cfile.domain.vo.StudentSubmitFileVO;
 import com.kanlon.cfile.domain.vo.StudentTaskInfoVO;
 import com.kanlon.cfile.utli.Constant;
+import com.kanlon.cfile.utli.FileUtil;
 import com.kanlon.cfile.utli.JsonResult;
 import com.kanlon.cfile.utli.TimeUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,8 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -73,7 +76,6 @@ public class TeacherUserService {
             result.setStateCode(Constant.REQUEST_ERROR, "已经过了截止时间，不能提交了");
             return result;
         }
-        String suffix = ".txt";
 
         String originalFilename = submitVO.getFile().getOriginalFilename();
         if (StringUtils.isEmpty(originalFilename)) {
@@ -81,6 +83,7 @@ public class TeacherUserService {
             return result;
         }
 
+        String suffix = ".txt";
         if (originalFilename.lastIndexOf(DOT) != -1 && originalFilename.charAt(originalFilename.length() - 1) != DOT.charAt(0)) {
             // 新的文件名，学号姓名.后缀名
             suffix = submitVO.getFile().getOriginalFilename().substring(submitVO.getFile().getOriginalFilename().lastIndexOf(DOT));
@@ -88,14 +91,26 @@ public class TeacherUserService {
         String studentIdAndName = submitVO.getStudentId() + submitVO.getName();
         String fileNewName = studentIdAndName + suffix;
 
-        File fileStorePath = new File(projectConfigProperty.getUpdateFileBasePath() + "/" + uid + "/" + tid);
+        // 保存上传的文件目录
+        Path fileStoreDirPath = Paths.get(projectConfigProperty.getUpdateFileBasePath(), String.valueOf(uid), String.valueOf(tid));
+        File fileStorePath = fileStoreDirPath.toFile();
         if (!fileStorePath.exists()) {
             if (!fileStorePath.mkdirs()) {
                 result.setStateCode(Constant.RESPONSE_ERROR, "创建文件路径！路径为：" + fileStorePath.getAbsolutePath());
                 return result;
             }
         }
+
+        // 临时的上传新的目录文件
+        Path tempUploadFileNewNamePath = Paths.get(fileStoreDirPath.toString(), fileNewName);
+
         try {
+            // 校验上传的文件，是否在 指定的目录下，不是，则报错
+            if (!FileUtil.isSubFile(fileStoreDirPath.toString(), tempUploadFileNewNamePath.toString())) {
+                result.setStateCode(Constant.REQUEST_ERROR, "非法路径！路径为：" + tempUploadFileNewNamePath.toString());
+                return result;
+            }
+
             // 遍历当前文件下所有文件，查看是否存在该学号和姓名，如果存在则将其移动到“重复提交的文件”文件夹并将在其文件名后加时间后，然后存储新的文件，如果不存在，直接存储新文件
             File[] tempFiles = Optional.ofNullable(fileStorePath.listFiles()).orElse(new File[0]);
             for (File tempFile : tempFiles) {
@@ -116,7 +131,9 @@ public class TeacherUserService {
                     }
                     String oldSuffix = tempFile.getName().substring(tempFile.getName().indexOf(DOT));
                     File repeatFile = new File(repeatFilePath + "/" + studentIdAndName + TimeUtil.getLocalDateTimeByDate(new Date()) + oldSuffix);
-                    if (!repeatFile.createNewFile()) {
+                    // 路径在指定上传目录下，才能创建
+                    if (FileUtil.isSubFile(fileStorePath, repeatFile) && !repeatFile.createNewFile()) {
+                        log.warn("创建文件失败！要创建的文件为：{}", repeatFile.getAbsoluteFile());
                         result.setStateCode(Constant.RESPONSE_ERROR, "创建文件失败！文件或路径为：" + repeatFile.getAbsolutePath());
                         return result;
                     }
@@ -130,8 +147,8 @@ public class TeacherUserService {
                 }
             }
 
-            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(new File(fileStorePath + "/" + fileNewName)));
-            log.info("文件上传到" + fileStorePath + "/" + fileNewName + "了！" + "发送者IP地址为：" + clientIp);
+            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(tempUploadFileNewNamePath.toFile()));
+            log.info("文件上传到" + tempUploadFileNewNamePath.toString() + "了！" + "发送者IP地址为：" + clientIp);
             out.write(submitVO.getFile().getBytes());
             out.flush();
             out.close();
