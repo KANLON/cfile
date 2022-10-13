@@ -1,5 +1,16 @@
 # 在线收集文件项目
+
 项目展示链接：<a href="http://cfile.kanlon.ink/">cfile.kanlon.ink</a><br/><br/>
+
+
+测试的老师账号和密码为：
+用户名：admin
+密码：123456
+
+
+部署项目之前需要，先初始化数据库，执行 [./sql/建表语句备份.sql](./sql/建表语句备份.sql) 该文件的sql即可
+
+
 restful接口文档地址：<a href="https://documenter.getpostman.com/view/3892535/RzffHouP">https://documenter.getpostman.com/view/3892535/RzffHouP</a><br/><br/>
 &emsp;&emsp;这个项目主要是帮助班级班委，老师等便捷收集班级同学的文件的小项目。 <br/><br/>
 &emsp;&emsp;传统收集文件，图片的方式都是通过微信或邮箱收集，这种收集方法难以统计人数和浪费大量同学们发送邮箱的时间，收集人统计的时间。这个项目采用web项目在线收集和自动统计名单，大大减轻收集人的时间和发送者的时间。
