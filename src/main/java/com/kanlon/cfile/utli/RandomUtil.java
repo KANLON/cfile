@@ -1,9 +1,9 @@
 package com.kanlon.cfile.utli;
 
 import java.security.SecureRandom;
+import java.util.Base64;
 import java.util.Random;
 
-import sun.misc.BASE64Encoder;
 
 /**
  * 随机数工具
@@ -24,10 +24,10 @@ public class RandomUtil {
 	 * @return 盐
 	 */
 	public static String createSalt() {
-		Random RANDOM = new SecureRandom();
+		Random random = new SecureRandom();
 		byte[] salt = new byte[16];
-		RANDOM.nextBytes(salt);
-		return new BASE64Encoder().encode(salt);
+		random.nextBytes(salt);
+		return  new String(Base64.getEncoder().encode(salt));
 	}
 
 	/**

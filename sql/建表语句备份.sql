@@ -1,3 +1,5 @@
+### 支持MySQL 版本为5.6,5.7 其他还没测试过
+
 -- 创建收集文件数据库
 CREATE DATABASE  /*!32312 IF NOT EXISTS*/ `cfile` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
@@ -14,8 +16,7 @@ CREATE TABLE IF NOT EXISTS teacher(
   salt CHAR(24) NOT NULL COMMENT '用于密码md5加密的盐',
   nickname VARCHAR(20) COMMENT '昵称',
   email VARCHAR(50) COMMENT '邮箱',
-  -- 由于不能同时创建两个default timestamp默认值所以将创建时间的默认值修改为'0000-00-00 00:00:00'
-  ctime TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  ctime TIMESTAMP NOT NULL DEFAULT NOW() COMMENT '创建时间',
   mtime TIMESTAMP NOT NULL DEFAULT NOW() COMMENT '修改时间',
   dr INT(1) NOT NULL DEFAULT 0 COMMENT '是否有效,标记删除'
 ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='教师用户表';
@@ -44,8 +45,7 @@ CREATE TABLE IF NOT EXISTS  task(
   remark VARCHAR(500) DEFAULT '' NOT NULL COMMENT '备注',
   authentication TINYINT(1) DEFAULT '0' NOT NULL COMMENT '是否经过验证',
   submiting_list text COMMENT '提交了名单',
-  -- 由于不能同时创建两个default timestamp默认值所以将创建时间的默认值修改为'0000-00-00 00:00:00'
-  ctime TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  ctime TIMESTAMP NOT NULL DEFAULT NOW() COMMENT '创建时间',
   mtime TIMESTAMP NOT NULL DEFAULT NOW() COMMENT '修改时间',
   dr INT(1) NOT NULL DEFAULT 0 COMMENT '是否有效,标记删除'
 ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='任务表';

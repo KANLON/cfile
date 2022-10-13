@@ -11,15 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class TestController {
-	/**
-	 * 测试打印出hello world
-	 * 
-	 * @return hello world
-	 */
-	@RequestMapping("/hello")
-	public String hello() {
-		return "Hello World";
 
-	}
+    /**
+     * 测试打印出hello world
+     *
+     * @return hello world
+     */
+    @RequestMapping("/hello")
+    public String hello() {
+        return "Hello World";
+
+    }
 
 }
