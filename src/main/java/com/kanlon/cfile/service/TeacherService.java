@@ -29,6 +29,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -133,8 +134,7 @@ public class TeacherService {
             return result;
         }
         // 判断是否有重复的任务名称()
-        if (taskMapper.selectTaskNameByUid(uid, task.getTaskName()) >= 1
-                && !task.getTaskName().equals(taskPo.getTaskName())) {
+        if (taskMapper.selectTaskNameByUid(uid, task.getTaskName()) >= 1 && !task.getTaskName().equals(taskPo.getTaskName())) {
             result.setStateCode(Constant.REQUEST_ERROR, "任务名重复");
             return result;
         }
@@ -314,8 +314,7 @@ public class TeacherService {
             }
             // 压缩之后可以立刻异步执行删除操作
             // 如果不新建一条线程来删除文件，则一旦发生异常，不会继续继续执行删除操作（常见点击下载后，不下载文件）
-            String tempFileName = projectConfigProperty.getUpdateFileBasePath()+ "/" + userPo.getUid() + "/" + tid
-                    + "/" + Constant.UPLOAD_FILE_STUDENT_REPEAT_FOLDER + ".zip";
+            String tempFileName = projectConfigProperty.getUpdateFileBasePath() + "/" + userPo.getUid() + "/" + tid + "/" + Constant.UPLOAD_FILE_STUDENT_REPEAT_FOLDER + ".zip";
             asyncRemoveFileService.removeOneFile(tempFileName);
             fis = new FileInputStream(file);
             response.setHeader("Content-Disposition", "attachment; filename=" + file.getName());
@@ -345,7 +344,27 @@ public class TeacherService {
      */
     public void getSubmitFile(HttpServletResponse response, Integer tid, String filename) {
         TeacherUserPO userPo = (TeacherUserPO) session.getAttribute("user");
-        File file = new File(projectConfigProperty.getUpdateFileBasePath() + "/" + userPo.getUid() + "/" + tid + "/" + filename);
+        TaskPO taskPo = taskMapper.getOne(tid);
+        if (taskPo == null || !Objects.equals(taskPo.getUid(), userPo.getUid())) {
+            throw new RuntimeException("你没有该任务的下载权限！任务id为：" + tid);
+        }
+
+        // 存储对应任务的文件目录
+        File parentFileDir = new File(projectConfigProperty.getUpdateFileBasePath() + "/" + userPo.getUid() + "/" + tid);
+        if (!parentFileDir.exists()) {
+            throw new RuntimeException("对应任务没上传的文件！");
+        }
+        File[] theTaskAllUploadFiles = Optional.ofNullable(parentFileDir.listFiles()).orElse(new File[0]);
+        File file = null;
+        for (File tempFile : theTaskAllUploadFiles) {
+            if (Objects.equals(tempFile.getName(), filename)) {
+                file = tempFile;
+            }
+        }
+
+        if (file == null) {
+            throw new RuntimeException("要下载的文件不存在！");
+        }
 
         try (FileInputStream fis = new FileInputStream(file)) {
             if (!file.exists()) {
