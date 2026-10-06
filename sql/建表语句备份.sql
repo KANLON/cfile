@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS teacher(
 TRUNCATE TABLE teacher;
 
 -- 插入一条默认用户数据
-INSERT INTO teacher(username,PASSWORD,salt,nickname,email,ctime) VALUES('admin','ea48576f30be1669971699c09ad05c94','123456','默认用户','s19961234@126.com','2018-11-28 23:14:00');
+INSERT INTO teacher(username,PASSWORD,salt,nickname,email,ctime) VALUES('admin','ea48576f30be1669971699c09ad05c94','123456','默认用户','Canlong2015@126.com','2018-11-28 23:14:00');
 
 -- 查询表
 SELECT * FROM teacher;
